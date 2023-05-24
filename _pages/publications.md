@@ -1,8 +1,9 @@
 ---
 layout: page
 permalink: /publications/
-title: publications
-description: Here is my selected publication. See more in my [google scholar](https://scholar.google.com/citations?user=g0RS3_kAAAAJ&hl=en&oi=sra)
+title: Publications
+description: Here is my selected publication. See more in my [Link text Here](https://link-url-here.org)
+
 years: [2023]
 nav: true
 nav_order: 1
