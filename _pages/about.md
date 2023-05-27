@@ -6,8 +6,8 @@ subtitle: Research Resident at VinAI Research, Vietnam
 
 profile:
   align: right
-  image: prof_pic.jpeg
-  image_circular: false # crops the image to make it circular
+  image: prof_pic_k.jpg
+  image_circular: true # crops the image to make it circular
 
 news: true  # includes a list of news items
 latest_posts: false  # includes a list of the newest posts
