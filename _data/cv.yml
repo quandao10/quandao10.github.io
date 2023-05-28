@@ -58,7 +58,7 @@
         - CV Application of GAN Models
         - Physic-inspired Generative Model such as Diffusion Model, Flow Matching and Poison Generative Model
         - Deep Graph Generative Model
-    - title: Neural Operation 
+    - title: Neural Operator
       items:
         - Neural Architecture which is invariant to resolution input
 

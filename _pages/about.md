@@ -17,6 +17,6 @@ social: true  # includes social icons at the bottom of the page
 
 I am a Research Resident under the supervision of <a href='https://sites.google.com/site/anhttranusc/'>Dr. Tuan Anh Tran</a> at <a href='https://www.vinai.io/'>VinAI Research, Vietnam</a>. I received a bachelor degree in computer science from Monash University in 2020.
 
-My research interests lie on deep generative model such as GAN, Diffusion and Flow Matching. Besides, I'm also interested in Neural Operation design space which allows models work well under any resolution.
+My research interests lie on deep generative model such as GAN, Diffusion and Flow Matching. Besides, I'm also interested in Neural Operator design space which allows models work well under any resolution.
 
 
