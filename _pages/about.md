@@ -2,7 +2,7 @@
 layout: about
 title: About Me
 permalink: /
-subtitle: Research Resident at VinAI Research, Vietnam
+subtitle: PhD student in CS
 
 profile:
   align: right

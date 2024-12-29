@@ -62,12 +62,12 @@
         - Inverse problem and editing problem
         - Unified modality autoregressive model
 
-- title: Other Interests
-  type: list
-  contents:
-    - <u>Hobbies:</u> PS4, Board Games, etc.
-
 - title: Services
   type: list
   contents:
     - <u>Reviewers:</u> CVPR, NeurIPS, AISTATS, ICML, ICLR and ECCV.
+
+- title: Other Interests
+  type: list
+  contents:
+    - <u>Hobbies:</u> PS4, Board Games, etc.
