@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-My first paper got accepted at CVPR2023
+My first paper got accepted at CVPR 2023

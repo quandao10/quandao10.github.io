@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-A paper got accepted at ICCV2023
+A paper got accepted at ICCV 2023
