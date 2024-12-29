@@ -130,13 +130,13 @@
 
   <picture>
     
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/prof_pic_k-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/prof_pic_k-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/prof_pic_k-1400.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/profile.JPG-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/profile.JPG-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/profile.JPG-1400.webp"></source>
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/prof_pic_k.jpg" class="img-fluid z-depth-1 rounded-circle" width="auto" height="auto" alt="prof_pic_k.jpg" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/profile.JPG" class="img-fluid z-depth-1 rounded-circle" width="auto" height="auto" alt="profile.JPG" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
@@ -145,18 +145,38 @@
           </div>
 
           <div class="clearfix">
-            <p>I am a Research Resident under the supervision of <a href="https://sites.google.com/site/anhttranusc/" rel="external nofollow noopener" target="_blank">Dr. Tuan Anh Tran</a> at <a href="https://www.vinai.io/" rel="external nofollow noopener" target="_blank">VinAI Research, Vietnam</a>. Besides, I also work closely with <a href="https://tbng.github.io/" rel="external nofollow noopener" target="_blank">Dr. Nguyen Tuan Binh</a> at Department of Mathematics, National University of Singapore. I received a bachelor degree in computer science from Monash University in 2020.</p>
+            <p>I am first-year PhD student at Rutgers University under supervision of <a href="https://scholar.google.com/citations?user=a7VNhCIAAAAJ&amp;hl=en" rel="external nofollow noopener" target="_blank">Distinguish Prof. Dimitris Metaxas</a>. My research focuses on generative models, specifically diffusion models and visual autoregressive models, with a primary emphasis on fundamental research. For diffusion models, I concentrate on developing efficient and robust training methodologies. Additionally, I am deeply interested in consistency model training and distillation, particularly in improving robust training techniques and addressing the weaknesses inherent in consistency distillation processes. Besides, I have recently been researching visual autoregressive models, focusing on their applications to downstream tasks such as editing and text-to-3D generation. Previously, I was a Research Resident under the supervision of <a href="https://scholar.google.com/citations?user=FYZ5ODQAAAAJ&amp;hl=en" rel="external nofollow noopener" target="_blank">Dr. Tuan Anh Tran</a> at <a href="https://www.vinai.io/" rel="external nofollow noopener" target="_blank">VinAI Research, Vietnam</a> and spent 2 wonderful years there. I received a bachelor degree in computer science from Monash University in 2020.</p>
 
-<p>My research interests lie on deep generative model such as GAN, Diffusion and Flow Matching. Besides, I’m also interested in Neural Operator design space which allows models work well under any resolution.</p>
-
+<hr>
 
           </div>
 
           <!-- News -->
           <h2><a href="/news/" style="color: inherit;">news</a></h2>          <div class="news">
-            <div class="table-responsive">
+            <div class="table-responsive" style="max-height: 60vw">
               <table class="table table-sm table-borderless">
               
+                <tr>
+                  <th scope="row">Dec 10, 2024</th>
+                  <td>
+                    A paper got accepted at AAAI 2025
+
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Sep 13, 2024</th>
+                  <td>
+                    A paper got accepted at NeurIPS 2024
+
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Jun 13, 2024</th>
+                  <td>
+                    A paper got accepted at ECCV2024
+
+                  </td>
+                </tr>
                 <tr>
                   <th scope="row">Jul 13, 2023</th>
                   <td>
@@ -324,6 +344,175 @@
         </div>
       </div>
 </li>
+<li>
+<!-- _layouts/bib.html -->
+      <div class="row">
+        <div class="col-sm-2 preview">
+<figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/publication_preview/flow-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/publication_preview/flow-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/publication_preview/flow-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/publication_preview/flow.png" class="preview z-depth-1 rounded" width="auto" height="auto" alt="flow.png" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+</div>
+
+        <!-- Entry bib key -->
+        <div id="dao2023flow" class="col-sm-8">
+        <!-- Title -->
+        <div class="title">Flow Matching in Latent Space</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        Quan Dao*, Hao Phung*, Binh Nguyen, and
+          <span class="more-authors" title="click to view 1 more author" onclick="
+                var element = $(this);
+                element.attr('title', '');
+                var more_authors_text = element.text() == '1 more author' ? 'Anh Tran' : '1 more author';
+                var cursorPosition = 0;
+                var textAdder = setInterval(function(){
+                  element.text(more_authors_text.substring(0, cursorPosition + 1));
+                  if (++cursorPosition == more_authors_text.length){
+                    clearInterval(textAdder);
+                  }
+              }, '10');
+              ">1 more author</span>
+</div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em>arXiv preprint arXiv:2307.08698</em>, Oct 2023
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          
+        </div>
+      </div>
+</li>
+<li>
+<!-- _layouts/bib.html -->
+      <div class="row">
+        <div class="col-sm-2 abbr"></div>
+
+        <!-- Entry bib key -->
+        <div id="dao2025high" class="col-sm-8">
+        <!-- Title -->
+        <div class="title">A High-Quality Robust Diffusion Framework for Corrupted Dataset</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        Quan Dao*, Binh Ta*, Tung Pham, and
+          <span class="more-authors" title="click to view 1 more author" onclick="
+                var element = $(this);
+                element.attr('title', '');
+                var more_authors_text = element.text() == '1 more author' ? 'Anh Tran' : '1 more author';
+                var cursorPosition = 0;
+                var textAdder = setInterval(function(){
+                  element.text(more_authors_text.substring(0, cursorPosition + 1));
+                  if (++cursorPosition == more_authors_text.length){
+                    clearInterval(textAdder);
+                  }
+              }, '10');
+              ">1 more author</span>
+</div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em>In European Conference on Computer Vision</em>, Oct 2025
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          
+        </div>
+      </div>
+</li>
+<li>
+<!-- _layouts/bib.html -->
+      <div class="row">
+        <div class="col-sm-2 abbr"></div>
+
+        <!-- Entry bib key -->
+        <div id="dao2024self" class="col-sm-8">
+        <!-- Title -->
+        <div class="title">Self-Corrected Flow Distillation for Consistent One-Step and Few-Step Text-to-Image Generation</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        Quan Dao, Hao Phung, Trung Dao, and
+          <span class="more-authors" title="click to view 2 more authors" onclick="
+                var element = $(this);
+                element.attr('title', '');
+                var more_authors_text = element.text() == '2 more authors' ? 'Dimitris Metaxas, Anh Tran' : '2 more authors';
+                var cursorPosition = 0;
+                var textAdder = setInterval(function(){
+                  element.text(more_authors_text.substring(0, cursorPosition + 1));
+                  if (++cursorPosition == more_authors_text.length){
+                    clearInterval(textAdder);
+                  }
+              }, '10');
+              ">2 more authors</span>
+</div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em>arXiv preprint arXiv:2412.16906</em>, Oct 2024
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          
+        </div>
+      </div>
+</li>
 </ol>
           </div>
 
@@ -356,7 +545,7 @@
     <!-- Footer -->    
     <footer class="fixed-bottom">
       <div class="container mt-0">
-        © Copyright 2023 Quan M. Dao. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>.
+        © Copyright 2024 Quan M. Dao. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>.
 
       </div>
     </footer>
