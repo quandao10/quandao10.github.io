@@ -2,11 +2,11 @@
 layout: about
 title: About Me
 permalink: /
-subtitle: PhD student in CS
+subtitle: CS PhD student
 
 profile:
   align: right
-  image: profile.JPG
+  image: mypro.jpg
   image_circular: true # crops the image to make it circular
 
 news: true  # includes a list of news items
