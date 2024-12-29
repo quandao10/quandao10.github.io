@@ -2,7 +2,7 @@
   type: map
   contents:
     - name: Full Name
-      value: Quan .M Dao
+      value: Quan Dao
     - name: Date of Birth
       value: 10th October 1999
     - name: Languages
@@ -11,23 +11,20 @@
 - title: Education
   type: time_table
   contents:
+    - title: PhD of Computer Science
+      institution: Rutgers University
+      year: 2024-2029
+
     - title: Bachelor of Computer Science
       institution: Monash University
-      year: 2021
+      year: 2018-2021
 
 - title: Experience
   type: time_table
   contents:
-
     - title: Research Resident
       institution: VinAI Research, Hanoi, Vietnam
-      year: 2022-Now
-
-    - title: Engineering Intern
-      institution: VinBigData, Hanoi, Vietnam
-      year: 2021 - 2022
-      description:
-        - Full-stack Software Engineer
+      year: 2022-2024
 
     - title: Research Intern
       institution: University of Sydney, Sydney, Australia
@@ -53,16 +50,24 @@
 - title: Academic Interests
   type: nested_list
   contents:
-    - title: Deep Generative Model
+    - title: Diffusion Model
       items: 
-        - CV Application of GAN Models
-        - Physic-inspired Generative Model such as Diffusion Model, Flow Matching and Poison Generative Model
-        - Deep Graph Generative Model
-    - title: Neural Operator
+        - Efficient training of diffusion model 
+        - Inverse problem and editing problem
+        - Robust training of diffusion model
+        - Speed up diffusion model by distillation
+        - Consistency Model (efficient training or finetuning)
+    - title: Autoregressive Model
       items:
-        - Neural Architecture which is invariant to resolution input
+        - Inverse problem and editing problem
+        - Unified modality autoregressive model
 
 - title: Other Interests
   type: list
   contents:
     - <u>Hobbies:</u> PS4, Board Games, etc.
+
+- title: Services
+  type: list
+  contents:
+    - <u>Reviewers:</u> CVPR, NeurIPS, AISTATS, ICML, ICLR and ECCV.

@@ -6,7 +6,7 @@ subtitle: Research Resident at VinAI Research, Vietnam
 
 profile:
   align: right
-  image: prof_pic_k.jpg
+  image: profile.JPG
   image_circular: true # crops the image to make it circular
 
 news: true  # includes a list of news items
@@ -15,8 +15,6 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a Research Resident under the supervision of <a href='https://sites.google.com/site/anhttranusc/'>Dr. Tuan Anh Tran</a> at <a href='https://www.vinai.io/'>VinAI Research, Vietnam</a>. Besides, I also work closely with <a href='https://tbng.github.io/'>Dr. Nguyen Tuan Binh</a> at Department of Mathematics, National University of Singapore. I received a bachelor degree in computer science from Monash University in 2020.
+I am first-year PhD student at Rutgers University under supervision of <a href='https://scholar.google.com/citations?user=a7VNhCIAAAAJ&hl=en'>Distinguish Prof. Dimitris Metaxas</a>. My research focuses on generative models, specifically diffusion models and visual autoregressive models, with a primary emphasis on fundamental research. For diffusion models, I concentrate on developing efficient and robust training methodologies. Additionally, I am deeply interested in consistency model training and distillation, particularly in improving robust training techniques and addressing the weaknesses inherent in consistency distillation processes. Besides, I have recently been researching visual autoregressive models, focusing on their applications to downstream tasks such as editing and text-to-3D generation. Previously, I was a Research Resident under the supervision of <a href='https://scholar.google.com/citations?user=FYZ5ODQAAAAJ&hl=en'>Dr. Tuan Anh Tran</a> at <a href='https://www.vinai.io/'>VinAI Research, Vietnam</a> and spent 2 wonderful years there. I received a bachelor degree in computer science from Monash University in 2020.
 
-My research interests lie on deep generative model such as GAN, Diffusion and Flow Matching. Besides, I'm also interested in Neural Operator design space which allows models work well under any resolution.
-
-
+---
