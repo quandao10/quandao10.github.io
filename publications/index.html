@@ -169,6 +169,8 @@
 
           <!-- Links/Buttons -->
           <div class="links">
+            <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
+            <a href="http://arxiv.org/abs/https://openreview.net/forum?id=PQjZes6vFV" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
             <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
           </div>
           
@@ -177,7 +179,12 @@
               <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
           </div>
 
-          <!-- Hidden bibtex block -->
+          <!-- Hidden abstract block -->
+          <div class="abstract hidden">
+            <p>Consistency models are a new family of generative models capable of producing high-quality samples in either a single step or multiple steps. Recently, consistency models have demonstrated impressive performance, achieving results on par with diffusion models in the pixel space. However, the success of scaling consistency training to large-scale datasets, particularly for text-to-image and video generation tasks, is determined by performance in the latent space. In this work, we analyze the statistical differences between pixel and latent spaces, discovering that latent data often contains highly impulsive outliers, which significantly degrade the performance of iCT \citepsong2023improved in the latent space. To address this, we replace Pseudo-Huber losses with Cauchy losses, effectively mitigating the impact of outliers. Additionally, we introduce a diffusion loss at early timesteps and employ optimal transport (OT) coupling to further enhance performance. Lastly, we introduce the adaptive scaling-
+ scheduler to manage the robust training process and adopt Non-scaling LayerNorm in the architecture to better capture the statistics of the features and reduce outlier impact. With these strategies, we successfully train latent consistency models capable of high-quality sampling with one or two steps, significantly narrowing the performance gap between latent consistency and diffusion models.</p>
+          </div>
+<!-- Hidden bibtex block -->
           <div class="bibtex hidden">
             <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">dao2024improvedict</span><span class="p">,</span>
   <span class="na">title</span> <span class="p">=</span> <span class="s">{Improved Training Technique for Latent Consistency Models}</span><span class="p">,</span>
