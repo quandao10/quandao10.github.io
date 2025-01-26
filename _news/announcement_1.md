@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-My first paper got accepted at CVPR 2023
+:zap: My first paper [Wavediff](https://arxiv.org/abs/2211.16152) got accepted at CVPR 2023. Wavediff proposes the frequency-aware Unet architecture allowing fast converence training  for DiffusionGAN framework.

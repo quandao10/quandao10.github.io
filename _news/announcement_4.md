@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-A paper got accepted at NeurIPS 2024
+:zap: Yummy [DimSUM](https://arxiv.org/abs/2411.04168) got accepted at NeurIPS 2024. DimSUM proposes novel hybrid transformer-mamba architecture allowing faster convergence training of diffusion/flow matching model and also achieve SoTA image generation. 
