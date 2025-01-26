@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-A paper got accepted at ICLR 2025
+:zap: [Improved Latent Consistency Model](https://link-url-here.org) got accepted at ICLR 2025
