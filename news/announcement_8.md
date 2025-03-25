@@ -1,1 +1,0 @@
-:zap: I will join Apple MLR for Research Internship and work on fundamental machine learning problem
