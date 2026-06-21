@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-:zap: 2 papers accepted in CVPR. Details will come out soon
+:zap: 2 papers accepted in CVPR.
