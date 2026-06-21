@@ -1,3 +1,30 @@
+@InProceedings{Tran_2026_CVPR,
+    author    = {Tran, Quyen and Nguyen, Hai and Dao, Quan and Phan, Hoang and Van, Linh and Than, Khoat and Phung, Dinh and Metaxas, Dimitris and Le, Trung},
+    title     = {An Optimal Transport-driven Approach for Cultivating Latent Space in Online Incremental Learning},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2026},
+    pages     = {10851-10862},
+    preview={mmot.png},
+    bibtex_show={true},
+    abstract={In online incremental learning, data continuously arrives with substantial distributional shifts, creating a significant challenge because previous samples have limited replay value when learning a new task. Prior research has typically relied on either a single adaptive centroid or multiple fixed centroids to represent each class in the latent space. However, such methods struggle when class data streams are inherently multimodal and require continual centroid updates. To overcome this, we introduce an online Mixture Model learning framework grounded in Optimal Transport theory (MMOT), where centroids evolve incrementally with new data. This approach offers two main advantages: (i) it provides a more precise characterization of complex data streams, and (ii) it enables improved class similarity estimation for unseen samples during inference through MMOT-derived centroids. Furthermore, to strengthen representation learning and mitigate catastrophic forgetting, we design a Dynamic Preservation strategy that regulates the latent space and maintains class separability over time. Experimental evaluations on benchmark datasets confirm the superior effectiveness of our proposed method.},
+    arxiv={2211.16780}
+}
+
+@InProceedings{Dao_2026_CVPR,
+    author    = {Dao, Quan and Metaxas, Dimitris},
+    title     = {Multi-Patch Global-to-Local Transformer Architecture For Efficient Flow Matching and Diffusion Model},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2026},
+    pages     = {33000-33011},
+    preview={mpdit.png},
+    selected  = {true},
+    bibtex_show={true},
+    abstract={Transformer architectures, particularly Diffusion Transformers (DiTs), have become widely used in diffusion and flow-matching models due to their strong performance compared to convolutional UNets. However, the isotropic design of DiTs processes the same number of patchified tokens in every block, leading to relatively heavy computation during training process. In this work, we introduce a multi-patch transformer design in which early blocks operate on larger patches to capture coarse global context, while later blocks use smaller patches to refine local details. This hierarchical design could reduces computational cost by up to 50% in GFLOPs while achieving good generative performance. In addition, we also propose improved designs for time and class embeddings that accelerate training convergence. Extensive experiments on the ImageNet dataset demonstrate the effectiveness of our architectural choices.},
+    arxiv={2603.26357}
+}
+
 @inproceedings{pham2025autoedit,
   title={AutoEdit: Automatic Hyperparameter Tuning for Image Editing},
   author={Pham, Chau and Dao, Quan and Bhosale, Mahesh and Tian, Yunjie and Metaxas, Dimitris and Doermann, David},
@@ -10,12 +37,12 @@
   arxiv={2509.15031}
 }
 
-@article{dao2025discrete,
+@inproceedings{dao2025discrete,
   title={Discrete Noise Inversion for Next-scale Autoregressive Text-based Image Editing},
   author={Dao, Quan and He, Xiaoxiao and Han, Ligong and Nguyen, Ngan Hoai and Nobar, Amin Heyrani and Ahmed, Faez and Zhang, Han and Nguyen, Viet Anh and Metaxas, Dimitris},
-  journal={arXiv preprint arXiv:2509.01984},
+  booktitle={European Conference on Computer Vision},
   preview={varin.png},
-  year={2025},
+  year={2026},
   selected  = {true},
   bibtex_show={true},
   abstract={Discrete diffusion models have achieved success in tasks like image generation and masked language modeling but face limitations in controlled content editing. We introduce DICE (Discrete Inversion for Controllable Editing), the first approach to enable precise inversion for discrete diffusion models, including multinomial diffusion and masked generative models. By recording noise sequences and masking patterns during the reverse diffusion process, DICE enables accurate reconstruction and flexible editing of discrete data without the need for predefined masks or attention manipulation. We demonstrate the effectiveness of DICE across both image and text domains, evaluating it on models such as VQ-Diffusion, Paella, and RoBERTa. Our results show that DICE preserves high data fidelity while enhancing editing capabilities, offering new opportunities for fine-grained content manipulation in discrete spaces.},
