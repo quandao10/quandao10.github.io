@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-:zap: [SCFlow](https://arxiv.org/abs/2412.16906) got accepted at AAAI 2025. This is the first work attempting to distill flow matching model into one and few step generation. With SCFlow, we could achieve consistent one and few step generation, which means starting from a noise, no matter how many NFEs is used for sampling, the final generated image is indentical.  
+[SCFlow](https://arxiv.org/abs/2412.16906) is accepted to **AAAI 2025**. It distills flow-matching models into one-step and few-step generators that give consistent outputs for the same noise, whatever the number of sampling steps.

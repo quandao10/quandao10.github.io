@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2025-1-22 15:59:00-0400
+date: 2025-01-22 15:59:00-0400
 inline: true
 related_posts: false
 ---
 
-:zap: [Improved Latent Consistency Model](https://openreview.net/forum?id=PQjZes6vFV) got accepted at ICLR 2025. This paper proposes series of novel techniques like Cauchy loss, OT coupling, adaptive robust scale scheduler and diff loss at early timestep to efficiently train latent consistency model from scatch. Our technique bridges the performance gap between LDM and LCM training. (this is the first work discovering the unstability of consistency model on latent space due to impulsive outlier.)
+[Improved Training Technique for Latent Consistency Models](https://openreview.net/forum?id=PQjZes6vFV) is accepted to **ICLR 2025**. We identify impulsive outliers in latent space as the main cause of unstable consistency training, and address them with a Cauchy loss, OT coupling, and an adaptive robust scale scheduler.

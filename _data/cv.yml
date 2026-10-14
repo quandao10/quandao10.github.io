@@ -1,73 +1,83 @@
-- title: General Information
-  type: map
+- title: Research Interest
+  type: list
   contents:
-    - name: Full Name
-      value: Quan Dao
-    - name: Date of Birth
-      value: 10th October 1999
-    - name: Languages
-      value: English, Vietnamese
+    - My research focuses on efficient generative modeling, particularly diffusion and flow-based models. I aim to develop fundamental learning principles, efficient training methods, and novel architectures that improve the scalability and generation quality of these models while reducing their training and inference costs. A central goal of my research is to enable high-quality generation with minimal computational resources and fewer NFE.
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD of Computer Science
-      institution: Rutgers University
-      year: 2024-2029
+    - title: Ph.D. in Computer Science
+      institution: Rutgers University, New Jersey, USA
+      year: 2024 – Now
+      description:
+        - "Advisor: Distinguished Prof. Dimitris Metaxas"
+        - "GPA: 4.0/4.0"
 
     - title: Bachelor of Computer Science
-      institution: Monash University
-      year: 2018-2021
+      institution: Monash University, Melbourne, Australia
+      year: 2018 – 2021
+      description:
+        - "GPA: 3.5/4.0"
 
-- title: Experience
+- title: Work Experience
   type: time_table
   contents:
-    - title: Research Resident
-      institution: VinAI Research, Hanoi, Vietnam
-      year: 2022-2024
+    - title: Research Intern
+      institution: Adobe Research
+      year: Jun – Sep 2026
+      description:
+        - Developing perceiver transformers for pixel-space video diffusion.
 
     - title: Research Intern
-      institution: University of Sydney, Sydney, Australia
-      year: 2021
+      institution: Apple Machine Learning Research (MLR)
+      year: Jun – Sep 2025
+      description:
+        - Training image diffusion models efficiently in the DCT frequency domain.
 
-- title: Open Source Projects
-  type: time_table
+    - title: Graduate Assistant
+      institution: Rutgers University
+      year: 2024 – Now
+      description:
+        - Efficient generative models and world models.
+
+    - title: Research Resident
+      institution: Qualcomm AI Research Vietnam (formerly VinAI Research)
+      year: 2022 – 2024
+
+- title: Publications
+  type: list
   contents:
-    - title: <a href="https://github.com/VinAIResearch/WaveDiff">Wavelet Diffusion Models are fast and scalable Image Generators</a>
-      year: 2023
-      description: Design novel architecture which allows real time samling for Diffusion Model
+    - 'Papers at CVPR, ICCV, ECCV, NeurIPS, ICLR, AAAI, and WACV. See the <a href="/publications/">Publications</a> page for the full list.'
 
 - title: Honors and Awards
   type: time_table
   contents:
-    - year: 2017
-      items: 
-        - Second Prize of Vietnam Mathematics Olympiad (VMO) 
-    - year: 2016
-      items: 
-        - Third Prize of Vietnam North Regional Mathematics Olympiad
-
-- title: Academic Interests
-  type: nested_list
-  contents:
-    - title: Diffusion Model
-      items: 
-        - Efficient training of diffusion model 
-        - Inverse problem and editing problem
-        - Robust training of diffusion model
-        - Speed up diffusion model by distillation
-        - Consistency Model (efficient training or finetuning)
-    - title: Autoregressive Model
+    - year: 2026
       items:
-        - Inverse problem and editing problem
-        - Unified modality autoregressive model
+        - First Prize, Rizvi Research Excellence Award, Rutgers University
+    - year: 2017
+      items:
+        - Second Prize, Vietnam Mathematical Olympiad (VMO)
+    - year: 2016
+      items:
+        - Bronze Medal, Vietnam North Mathematical Olympiad
+        - Third Prize, International Mathematics Tournament of Towns
 
-- title: Services
+- title: Professional Service
   type: list
   contents:
-    - <u>Reviewers:</u> CVPR, NeurIPS, AISTATS, ICML, ICLR and ECCV.
+    - "<b>Conference Reviewer:</b> CVPR, ECCV, ICCV, NeurIPS, ICML, ICLR, AISTATS, BMVC"
 
-- title: Other Interests
+- title: Skills
+  type: map
+  contents:
+    - name: Languages
+      value: English, Vietnamese
+    - name: Programming
+      value: Python, PyTorch
+
+- title: References
   type: list
   contents:
-    - <u>Hobbies:</u> PS4, Board Games, etc.
+    - "<b>Prof. Dimitris Metaxas</b>, Board of Governors and Distinguished Professor of Computer Science, Rutgers University"
+    - "<b>Dr. Anh Tran</b>, Principal Researcher, Qualcomm AI Research"

@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2024-7-21 15:59:00-0400
+date: 2024-07-21 15:59:00-0400
 inline: true
 related_posts: false
 ---
 
-:zap: [RDUOT](https://arxiv.org/abs/2311.17101) got accepted at ECCV 2024. This paper combines UOT generative framework with diffusion noising to allow train fast-converged and robust generative framework.
+[RDUOT](https://arxiv.org/abs/2311.17101) is accepted to **ECCV 2024**. It combines unbalanced optimal transport with diffusion to give the first diffusion framework robust to corrupted training data.

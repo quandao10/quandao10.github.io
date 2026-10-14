@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: Publications
-description: (*) denotes for equal contribution
+description: "* denotes equal contribution. See also my <a href='https://scholar.google.com/citations?user=g0RS3_kAAAAJ'>Google Scholar</a> profile."
 years: [2026,2025,2024,2023]
 nav: true
 nav_order: 1

@@ -11,7 +11,7 @@ layout: default
           <p class="desc">{{ page.subtitle }}</p>
         </header>
 
-        <article>
+        <article class="about">
           {% if page.profile -%}
           <div class="profile float-{%- if page.profile.align == 'left' -%}left{%- else -%}right{%- endif -%}">
             {%- if page.profile.image %}
@@ -42,19 +42,20 @@ layout: default
 
           <!-- News -->
           {% if page.news and site.announcements.enabled -%}
-            <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit;">news</a></h2>
+            <h2 class="section-title">News <a class="section-more" href="{{ '/news/' | relative_url }}">all news &rarr;</a></h2>
             {%- include news.html limit=true %}
           {%- endif %}
 
           <!-- Latest posts -->
           {% if page.latest_posts -%}
-            <h2><a href="{{ '/blog/' | relative_url }}" style="color: inherit;">latest posts</a></h2>
+            <h2 class="section-title">Latest Posts</h2>
             {%- include latest_posts.html %}
           {%- endif %}
 
           <!-- Selected papers -->
           {% if page.selected_papers -%}
-            <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">selected publications</a></h2>
+            <h2 class="section-title">Selected Publications <a class="section-more" href="{{ '/publications/' | relative_url }}">full list &rarr;</a></h2>
+            <p class="section-note">* denotes equal contribution</p>
             {%- include selected_papers.html %}
           {%- endif %}
 

@@ -1,159 +1,203 @@
-@InProceedings{Tran_2026_CVPR,
-    author    = {Tran*, Quyen and Nguyen*, Hai and Dao, Quan and Phan*, Hoang and Van, Linh and Than, Khoat and Phung, Dinh and Metaxas, Dimitris and Le, Trung},
-    title     = {An Optimal Transport-driven Approach for Cultivating Latent Space in Online Incremental Learning},
-    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    month     = {June},
-    year      = {2026},
-    pages     = {10851-10862},
-    preview={mmot.png},
-    bibtex_show={true},
-    abstract={In online incremental learning, data continuously arrives with substantial distributional shifts, creating a significant challenge because previous samples have limited replay value when learning a new task. Prior research has typically relied on either a single adaptive centroid or multiple fixed centroids to represent each class in the latent space. However, such methods struggle when class data streams are inherently multimodal and require continual centroid updates. To overcome this, we introduce an online Mixture Model learning framework grounded in Optimal Transport theory (MMOT), where centroids evolve incrementally with new data. This approach offers two main advantages: (i) it provides a more precise characterization of complex data streams, and (ii) it enables improved class similarity estimation for unseen samples during inference through MMOT-derived centroids. Furthermore, to strengthen representation learning and mitigate catastrophic forgetting, we design a Dynamic Preservation strategy that regulates the latent space and maintains class separability over time. Experimental evaluations on benchmark datasets confirm the superior effectiveness of our proposed method.},
-    arxiv={2211.16780}
+@inproceedings{nguyen2026flashcontrol,
+  abbr      = {NeurIPS},
+  title     = {FlashControl: One-step Controllable Generator via Distillation-friendly Single-stream Teachers},
+  author    = {Nguyen, Ngan and Nguyen, Dung and Dao, Quan and Metaxas, Dimitris and Hoai, Minh and Pham, Cuong and Tran, Anh},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2026},
+  bibtex_show = {true}
 }
 
-@InProceedings{Dao_2026_CVPR,
-    author    = {Dao, Quan and Metaxas, Dimitris},
-    title     = {Multi-Patch Global-to-Local Transformer Architecture For Efficient Flow Matching and Diffusion Model},
-    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    month     = {June},
-    year      = {2026},
-    pages     = {33000-33011},
-    preview={mpdit.png},
-    selected  = {true},
-    bibtex_show={true},
-    abstract={Transformer architectures, particularly Diffusion Transformers (DiTs), have become widely used in diffusion and flow-matching models due to their strong performance compared to convolutional UNets. However, the isotropic design of DiTs processes the same number of patchified tokens in every block, leading to relatively heavy computation during training process. In this work, we introduce a multi-patch transformer design in which early blocks operate on larger patches to capture coarse global context, while later blocks use smaller patches to refine local details. This hierarchical design could reduces computational cost by up to 50% in GFLOPs while achieving good generative performance. In addition, we also propose improved designs for time and class embeddings that accelerate training convergence. Extensive experiments on the ImageNet dataset demonstrate the effectiveness of our architectural choices.},
-    arxiv={2603.26357}
+@inproceedings{nguyen2026deltafugue,
+  abbr      = {NeurIPS},
+  title     = {Deltafugue: Orchestrating Spatial and Associative Memory for Algorithmic Length Generalization},
+  author    = {Nguyen, Anh T. and Dao, Quan and Liu, Bing},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2026},
+  bibtex_show = {true}
+}
+
+@inproceedings{dao2026varin,
+  abbr      = {ECCV},
+  title     = {Discrete Noise Inversion for Visual Autoregressive Text-based Image Editing},
+  author    = {Dao*, Quan and He*, Xiaoxiao and Han, Ligong and Nguyen, Ngan and Nobari, Amin Heyrani and Zhang, Han and Ahmed, Faez and Nguyen, Viet Anh and Metaxas, Dimitris},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2026},
+  preview   = {varin.png},
+  selected  = {true},
+  bibtex_show = {true},
+  abstract  = {Visual autoregressive models (VAR) have recently emerged as a promising class of generative models, achieving performance comparable to diffusion models in text-to-image generation tasks. While conditional generation has been widely explored, the ability to perform prompt-guided image editing without additional training is equally critical, as it supports numerous practical real-world applications. This paper investigates the text-to-image editing capabilities of VAR by introducing Visual AutoRegressive Inverse Noise (VARIN), the first noise inversion-based editing technique designed explicitly for VAR models. VARIN leverages a novel pseudo-inverse function for argmax sampling, named Location-aware Argmax Inversion (LAI), to generate inverse Gumbel noises. These inverse noises enable precise reconstruction of the source image and facilitate targeted, controllable edits aligned with textual prompts. Extensive experiments demonstrate that VARIN effectively modifies source images according to specified prompts while significantly preserving the original background and structural details, thus validating its efficacy as a practical editing approach.},
+  arxiv     = {2509.01984}
+}
+
+@inproceedings{tran2026spectral,
+  abbr      = {ECCV},
+  title     = {Spectral-Aware Analytic Class-Incremental Learning for Long-Tailed Distributions},
+  author    = {Tran*, Quyen and Nguyen*, Hai and Dao, Quan and Li, Zhuowei and Le, Nam and Le, Trung and Metaxas, Dimitris},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2026},
+  bibtex_show = {true},
+  abstract  = {Analytic Continual Learning (ACL) offers a computationally efficient alternative to gradient-based approaches. Recent ACL methods are based on Recursive Least Squares (RLS) and have achieved the state-of-the-art results compared to other alternatives. However, they falter significantly in Class-Incremental Learning scenarios characterized by Long-Tailed distributions. While the ill-conditioning of the autocorrelation (Gram) matrix is a known limitation of RLS, we demonstrate that class imbalance exacerbates this issue into a distinct spectral pathology: "tail" classes suffer from severe spectral collapse, rendering their subspaces numerically indistinguishable from noise. Standard Ridge Regression ($L_2$) fails to address this effectively as it applies isotropic regularization - a uniform penalty that is insufficient to stabilize the tail without over-shrinking the head. To address this, we propose Geometry-Spectral Rectification (GSR), a theoretically grounded framework that treats long-tailed learning as a spectral regularization problem. Unlike standard isotropic regularization (Ridge) which uniformly penalizes all eigenvalues, GSR acts as an anisotropic spectral filter, selectively inflating the collapsed eigenvalues of tail classes. We construct a structured, data-dependent spectral perturbation matrix $\Delta$ that selectively inflates collapsed tail eigen-directions of the Gram matrix. Theoretical analysis proves that GSR guarantees an improved stable rank for the Gram matrix, ensuring numerical stability. Extensive experiments show that GSR establishes a new state-of-the-art for analytic CIL, offering a superior trade-off between computational efficiency and robust generalization in long-tailed settings.},
+  arxiv     = {2607.22931}
+}
+
+@inproceedings{nguyen2026crossspace,
+  abbr      = {ECCV},
+  title     = {Cross-Space Distillation: Teaching One-Step Students with Modern Diffusion Teachers},
+  author    = {Nguyen*, Anh and Nguyen*, Ngan and Vu*, Duc and Dao, Trung and Nguyen, Viet and Dao, Quan and Nguyen, Kien and Tran, Chi and Nguyen, Phong and Nguyen, Khoi and Pham, Cuong and Metaxas, Dimitris and Patel, Vishal M. and Tran, Anh},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2026},
+  bibtex_show = {true},
+  abstract  = {Modern one-step diffusion models achieve impressive quality through distribution-based timestep distillation. Yet, they rely on a critical assumption: Teacher and Student must inhabit the same latent space. This Shared-Space constraint prevents knowledge transfer from modern high-capacity Teachers (e.g., SD 3.5 and Flux) into compact, deployment-friendly Students such as SD 1.5, whose latent resolution and VAE parameterization differ from the Teacher. We formalize this overlooked regime as Cross-Space Distillation, where Teacher and Student differ in both latent resolution and VAE space. To enable distillation under this mismatch, we introduce the Bridge, a lightweight latent interface that maps Student latents into the Teacher space without modifying the Student backbone. Bridge combines a frozen Student VAE decoder as a spatial prior with a compact learnable projector, and is trained with latent reconstruction and attention fidelity objectives for stable Teacher-space alignment. Across diverse modern Teachers, Bridge enables substantial gains for compact one-step Students; for example, it improves SD 1.5 from 5.4 to 9.4 HPSv3 while preserving one-step inference, low latency, and broad ecosystem compatibility. These results show that heterogeneous large Teachers can be distilled into efficient, deployable backbones through a lightweight latent-space interface.},
+  arxiv     = {2606.32020}
+}
+
+@inproceedings{Dao_2026_CVPR,
+  abbr      = {CVPR},
+  title     = {MPDiT: Multi-Patch Global-to-Local Transformer Architecture For Efficient Flow Matching and Diffusion Model},
+  author    = {Dao, Quan and Metaxas, Dimitris},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2026},
+  pages     = {33000--33011},
+  preview   = {mpdit.png},
+  selected  = {true},
+  bibtex_show = {true},
+  abstract  = {Transformer architectures, particularly Diffusion Transformers (DiTs), have become widely used in diffusion and flow-matching models due to their strong performance compared to convolutional UNets. However, the isotropic design of DiTs processes the same number of patchified tokens in every block, leading to relatively heavy computation during training process. In this work, we introduce a multi-patch transformer design in which early blocks operate on larger patches to capture coarse global context, while later blocks use smaller patches to refine local details. This hierarchical design could reduces computational cost by up to 50% in GFLOPs while achieving good generative performance. In addition, we also propose improved designs for time and class embeddings that accelerate training convergence. Extensive experiments on the ImageNet dataset demonstrate the effectiveness of our architectural choices.},
+  arxiv     = {2603.26357},
+  code      = {https://github.com/quandao10/MPDiT}
+}
+
+@inproceedings{Tran_2026_CVPR,
+  abbr      = {CVPR},
+  title     = {An Optimal Transport-driven Approach for Cultivating Latent Space in Online Incremental Learning},
+  author    = {Tran*, Quyen and Nguyen*, Hai and Dao, Quan and Phan, Hoang and Ngo, Linh and Than, Khoat and Phung, Dinh and Metaxas, Dimitris and Le, Trung},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2026},
+  pages     = {10851--10862},
+  preview   = {mmot.png},
+  bibtex_show = {true},
+  abstract  = {In online incremental learning, data continuously arrives with substantial distributional shifts, creating a significant challenge because previous samples have limited replay value when learning a new task. Prior research has typically relied on either a single adaptive centroid or multiple fixed centroids to represent each class in the latent space. However, such methods struggle when class data streams are inherently multimodal and require continual centroid updates. To overcome this, we introduce an online Mixture Model learning framework grounded in Optimal Transport theory (MMOT), where centroids evolve incrementally with new data. This approach offers two main advantages: (i) it provides a more precise characterization of complex data streams, and (ii) it enables improved class similarity estimation for unseen samples during inference through MMOT-derived centroids. Furthermore, to strengthen representation learning and mitigate catastrophic forgetting, we design a Dynamic Preservation strategy that regulates the latent space and maintains class separability over time. Experimental evaluations on benchmark datasets confirm the superior effectiveness of our proposed method.},
+  arxiv     = {2211.16780},
+  pdf       = {https://openaccess.thecvf.com/content/CVPR2026/papers/Tran_An_Optimal_Transport-driven_Approach_for_Cultivating_Latent_Space_in_Online_CVPR_2026_paper.pdf}
+}
+
+@inproceedings{he2026dice,
+  abbr      = {WACV},
+  title     = {DICE: Discrete Inversion Enabling Controllable Editing for Multinomial Diffusion and Masked Generative Models},
+  author    = {He*, Xiaoxiao and Dao*, Quan and Han, Ligong and Wen, Song and Bai, Minhao and Liu, Di and Zhang, Han and Min, Martin Renqiang and Juefei-Xu, Felix and Tan, Chaowei and others},
+  booktitle = {IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  year      = {2026},
+  preview   = {dice.png},
+  selected  = {true},
+  bibtex_show = {true},
+  abstract  = {Discrete diffusion models have achieved success in tasks like image generation and masked language modeling but face limitations in controlled content editing. We introduce DICE (Discrete Inversion for Controllable Editing), the first approach to enable precise inversion for discrete diffusion models, including multinomial diffusion and masked generative models. By recording noise sequences and masking patterns during the reverse diffusion process, DICE enables accurate reconstruction and flexible editing of discrete data without the need for predefined masks or attention manipulation. We demonstrate the effectiveness of DICE across both image and text domains, evaluating it on models such as VQ-Diffusion, Paella, and RoBERTa. Our results show that DICE preserves high data fidelity while enhancing editing capabilities, offering new opportunities for fine-grained content manipulation in discrete spaces.},
+  arxiv     = {2410.08207}
 }
 
 @inproceedings{pham2025autoedit,
-  title={AutoEdit: Automatic Hyperparameter Tuning for Image Editing},
-  author={Pham, Chau and Dao, Quan and Bhosale, Mahesh and Tian, Yunjie and Metaxas, Dimitris and Doermann, David},
-  booktitle={The Thirty-nine Annual Conference on Neural Information Processing Systems},
-  preview={autoedit.png},
-  year= {2025},
-  selected  = {true},
-  bibtex_show={true},
-  abstract={Recent advances in diffusion models have revolutionized text-guided image editing, yet existing editing methods face critical challenges in hyperparameter identification. To get the reasonable editing performance, these methods often require the user to brute-force tune multiple interdependent hyperparameters, such as inversion timesteps and attention modification, \textit{etc.} This process incurs high computational costs due to the huge hyperparameter search space. We consider searching optimal editing's hyperparameters as a sequential decision-making task within the diffusion denoising process. Specifically, we propose a reinforcement learning framework, which establishes a Markov Decision Process that dynamically adjusts hyperparameters across denoising steps, integrating editing objectives into a reward function. The method achieves time efficiency through proximal policy optimization while maintaining optimal hyperparameter configurations. Experiments demonstrate significant reduction in search time and computational overhead compared to existing brute-force approaches, advancing the practical deployment of a diffusion-based image editing framework in the real world.},
-  arxiv={2509.15031}
+  abbr      = {NeurIPS},
+  title     = {AutoEdit: Automatic Hyperparameter Tuning for Image Editing},
+  author    = {Pham, Chau and Dao, Quan and Bhosale, Mahesh and Tian, Yunjie and Metaxas, Dimitris and Doermann, David},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2025},
+  preview   = {autoedit.png},
+  bibtex_show = {true},
+  abstract  = {Recent advances in diffusion models have revolutionized text-guided image editing, yet existing editing methods face critical challenges in hyperparameter identification. To get the reasonable editing performance, these methods often require the user to brute-force tune multiple interdependent hyperparameters, such as inversion timesteps and attention modification, \textit{etc.} This process incurs high computational costs due to the huge hyperparameter search space. We consider searching optimal editing's hyperparameters as a sequential decision-making task within the diffusion denoising process. Specifically, we propose a reinforcement learning framework, which establishes a Markov Decision Process that dynamically adjusts hyperparameters across denoising steps, integrating editing objectives into a reward function. The method achieves time efficiency through proximal policy optimization while maintaining optimal hyperparameter configurations. Experiments demonstrate significant reduction in search time and computational overhead compared to existing brute-force approaches, advancing the practical deployment of a diffusion-based image editing framework in the real world.},
+  arxiv     = {2509.15031}
 }
-
-@inproceedings{dao2025discrete,
-  title={Discrete Noise Inversion for Next-scale Autoregressive Text-based Image Editing},
-  author={Dao*, Quan and He*, Xiaoxiao and Han, Ligong and Nguyen, Ngan Hoai and Nobar, Amin Heyrani and Ahmed, Faez and Zhang, Han and Nguyen, Viet Anh and Metaxas, Dimitris},
-  booktitle={European Conference on Computer Vision},
-  preview={varin.png},
-  year={2026},
-  selected  = {true},
-  bibtex_show={true},
-  abstract={Discrete diffusion models have achieved success in tasks like image generation and masked language modeling but face limitations in controlled content editing. We introduce DICE (Discrete Inversion for Controllable Editing), the first approach to enable precise inversion for discrete diffusion models, including multinomial diffusion and masked generative models. By recording noise sequences and masking patterns during the reverse diffusion process, DICE enables accurate reconstruction and flexible editing of discrete data without the need for predefined masks or attention manipulation. We demonstrate the effectiveness of DICE across both image and text domains, evaluating it on models such as VQ-Diffusion, Paella, and RoBERTa. Our results show that DICE preserves high data fidelity while enhancing editing capabilities, offering new opportunities for fine-grained content manipulation in discrete spaces.},
-  arxiv={2509.01984}
-}
-
 
 @inproceedings{dao2024improvedict,
-  title={Improved Training Technique for Latent Consistency Models},
-  author={Dao*, Quan and Doan*, Khanh and Liu, Di and Le, Trung and Metaxas, Dimitris},
-  booktitle = {International Conference on Learning Representations},
-  preview={sLCT.png},
+  abbr      = {ICLR},
+  title     = {Improved Training Technique for Latent Consistency Models},
+  author    = {Dao*, Quan and Doan*, Khanh and Liu, Di and Le, Trung and Metaxas, Dimitris},
+  booktitle = {International Conference on Learning Representations (ICLR)},
   year      = {2025},
+  preview   = {sLCT.png},
   selected  = {true},
-  bibtex_show={true},
-  abstract={Consistency models are a new family of generative models capable of producing high-quality samples in either a single step or multiple steps. Recently, consistency models have demonstrated impressive performance, achieving results on par with diffusion models in the pixel space. However, the success of scaling consistency training to large-scale datasets, particularly for text-to-image and video generation tasks, is determined by performance in the latent space. In this work, we analyze the statistical differences between pixel and latent spaces, discovering that latent data often contains highly impulsive outliers, which significantly degrade the performance of iCT in the latent space. To address this, we replace Pseudo-Huber losses with Cauchy losses, effectively mitigating the impact of outliers. Additionally, we introduce a diffusion loss at early timesteps and employ optimal transport (OT) coupling to further enhance performance. Lastly, we introduce the adaptive scaling-c
- scheduler to manage the robust training process and adopt Non-scaling LayerNorm in the architecture to better capture the statistics of the features and reduce outlier impact. With these strategies, we successfully train latent consistency models capable of high-quality sampling with one or two steps, significantly narrowing the performance gap between latent consistency and diffusion models.},
-  arxiv={2502.01441}
-}
-
-
-@article{he2024dice,
-  title={DICE: Discrete Inversion Enabling Controllable Editing for Multinomial Diffusion and Masked Generative Models},
-  author={He*, Xiaoxiao and Dao*, Quan and Han, Ligong  and Wen, Song and Bai, Minhao and Liu, Di and Zhang, Han and Min, Martin Renqiang and Juefei-Xu, Felix and Tan, Chaowei and others},
-  journal={arXiv preprint arXiv:2410.08207},
-  preview={dice.png},
-  year={2024},
-  selected  = {true},
-  bibtex_show={true},
-  abstract={Discrete diffusion models have achieved success in tasks like image generation and masked language modeling but face limitations in controlled content editing. We introduce DICE (Discrete Inversion for Controllable Editing), the first approach to enable precise inversion for discrete diffusion models, including multinomial diffusion and masked generative models. By recording noise sequences and masking patterns during the reverse diffusion process, DICE enables accurate reconstruction and flexible editing of discrete data without the need for predefined masks or attention manipulation. We demonstrate the effectiveness of DICE across both image and text domains, evaluating it on models such as VQ-Diffusion, Paella, and RoBERTa. Our results show that DICE preserves high data fidelity while enhancing editing capabilities, offering new opportunities for fine-grained content manipulation in discrete spaces.},
-  arxiv={2410.08207}
-}
-
-
-@inproceedings{phung2024dimsum,
-  title={DiMSUM: Diffusion Mamba - A Scalable and Unified Spatial-Frequency Method for Image Generation},
-  author={Phung*, Hao and Dao*, Quan and Dao, Trung and Phan, Hoang and Metaxas, Dimitris and Tran, Anh},
-  booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
-  preview={dimsum.png},
-  year= {2024},
-  selected  = {true},
-  bibtex_show={true},
-  abstract={We introduce a novel state-space architecture for diffusion models, effectively harnessing spatial and frequency information to enhance the inductive bias towards local features in input images for image generation tasks. While state-space networks, including Mamba, a revolutionary advancement in recurrent neural networks, typically scan input sequences from left to right, they face difficulties in designing effective scanning strategies, especially in the processing of image data. Our method demonstrates that integrating wavelet transformation into Mamba enhances the local structure awareness of visual inputs and better captures long-range relations of frequencies by disentangling them into wavelet subbands, representing both low- and high-frequency components. These wavelet-based outputs are then processed and seamlessly fused with the original Mamba outputs through a cross-attention fusion layer, combining both spatial and frequency information to optimize the order awareness of state-space models which is essential for the details and overall quality of image generation. Besides, we introduce a globally-shared transformer to supercharge the performance of Mamba, harnessing its exceptional power to capture global relationships. Through extensive experiments on standard benchmarks, our method demonstrates superior results compared to DiT and DIFFUSSM, achieving faster training convergence and delivering high-quality outputs.},
-  arxiv={2411.04168v4}
+  bibtex_show = {true},
+  abstract  = {Consistency models are a new family of generative models capable of producing high-quality samples in either a single step or multiple steps. Recently, consistency models have demonstrated impressive performance, achieving results on par with diffusion models in the pixel space. However, the success of scaling consistency training to large-scale datasets, particularly for text-to-image and video generation tasks, is determined by performance in the latent space. In this work, we analyze the statistical differences between pixel and latent spaces, discovering that latent data often contains highly impulsive outliers, which significantly degrade the performance of iCT in the latent space. To address this, we replace Pseudo-Huber losses with Cauchy losses, effectively mitigating the impact of outliers. Additionally, we introduce a diffusion loss at early timesteps and employ optimal transport (OT) coupling to further enhance performance. Lastly, we introduce the adaptive scaling-c scheduler to manage the robust training process and adopt Non-scaling LayerNorm in the architecture to better capture the statistics of the features and reduce outlier impact. With these strategies, we successfully train latent consistency models capable of high-quality sampling with one or two steps, significantly narrowing the performance gap between latent consistency and diffusion models.},
+  arxiv     = {2502.01441},
+  code      = {https://github.com/quandao10/sLCT}
 }
 
 @inproceedings{dao2024self,
-  title={Self-Corrected Flow Distillation for Consistent One-Step and Few-Step Text-to-Image Generation},
-  author={Dao*, Quan and Phung*, Hao and Dao, Trung and Metaxas, Dimitris and Tran, Anh},
-  booktitle={Association for the Advancement of Artificial Intelligence},
+  abbr      = {AAAI},
+  title     = {Self-Corrected Flow Distillation for Consistent One-Step and Few-Step Image Generation},
+  author    = {Dao*, Quan and Phung*, Hao and Dao, Trung and Metaxas, Dimitris and Tran, Anh},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)},
+  year      = {2025},
+  preview   = {SCflow.png},
   selected  = {true},
-  preview={SCflow.png},
-  year={2025},
-  bibtex_show={true},
-  abstract={Flow matching has emerged as a promising framework for training generative models, demonstrating impressive empirical performance while offering relative ease of training compared to diffusion-based models. However, this method still requires numerous function evaluations in the sampling process. To address these limitations, we introduce a self-corrected flow distillation method that effectively integrates consistency models and adversarial training within the flow-matching framework. This work is a pioneer in achieving consistent generation quality in both few-step and one-step sampling. Our extensive experiments validate the effectiveness of our method, yielding superior results both quantitatively and qualitatively on CelebA-HQ and zero-shot benchmarks on the COCO dataset.},
-  arxiv={2412.16906},
+  bibtex_show = {true},
+  abstract  = {Flow matching has emerged as a promising framework for training generative models, demonstrating impressive empirical performance while offering relative ease of training compared to diffusion-based models. However, this method still requires numerous function evaluations in the sampling process. To address these limitations, we introduce a self-corrected flow distillation method that effectively integrates consistency models and adversarial training within the flow-matching framework. This work is a pioneer in achieving consistent generation quality in both few-step and one-step sampling. Our extensive experiments validate the effectiveness of our method, yielding superior results both quantitatively and qualitatively on CelebA-HQ and zero-shot benchmarks on the COCO dataset.},
+  arxiv     = {2412.16906}
+}
+
+@inproceedings{phung2024dimsum,
+  abbr      = {NeurIPS},
+  title     = {DiMSUM: Diffusion Mamba - A Scalable and Unified Spatial-Frequency Method for Image Generation},
+  author    = {Phung*, Hao and Dao*, Quan and Dao, Trung and Phan, Hoang and Metaxas, Dimitris and Tran, Anh},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2024},
+  preview   = {dimsum.png},
+  selected  = {true},
+  bibtex_show = {true},
+  abstract  = {We introduce a novel state-space architecture for diffusion models, effectively harnessing spatial and frequency information to enhance the inductive bias towards local features in input images for image generation tasks. While state-space networks, including Mamba, a revolutionary advancement in recurrent neural networks, typically scan input sequences from left to right, they face difficulties in designing effective scanning strategies, especially in the processing of image data. Our method demonstrates that integrating wavelet transformation into Mamba enhances the local structure awareness of visual inputs and better captures long-range relations of frequencies by disentangling them into wavelet subbands, representing both low- and high-frequency components. These wavelet-based outputs are then processed and seamlessly fused with the original Mamba outputs through a cross-attention fusion layer, combining both spatial and frequency information to optimize the order awareness of state-space models which is essential for the details and overall quality of image generation. Besides, we introduce a globally-shared transformer to supercharge the performance of Mamba, harnessing its exceptional power to capture global relationships. Through extensive experiments on standard benchmarks, our method demonstrates superior results compared to DiT and DIFFUSSM, achieving faster training convergence and delivering high-quality outputs.},
+  arxiv     = {2411.04168},
+  code      = {https://github.com/VinAIResearch/DiMSUM}
 }
 
 @inproceedings{dao2025high,
-  title={A High-Quality Robust Diffusion Framework for Corrupted Dataset},
-  author={Dao*, Quan and Ta*, Binh and Pham, Tung and Tran, Anh},
-  booktitle={European Conference on Computer Vision},
-  pages={107--123},
-  year={2024},
+  abbr      = {ECCV},
+  title     = {A High-Quality Robust Diffusion Framework for Corrupted Dataset},
+  author    = {Dao*, Quan and Ta*, Binh and Pham, Tung and Tran, Anh},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  pages     = {107--123},
+  year      = {2024},
+  organization = {Springer},
+  preview   = {rduot.png},
+  bibtex_show = {true},
+  abstract  = {Developing image-generative models, which are robust to outliers in the training process, has recently drawn attention from the research community. Due to the ease of integrating unbalanced optimal transport (UOT) into adversarial framework, existing works focus mainly on developing robust frameworks for generative adversarial model (GAN). Meanwhile, diffusion models have recently dominated GAN in various tasks and datasets. However, according to our knowledge, none of them are robust to corrupted datasets. Motivated by DDGAN, our work introduces the first robust-to-outlier diffusion. We suggest replacing the UOT-based generative model for GAN in DDGAN to learn the backward diffusion process. Additionally, we demonstrate that the Lipschitz property of divergence in our framework contributes to more stable training convergence. Remarkably, our method not only exhibits robustness to corrupted datasets but also achieves superior performance on clean datasets.},
+  arxiv     = {2311.17101},
+  code      = {https://github.com/VinAIResearch/RDUOT}
+}
+
+@inproceedings{van2023anti,
+  abbr      = {ICCV},
+  title     = {Anti-DreamBooth: Protecting Users from Personalized Text-to-Image Synthesis},
+  author    = {Van Le*, Thanh and Phung*, Hao and Nguyen*, Thuan Hoang and Dao*, Quan and Tran, Ngoc and Tran, Anh},
+  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+  year      = {2023},
+  preview   = {anti.png},
+  bibtex_show = {true},
+  abstract  = {Text-to-image diffusion models are nothing but a revolution, allowing anyone, even without design skills, to create realistic images from simple text inputs. With powerful personalization tools like DreamBooth, they can generate images of a specific person just by learning from his/her few reference images. However, when misused, such a powerful and convenient tool can produce fake news or disturbing content targeting any individual victim, posing a severe negative social impact. In this paper, we explore a defense system called Anti-DreamBooth against such malicious use of DreamBooth. The system aims to add subtle noise perturbation to each user's image before publishing in order to disrupt the generation quality of any DreamBooth model trained on these perturbed images. We investigate a wide range of algorithms for perturbation optimization and extensively evaluate them on two facial datasets over various text-to-image model versions. Despite the complicated formulation of DreamBooth and Diffusion-based text-to-image models, our methods effectively defend users from the malicious use of those models. Their effectiveness withstands even adverse conditions, such as model or prompt/term mismatching between training and testing.},
+  arxiv     = {2303.15433},
+  code      = {https://github.com/VinAIResearch/Anti-DreamBooth}
+}
+
+@inproceedings{Phung_2023_CVPR,
+  abbr      = {CVPR},
+  title     = {Wavelet Diffusion Models Are Fast and Scalable Image Generators},
+  author    = {Phung*, Hao and Dao*, Quan and Tran, Anh},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2023},
+  pages     = {10199--10208},
+  preview   = {single_wavelet.png},
   selected  = {true},
-  preview={rduot.png},
-  organization={Springer},
-  bibtex_show={true},
-  abstract={Developing image-generative models, which are robust to outliers in the training process, has recently drawn attention from the research community. Due to the ease of integrating unbalanced optimal transport (UOT) into adversarial framework, existing works focus mainly on developing robust frameworks for generative adversarial model (GAN). Meanwhile, diffusion models have recently dominated GAN in various tasks and datasets. However, according to our knowledge, none of them are robust to corrupted datasets. Motivated by DDGAN, our work introduces the first robust-to-outlier diffusion. We suggest replacing the UOT-based generative model for GAN in DDGAN to learn the backward diffusion process. Additionally, we demonstrate that the Lipschitz property of divergence in our framework contributes to more stable training convergence. Remarkably, our method not only exhibits robustness to corrupted datasets but also achieves superior performance on clean datasets.},
-  arxiv={2311.17101},
+  bibtex_show = {true},
+  abstract  = {Diffusion models are rising as a powerful solution for high-fidelity image generation, which exceeds GANs in quality in many circumstances. However, their slow training and inference speed is a huge bottleneck, blocking them from being used in real-time applications. A recent DiffusionGAN method significantly decreases the models' running time by reducing the number of sampling steps from thousands to several, but their speeds still largely lag behind the GAN counterparts. This paper aims to reduce the speed gap by proposing a novel wavelet-based diffusion scheme. We extract low-and-high frequency components from both image and feature levels via wavelet decomposition and adaptively handle these components for faster processing while maintaining good generation quality. Furthermore, we propose to use a reconstruction term, which effectively boosts the model training convergence. Experimental results on CelebA-HQ, CIFAR-10, LSUN-Church, and STL-10 datasets prove our solution is a stepping-stone to offering real-time and high-fidelity diffusion models.},
+  arxiv     = {2211.16152},
+  code      = {https://github.com/VinAIResearch/WaveDiff}
 }
 
 @article{dao2023flow,
-  title={Flow Matching in Latent Space},
-  author={Dao*, Quan and Phung*, Hao and Nguyen, Binh and Tran, Anh},
-  journal={arXiv preprint arXiv:2307.08698},
-  year={2023},
-  selected  = {true},
-  preview={flow.png},
-  bibtex_show={true},
-  abstract={Flow matching is a recent framework to train generative models that exhibits impressive empirical performance while being relatively easier to train compared with diffusion-based models. Despite its advantageous properties, prior methods still face the challenges of expensive computing and a large number of function evaluations of off-the-shelf solvers in the pixel space. Furthermore, although latent-based generative methods have shown great success in recent years, this particular model type remains underexplored in this area. In this work, we propose to apply flow matching in the latent spaces of pretrained autoencoders, which offers improved computational efficiency and scalability for high-resolution image synthesis. This enables flow-matching training on constrained computational resources while maintaining their quality and flexibility. Additionally, our work stands as a pioneering contribution in the integration of various conditions into flow matching for conditional generation tasks, including label-conditioned image generation, image inpainting, and semantic-to-image generation. Through extensive experiments, our approach demonstrates its effectiveness in both quantitative and qualitative results on various datasets, such as CelebA-HQ, FFHQ, LSUN Church & Bedroom, and ImageNet. We also provide a theoretical control of the Wasserstein-2 distance between the reconstructed latent flow distribution and true data distribution, showing it is upper-bounded by the latent flow matching objective.},
-  arxiv={2307.08698v1},
-}
-
-@InProceedings{van2023anti,
-  abbr      = {ICCV},
-  title={Anti-DreamBooth: Protecting users from personalized text-to-image synthesis},
-  author={Van Le*, Thanh and Phung*, Hao and Nguyen*, Thuan Hoang and Dao*, Quan and Tran, Ngoc and Tran, Anh},
-  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  month     = {October},
+  abbr      = {arXiv},
+  title     = {Flow Matching in Latent Space},
+  author    = {Dao*, Quan and Phung*, Hao and Nguyen, Binh and Tran, Anh},
+  journal   = {arXiv preprint arXiv:2307.08698},
   year      = {2023},
-  selected  = {true},
-  bibtex_show={true},
-  preview={anti.png},
-  abstract={Text-to-image diffusion models are nothing but a revolution, allowing anyone, even without design skills, to create realistic images from simple text inputs. With powerful personalization tools like DreamBooth, they can generate images of a specific person just by learning from his/her few reference images. However, when misused, such a powerful and convenient tool can produce fake news or disturbing content targeting any individual victim, posing a severe negative social impact. In this paper, we explore a defense system called Anti-DreamBooth against such malicious use of DreamBooth. The system aims to add subtle noise perturbation to each user's image before publishing in order to disrupt the generation quality of any DreamBooth model trained on these perturbed images. We investigate a wide range of algorithms for perturbation optimization and extensively evaluate them on two facial datasets over various text-to-image model versions. Despite the complicated formulation of DreamBooth and Diffusion-based text-to-image models, our methods effectively defend users from the malicious use of those models. Their effectiveness withstands even adverse conditions, such as model or prompt/term mismatching between training and testing.},
-  arxiv={2303.15433},
-}
-
-
-@InProceedings{Phung_2023_CVPR,
-    abbr      = {CVPR},
-    author    = {Phung*, Hao and Dao*, Quan and Tran, Anh},
-    title     = {Wavelet Diffusion Models Are Fast and Scalable Image Generators},
-    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    month     = {June},
-    year      = {2023},
-    pages     = {10199-10208},
-    selected  = {true},
-    bibtex_show={true},
-    preview={single_wavelet.png},
-    url = {https://openaccess.thecvf.com/content/CVPR2023/papers/Phung_Wavelet_Diffusion_Models_Are_Fast_and_Scalable_Image_Generators_CVPR_2023_paper.pdf},
-    abstract={Diffusion models are rising as a powerful solution for high-fidelity image generation, which exceeds GANs in quality in many circumstances. However, their slow training and inference speed is a huge bottleneck, blocking them from being used in real-time applications. A recent DiffusionGAN method significantly decreases the models' running time by reducing the number of sampling steps from thousands to several, but their speeds still largely lag behind the GAN counterparts. This paper aims to reduce the speed gap by proposing a novel wavelet-based diffusion scheme. We extract low-and-high frequency components from both image and feature levels via wavelet decomposition and adaptively handle these components for faster processing while maintaining good generation quality. Furthermore, we propose to use a reconstruction term, which effectively boosts the model training convergence. Experimental results on CelebA-HQ, CIFAR-10, LSUN-Church, and STL-10 datasets prove our solution is a stepping-stone to offering real-time and high-fidelity diffusion models.},
-    arxiv={2211.16152},
+  preview   = {flow.png},
+  bibtex_show = {true},
+  abstract  = {Flow matching is a recent framework to train generative models that exhibits impressive empirical performance while being relatively easier to train compared with diffusion-based models. Despite its advantageous properties, prior methods still face the challenges of expensive computing and a large number of function evaluations of off-the-shelf solvers in the pixel space. Furthermore, although latent-based generative methods have shown great success in recent years, this particular model type remains underexplored in this area. In this work, we propose to apply flow matching in the latent spaces of pretrained autoencoders, which offers improved computational efficiency and scalability for high-resolution image synthesis. This enables flow-matching training on constrained computational resources while maintaining their quality and flexibility. Additionally, our work stands as a pioneering contribution in the integration of various conditions into flow matching for conditional generation tasks, including label-conditioned image generation, image inpainting, and semantic-to-image generation. Through extensive experiments, our approach demonstrates its effectiveness in both quantitative and qualitative results on various datasets, such as CelebA-HQ, FFHQ, LSUN Church & Bedroom, and ImageNet. We also provide a theoretical control of the Wasserstein-2 distance between the reconstructed latent flow distribution and true data distribution, showing it is upper-bounded by the latent flow matching objective.},
+  arxiv     = {2307.08698},
+  code      = {https://github.com/VinAIResearch/LFM}
 }
