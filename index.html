@@ -12,9 +12,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Quan Dao</title>
     <meta name="author" content="Quan  Dao">
-    <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+    <meta name="description" content="Quan Dao is a Ph.D. student in Computer Science at Rutgers University working on efficient generative modeling, including diffusion and flow-based models.
 ">
-    <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
+    <meta name="keywords" content="Quan Dao, diffusion models, flow matching, generative models, efficient generative modeling, Rutgers">
 
 
     <!-- Bootstrap & MDB -->
@@ -27,7 +27,7 @@
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Source+Serif+4:wght@400;600&amp;display=swap">
 
     <!-- Code Syntax Highlighting -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/github.css" media="" id="highlight_theme_light">
@@ -36,7 +36,7 @@
 
     <!-- Styles -->
     
-    <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
+    <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%8C%80&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="canonical" href="https://quandao10.github.io/">
@@ -52,7 +52,7 @@
   </head>
 
   <!-- Body -->
-  <body class="fixed-top-nav ">
+  <body class="fixed-top-nav sticky-bottom-footer">
 
     <!-- Header -->
     <header>
@@ -74,20 +74,16 @@
 
               <!-- About -->
               <li class="nav-item active">
-                <a class="nav-link" href="/">About Me<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">About<span class="sr-only">(current)</span></a>
               </li>
               
-              <!-- Blog -->
-              <li class="nav-item ">
-                <a class="nav-link" href="/blog/">Blogs</a>
-              </li>
 
               <!-- Other pages -->
               <li class="nav-item ">
                 <a class="nav-link" href="/publications/">Publications</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" href="/resume/">Resume</a>
+                <a class="nav-link" href="/resume/">CV</a>
               </li>
 
               <!-- Toogle theme mode -->
@@ -120,10 +116,10 @@
           <h1 class="post-title">
            Quan Dao
           </h1>
-          <p class="desc">CS PhD student</p>
+          <p class="desc">Ph.D. Student in Computer Science · <a href="https://www.rutgers.edu/" rel="external nofollow noopener" target="_blank">Rutgers University</a></p>
         </header>
 
-        <article>
+        <article class="about">
           <div class="profile float-right">
 
               <figure>
@@ -142,87 +138,89 @@
 
 </figure>
 
+            <div class="address">
+              <p><i class="fas fa-envelope"></i>  kevinquandao10 [at] gmail.com</p> <p><i class="fas fa-university"></i>  Rutgers University, NJ</p>
+
+            </div>
           </div>
 
           <div class="clearfix">
-            <p>I am 3rd year PhD student at Rutgers University under supervision of <a href="https://scholar.google.com/citations?user=a7VNhCIAAAAJ&amp;hl=en" rel="external nofollow noopener" target="_blank">Distinguished Prof. Dimitris Metaxas</a>. My research focuses on generative models, specifically diffusion models and autoregressive models, with a primary emphasis on fundamental research. For diffusion models, I concentrate on developing efficient and robust training methodologies. During my PhD, I was very lucky to do internship in Apple MLR. Previously, I was a Research Resident under the supervision of <a href="https://scholar.google.com/citations?user=FYZ5ODQAAAAJ&amp;hl=en" rel="external nofollow noopener" target="_blank">Dr. Tuan Anh Tran</a> at <a href="https://www.vinai.io/" rel="external nofollow noopener" target="_blank">QualcommAI Research, Vietnam</a> (which was VinAI research) and spent 2 wonderful years there. I received a bachelor degree in computer science from Monash University in 2020.</p>
+            <p>I am a Ph.D. student in Computer Science at Rutgers University, advised by <a href="https://scholar.google.com/citations?user=a7VNhCIAAAAJ&amp;hl=en" rel="external nofollow noopener" target="_blank">Distinguished Professor Dimitris Metaxas</a>. My research is on <strong>efficient generative modeling</strong>, mainly <strong>diffusion and flow-based models</strong>. I work on learning principles, training methods, and architectures that make these models more scalable and improve their sample quality while lowering the cost of training and inference. My central goal is high-quality generation with minimal compute and only a few function evaluations (NFEs).</p>
 
-<hr>
+<p>During my Ph.D., I have been a research intern at <strong>Adobe Research</strong> (2026), developing perceiver transformers for pixel-space video diffusion, and at <strong>Apple Machine Learning Research</strong> (2025), training image diffusion models efficiently in the DCT frequency domain. Before Rutgers, I spent two years as a Research Resident at <a href="https://www.vinai.io/" rel="external nofollow noopener" target="_blank">Qualcomm AI Research Vietnam</a> (formerly VinAI Research), working with <a href="https://scholar.google.com/citations?user=FYZ5ODQAAAAJ&amp;hl=en" rel="external nofollow noopener" target="_blank">Dr. Anh Tran</a>. I received my B.Sc. in Computer Science from Monash University.</p>
+
+<p>My work has been published at CVPR, ICCV, ECCV, NeurIPS, ICLR, AAAI, and WACV.</p>
+
+<div class="research-tags">
+  <span>Diffusion &amp; Flow Matching</span>
+  <span>Efficient Architectures</span>
+  <span>Few-Step Distillation</span>
+  <span>Consistency Models</span>
+  <span>Image &amp; Video Generation</span>
+  <span>Generative Editing</span>
+</div>
 
           </div>
 
           <!-- News -->
-          <h2><a href="/news/" style="color: inherit;">news</a></h2>          <div class="news">
-            <div class="table-responsive" style="max-height: 60vw">
+          <h2 class="section-title">News <a class="section-more" href="/news/">all news →</a>
+</h2>          <div class="news">
+            <div class="table-responsive">
               <table class="table table-sm table-borderless">
               
                 <tr>
+                  <th scope="row">Sep 25, 2026</th>
+                  <td>
+                    Two papers are accepted to <strong>NeurIPS 2026</strong>: <strong>FlashControl</strong>, a one-step controllable generator distilled from single-stream teachers, and <strong>Deltafugue</strong>, on algorithmic length generalization.
+
+                  </td>
+                </tr>
+                <tr>
                   <th scope="row">Jul 20, 2026</th>
                   <td>
-                    <img class="emoji" title=":zap:" alt=":zap:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png" height="20" width="20"> 3 papers accepted in ECCV.
+                    Three papers are accepted to <strong>ECCV 2026</strong>: <a href="https://arxiv.org/abs/2509.01984" rel="external nofollow noopener" target="_blank">VARIN</a> (noise inversion for visual autoregressive editing), <a href="https://arxiv.org/abs/2606.32020" rel="external nofollow noopener" target="_blank">Cross-Space Distillation</a>, and <a href="https://arxiv.org/abs/2607.22931" rel="external nofollow noopener" target="_blank">Spectral-Aware Analytic Class-Incremental Learning</a>.
+
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Jun 1, 2026</th>
+                  <td>
+                    Started a research internship at <strong>Adobe Research</strong>, working on perceiver transformers for pixel-space video diffusion.
 
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">Feb 20, 2026</th>
                   <td>
-                    <img class="emoji" title=":zap:" alt=":zap:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png" height="20" width="20"> 2 papers accepted in CVPR: <a href="https://arxiv.org/abs/2603.26357" rel="external nofollow noopener" target="_blank">MPDIT</a> and <a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Tran_An_Optimal_Transport-driven_Approach_for_Cultivating_Latent_Space_in_Online_CVPR_2026_paper.pdf" rel="external nofollow noopener" target="_blank">OTC</a>
+                    Two papers are accepted to <strong>CVPR 2026</strong>: <a href="https://arxiv.org/abs/2603.26357" rel="external nofollow noopener" target="_blank">MPDiT</a>, a multi-patch global-to-local transformer for efficient diffusion and flow matching, and <a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Tran_An_Optimal_Transport-driven_Approach_for_Cultivating_Latent_Space_in_Online_CVPR_2026_paper.pdf" rel="external nofollow noopener" target="_blank">an optimal-transport approach to online incremental learning</a>.
+
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Nov 1, 2025</th>
+                  <td>
+                    <a href="https://arxiv.org/abs/2410.08207" rel="external nofollow noopener" target="_blank">DICE</a> is accepted to <strong>WACV 2026</strong>. It is the first method for precise inversion and controllable editing in discrete diffusion and masked generative models.
 
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">Sep 28, 2025</th>
                   <td>
-                    <img class="emoji" title=":zap:" alt=":zap:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png" height="20" width="20"> <a href="https://arxiv.org/abs/2509.15031" rel="external nofollow noopener" target="_blank">AutoEdit</a> got accepted at NeurIPS 2025. This paper proposes RL-based method to select hyperparameters for diffusion editing technique
+                    <a href="https://arxiv.org/abs/2509.15031" rel="external nofollow noopener" target="_blank">AutoEdit</a> is accepted to <strong>NeurIPS 2025</strong>. It uses reinforcement learning to tune the hyperparameters of diffusion-based image editing automatically.
 
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row">Feb 28, 2025</th>
+                  <th scope="row">Jun 1, 2025</th>
                   <td>
-                    <img class="emoji" title=":zap:" alt=":zap:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png" height="20" width="20"> <a href="https://arxiv.org/abs/2410.08207" rel="external nofollow noopener" target="_blank">DICE</a> got accepted at CVPR 2025. This paper proposes editing technique for discrete diffusion model)
+                    Started a research internship at <strong>Apple Machine Learning Research</strong>, working on efficient diffusion training in the DCT frequency domain.
 
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">Jan 22, 2025</th>
                   <td>
-                    <img class="emoji" title=":zap:" alt=":zap:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png" height="20" width="20"> <a href="https://openreview.net/forum?id=PQjZes6vFV" rel="external nofollow noopener" target="_blank">Improved Latent Consistency Model</a> got accepted at ICLR 2025. This paper proposes series of novel techniques like Cauchy loss, OT coupling, adaptive robust scale scheduler and diff loss at early timestep to efficiently train latent consistency model from scatch. Our technique bridges the performance gap between LDM and LCM training. (this is the first work discovering the unstability of consistency model on latent space due to impulsive outlier.)
-
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Dec 10, 2024</th>
-                  <td>
-                    <img class="emoji" title=":zap:" alt=":zap:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png" height="20" width="20"> <a href="https://arxiv.org/abs/2412.16906" rel="external nofollow noopener" target="_blank">SCFlow</a> got accepted at AAAI 2025. This is the first work attempting to distill flow matching model into one and few step generation. With SCFlow, we could achieve consistent one and few step generation, which means starting from a noise, no matter how many NFEs is used for sampling, the final generated image is indentical.
-
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Sep 23, 2024</th>
-                  <td>
-                    <img class="emoji" title=":zap:" alt=":zap:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png" height="20" width="20"> Yummy <a href="https://arxiv.org/abs/2411.04168" rel="external nofollow noopener" target="_blank">DimSUM</a> got accepted at NeurIPS 2024. DimSUM proposes novel hybrid transformer-mamba architecture allowing faster convergence training of diffusion/flow matching model and also achieve SoTA image generation.
-
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Jul 21, 2024</th>
-                  <td>
-                    <img class="emoji" title=":zap:" alt=":zap:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png" height="20" width="20"> <a href="https://arxiv.org/abs/2311.17101" rel="external nofollow noopener" target="_blank">RDUOT</a> got accepted at ECCV 2024. This paper combines UOT generative framework with diffusion noising to allow train fast-converged and robust generative framework.
-
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Jul 13, 2023</th>
-                  <td>
-                    <img class="emoji" title=":zap:" alt=":zap:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png" height="20" width="20"> <a href="https://arxiv.org/abs/2303.15433" rel="external nofollow noopener" target="_blank">Antidreambooth</a> got accepted at ICCV 2023. AntiDreambooth adds small undistinguished noise to your images to break the malicous explotation of Dreambooth on your images.
-
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Feb 26, 2023</th>
-                  <td>
-                    <img class="emoji" title=":zap:" alt=":zap:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png" height="20" width="20"> My first paper <a href="https://arxiv.org/abs/2211.16152" rel="external nofollow noopener" target="_blank">Wavediff</a> got accepted at CVPR 2023. Wavediff proposes the frequency-aware Unet architecture allowing fast converence training  for DiffusionGAN framework.
+                    <a href="https://openreview.net/forum?id=PQjZes6vFV" rel="external nofollow noopener" target="_blank">Improved Training Technique for Latent Consistency Models</a> is accepted to <strong>ICLR 2025</strong>. We identify impulsive outliers in latent space as the main cause of unstable consistency training, and address them with a Cauchy loss, OT coupling, and an adaptive robust scale scheduler.
 
                   </td>
                 </tr>
@@ -234,13 +232,85 @@
           
 
           <!-- Selected papers -->
-          <h2><a href="/publications/" style="color: inherit;">selected publications</a></h2>
+          <h2 class="section-title">Selected Publications <a class="section-more" href="/publications/">full list →</a>
+</h2>
+            <p class="section-note">* denotes equal contribution</p>
           <div class="publications">
             <ol class="bibliography">
 <li>
 <!-- _layouts/bib.html -->
-      <div class="row">
-        <div class="col-sm-2 preview">
+      <div class="row pub-entry">
+        <div class="col-sm-3 pub-thumb">
+<figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/publication_preview/varin-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/publication_preview/varin-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/publication_preview/varin-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/publication_preview/varin.png" class="preview rounded" width="auto" height="auto" alt="Discrete Noise Inversion for Visual Autoregressive Text-based Image Editing" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+<abbr class="venue venue-overlay">ECCV 2026</abbr>
+</div>
+
+        <!-- Entry bib key -->
+        <div id="dao2026varin" class="col-sm-9 pub-body">
+        <!-- Title -->
+        <div class="title">Discrete Noise Inversion for Visual Autoregressive Text-based Image Editing</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        <em>Quan Dao*</em>, Xiaoxiao He*, Ligong Han, Ngan Nguyen, Amin Heyrani Nobari, Han Zhang, Faez Ahmed, Viet Anh Nguyen, and Dimitris Metaxas</div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em>In European Conference on Computer Vision (ECCV)</em>, 2026
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+            <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
+            <a href="https://arxiv.org/abs/2509.01984" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
+            <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          <!-- Hidden abstract block -->
+          <div class="abstract hidden">
+            <p>Visual autoregressive models (VAR) have recently emerged as a promising class of generative models, achieving performance comparable to diffusion models in text-to-image generation tasks. While conditional generation has been widely explored, the ability to perform prompt-guided image editing without additional training is equally critical, as it supports numerous practical real-world applications. This paper investigates the text-to-image editing capabilities of VAR by introducing Visual AutoRegressive Inverse Noise (VARIN), the first noise inversion-based editing technique designed explicitly for VAR models. VARIN leverages a novel pseudo-inverse function for argmax sampling, named Location-aware Argmax Inversion (LAI), to generate inverse Gumbel noises. These inverse noises enable precise reconstruction of the source image and facilitate targeted, controllable edits aligned with textual prompts. Extensive experiments demonstrate that VARIN effectively modifies source images according to specified prompts while significantly preserving the original background and structural details, thus validating its efficacy as a practical editing approach.</p>
+          </div>
+<!-- Hidden bibtex block -->
+          <div class="bibtex hidden">
+            <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">dao2026varin</span><span class="p">,</span>
+  <span class="na">title</span> <span class="p">=</span> <span class="s">{Discrete Noise Inversion for Visual Autoregressive Text-based Image Editing}</span><span class="p">,</span>
+  <span class="na">author</span> <span class="p">=</span> <span class="s">{Dao*, Quan and He*, Xiaoxiao and Han, Ligong and Nguyen, Ngan and Nobari, Amin Heyrani and Zhang, Han and Ahmed, Faez and Nguyen, Viet Anh and Metaxas, Dimitris}</span><span class="p">,</span>
+  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{European Conference on Computer Vision (ECCV)}</span><span class="p">,</span>
+  <span class="na">year</span> <span class="p">=</span> <span class="s">{2026}</span><span class="p">,</span>
+<span class="p">}</span></code></pre></figure>
+          </div>
+        </div>
+      </div>
+</li>
+<li>
+<!-- _layouts/bib.html -->
+      <div class="row pub-entry">
+        <div class="col-sm-3 pub-thumb">
 <figure>
 
   <picture>
@@ -251,28 +321,29 @@
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/publication_preview/mpdit.png" class="preview z-depth-1 rounded" width="auto" height="auto" alt="mpdit.png" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/publication_preview/mpdit.png" class="preview rounded" width="auto" height="auto" alt="MPDiT: Multi-Patch Global-to-Local Transformer Architecture For Efficient Flow Matching and Diffusion Model" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
 </figure>
+<abbr class="venue venue-overlay">CVPR 2026</abbr>
 </div>
 
         <!-- Entry bib key -->
-        <div id="Dao_2026_CVPR" class="col-sm-8">
+        <div id="Dao_2026_CVPR" class="col-sm-9 pub-body">
         <!-- Title -->
-        <div class="title">Multi-Patch Global-to-Local Transformer Architecture For Efficient Flow Matching and Diffusion Model</div>
+        <div class="title">MPDiT: Multi-Patch Global-to-Local Transformer Architecture For Efficient Flow Matching and Diffusion Model</div>
         <!-- Author -->
         <div class="author">
         
 
-        Quan Dao, and Dimitris Metaxas</div>
+        <em>Quan Dao</em>, and Dimitris Metaxas</div>
 
         <!-- Journal/Book title and date -->
         
         
         <div class="periodical">
-          <em>In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, Jun 2026
+          <em>In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 2026
         </div>
         <div class="periodical">
           
@@ -281,8 +352,9 @@
           <!-- Links/Buttons -->
           <div class="links">
             <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-            <a href="http://arxiv.org/abs/2603.26357" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
+            <a href="https://arxiv.org/abs/2603.26357" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
             <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
+            <a href="https://github.com/quandao10/MPDiT" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Code</a>
           </div>
           
           <div class="badges">
@@ -297,12 +369,11 @@
 <!-- Hidden bibtex block -->
           <div class="bibtex hidden">
             <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">Dao_2026_CVPR</span><span class="p">,</span>
+  <span class="na">title</span> <span class="p">=</span> <span class="s">{MPDiT: Multi-Patch Global-to-Local Transformer Architecture For Efficient Flow Matching and Diffusion Model}</span><span class="p">,</span>
   <span class="na">author</span> <span class="p">=</span> <span class="s">{Dao, Quan and Metaxas, Dimitris}</span><span class="p">,</span>
-  <span class="na">title</span> <span class="p">=</span> <span class="s">{Multi-Patch Global-to-Local Transformer Architecture For Efficient Flow Matching and Diffusion Model}</span><span class="p">,</span>
   <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}</span><span class="p">,</span>
-  <span class="na">month</span> <span class="p">=</span> <span class="nv">jun</span><span class="p">,</span>
   <span class="na">year</span> <span class="p">=</span> <span class="s">{2026}</span><span class="p">,</span>
-  <span class="na">pages</span> <span class="p">=</span> <span class="s">{33000-33011}</span><span class="p">,</span>
+  <span class="na">pages</span> <span class="p">=</span> <span class="s">{33000--33011}</span><span class="p">,</span>
 <span class="p">}</span></code></pre></figure>
           </div>
         </div>
@@ -310,216 +381,8 @@
 </li>
 <li>
 <!-- _layouts/bib.html -->
-      <div class="row">
-        <div class="col-sm-2 preview">
-<figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/publication_preview/autoedit-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/publication_preview/autoedit-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/publication_preview/autoedit-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/publication_preview/autoedit.png" class="preview z-depth-1 rounded" width="auto" height="auto" alt="autoedit.png" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-</div>
-
-        <!-- Entry bib key -->
-        <div id="pham2025autoedit" class="col-sm-8">
-        <!-- Title -->
-        <div class="title">AutoEdit: Automatic Hyperparameter Tuning for Image Editing</div>
-        <!-- Author -->
-        <div class="author">
-        
-
-        Chau Pham, Quan Dao, Mahesh Bhosale, Yunjie Tian, Dimitris Metaxas, and David Doermann</div>
-
-        <!-- Journal/Book title and date -->
-        
-        
-        <div class="periodical">
-          <em>In The Thirty-nine Annual Conference on Neural Information Processing Systems</em>, Jun 2025
-        </div>
-        <div class="periodical">
-          
-        </div>
-
-          <!-- Links/Buttons -->
-          <div class="links">
-            <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-            <a href="http://arxiv.org/abs/2509.15031" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
-            <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
-          </div>
-          
-          <div class="badges">
-            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
-              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
-          </div>
-
-          <!-- Hidden abstract block -->
-          <div class="abstract hidden">
-            <p>Recent advances in diffusion models have revolutionized text-guided image editing, yet existing editing methods face critical challenges in hyperparameter identification. To get the reasonable editing performance, these methods often require the user to brute-force tune multiple interdependent hyperparameters, such as inversion timesteps and attention modification, \textitetc. This process incurs high computational costs due to the huge hyperparameter search space. We consider searching optimal editing’s hyperparameters as a sequential decision-making task within the diffusion denoising process. Specifically, we propose a reinforcement learning framework, which establishes a Markov Decision Process that dynamically adjusts hyperparameters across denoising steps, integrating editing objectives into a reward function. The method achieves time efficiency through proximal policy optimization while maintaining optimal hyperparameter configurations. Experiments demonstrate significant reduction in search time and computational overhead compared to existing brute-force approaches, advancing the practical deployment of a diffusion-based image editing framework in the real world.</p>
-          </div>
-<!-- Hidden bibtex block -->
-          <div class="bibtex hidden">
-            <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">pham2025autoedit</span><span class="p">,</span>
-  <span class="na">title</span> <span class="p">=</span> <span class="s">{AutoEdit: Automatic Hyperparameter Tuning for Image Editing}</span><span class="p">,</span>
-  <span class="na">author</span> <span class="p">=</span> <span class="s">{Pham, Chau and Dao, Quan and Bhosale, Mahesh and Tian, Yunjie and Metaxas, Dimitris and Doermann, David}</span><span class="p">,</span>
-  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{The Thirty-nine Annual Conference on Neural Information Processing Systems}</span><span class="p">,</span>
-  <span class="na">year</span> <span class="p">=</span> <span class="s">{2025}</span><span class="p">,</span>
-<span class="p">}</span></code></pre></figure>
-          </div>
-        </div>
-      </div>
-</li>
-<li>
-<!-- _layouts/bib.html -->
-      <div class="row">
-        <div class="col-sm-2 preview">
-<figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/publication_preview/varin-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/publication_preview/varin-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/publication_preview/varin-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/publication_preview/varin.png" class="preview z-depth-1 rounded" width="auto" height="auto" alt="varin.png" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-</div>
-
-        <!-- Entry bib key -->
-        <div id="dao2025discrete" class="col-sm-8">
-        <!-- Title -->
-        <div class="title">Discrete Noise Inversion for Next-scale Autoregressive Text-based Image Editing</div>
-        <!-- Author -->
-        <div class="author">
-        
-
-        Quan Dao*, Xiaoxiao He*, Ligong Han, Ngan Hoai Nguyen, Amin Heyrani Nobar, Faez Ahmed, Han Zhang, Viet Anh Nguyen, and Dimitris Metaxas</div>
-
-        <!-- Journal/Book title and date -->
-        
-        
-        <div class="periodical">
-          <em>In European Conference on Computer Vision</em>, Jun 2026
-        </div>
-        <div class="periodical">
-          
-        </div>
-
-          <!-- Links/Buttons -->
-          <div class="links">
-            <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-            <a href="http://arxiv.org/abs/2509.01984" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
-            <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
-          </div>
-          
-          <div class="badges">
-            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
-              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
-          </div>
-
-          <!-- Hidden abstract block -->
-          <div class="abstract hidden">
-            <p>Discrete diffusion models have achieved success in tasks like image generation and masked language modeling but face limitations in controlled content editing. We introduce DICE (Discrete Inversion for Controllable Editing), the first approach to enable precise inversion for discrete diffusion models, including multinomial diffusion and masked generative models. By recording noise sequences and masking patterns during the reverse diffusion process, DICE enables accurate reconstruction and flexible editing of discrete data without the need for predefined masks or attention manipulation. We demonstrate the effectiveness of DICE across both image and text domains, evaluating it on models such as VQ-Diffusion, Paella, and RoBERTa. Our results show that DICE preserves high data fidelity while enhancing editing capabilities, offering new opportunities for fine-grained content manipulation in discrete spaces.</p>
-          </div>
-<!-- Hidden bibtex block -->
-          <div class="bibtex hidden">
-            <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">dao2025discrete</span><span class="p">,</span>
-  <span class="na">title</span> <span class="p">=</span> <span class="s">{Discrete Noise Inversion for Next-scale Autoregressive Text-based Image Editing}</span><span class="p">,</span>
-  <span class="na">author</span> <span class="p">=</span> <span class="s">{Dao*, Quan and He*, Xiaoxiao and Han, Ligong and Nguyen, Ngan Hoai and Nobar, Amin Heyrani and Ahmed, Faez and Zhang, Han and Nguyen, Viet Anh and Metaxas, Dimitris}</span><span class="p">,</span>
-  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{European Conference on Computer Vision}</span><span class="p">,</span>
-  <span class="na">year</span> <span class="p">=</span> <span class="s">{2026}</span><span class="p">,</span>
-<span class="p">}</span></code></pre></figure>
-          </div>
-        </div>
-      </div>
-</li>
-<li>
-<!-- _layouts/bib.html -->
-      <div class="row">
-        <div class="col-sm-2 preview">
-<figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/publication_preview/sLCT-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/publication_preview/sLCT-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/publication_preview/sLCT-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/publication_preview/sLCT.png" class="preview z-depth-1 rounded" width="auto" height="auto" alt="sLCT.png" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-</div>
-
-        <!-- Entry bib key -->
-        <div id="dao2024improvedict" class="col-sm-8">
-        <!-- Title -->
-        <div class="title">Improved Training Technique for Latent Consistency Models</div>
-        <!-- Author -->
-        <div class="author">
-        
-
-        Quan Dao*, Khanh Doan*, Di Liu, Trung Le, and Dimitris Metaxas</div>
-
-        <!-- Journal/Book title and date -->
-        
-        
-        <div class="periodical">
-          <em>In International Conference on Learning Representations</em>, Jun 2025
-        </div>
-        <div class="periodical">
-          
-        </div>
-
-          <!-- Links/Buttons -->
-          <div class="links">
-            <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-            <a href="http://arxiv.org/abs/2502.01441" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
-            <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
-          </div>
-          
-          <div class="badges">
-            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
-              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
-          </div>
-
-          <!-- Hidden abstract block -->
-          <div class="abstract hidden">
-            <p>Consistency models are a new family of generative models capable of producing high-quality samples in either a single step or multiple steps. Recently, consistency models have demonstrated impressive performance, achieving results on par with diffusion models in the pixel space. However, the success of scaling consistency training to large-scale datasets, particularly for text-to-image and video generation tasks, is determined by performance in the latent space. In this work, we analyze the statistical differences between pixel and latent spaces, discovering that latent data often contains highly impulsive outliers, which significantly degrade the performance of iCT in the latent space. To address this, we replace Pseudo-Huber losses with Cauchy losses, effectively mitigating the impact of outliers. Additionally, we introduce a diffusion loss at early timesteps and employ optimal transport (OT) coupling to further enhance performance. Lastly, we introduce the adaptive scaling-c
- scheduler to manage the robust training process and adopt Non-scaling LayerNorm in the architecture to better capture the statistics of the features and reduce outlier impact. With these strategies, we successfully train latent consistency models capable of high-quality sampling with one or two steps, significantly narrowing the performance gap between latent consistency and diffusion models.</p>
-          </div>
-<!-- Hidden bibtex block -->
-          <div class="bibtex hidden">
-            <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">dao2024improvedict</span><span class="p">,</span>
-  <span class="na">title</span> <span class="p">=</span> <span class="s">{Improved Training Technique for Latent Consistency Models}</span><span class="p">,</span>
-  <span class="na">author</span> <span class="p">=</span> <span class="s">{Dao*, Quan and Doan*, Khanh and Liu, Di and Le, Trung and Metaxas, Dimitris}</span><span class="p">,</span>
-  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{International Conference on Learning Representations}</span><span class="p">,</span>
-  <span class="na">year</span> <span class="p">=</span> <span class="s">{2025}</span><span class="p">,</span>
-<span class="p">}</span></code></pre></figure>
-          </div>
-        </div>
-      </div>
-</li>
-<li>
-<!-- _layouts/bib.html -->
-      <div class="row">
-        <div class="col-sm-2 preview">
+      <div class="row pub-entry">
+        <div class="col-sm-3 pub-thumb">
 <figure>
 
   <picture>
@@ -530,22 +393,23 @@
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/publication_preview/dice.png" class="preview z-depth-1 rounded" width="auto" height="auto" alt="dice.png" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/publication_preview/dice.png" class="preview rounded" width="auto" height="auto" alt="DICE: Discrete Inversion Enabling Controllable Editing for Multinomial Diffusion and Masked Generative Models" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
 </figure>
+<abbr class="venue venue-overlay">WACV 2026</abbr>
 </div>
 
         <!-- Entry bib key -->
-        <div id="he2024dice" class="col-sm-8">
+        <div id="he2026dice" class="col-sm-9 pub-body">
         <!-- Title -->
         <div class="title">DICE: Discrete Inversion Enabling Controllable Editing for Multinomial Diffusion and Masked Generative Models</div>
         <!-- Author -->
         <div class="author">
         
 
-        Xiaoxiao He*, Quan Dao*, Ligong Han, Song Wen, Minhao Bai, Di Liu, Han Zhang, Martin Renqiang Min, Felix Juefei-Xu, Chaowei Tan, and
+        Xiaoxiao He*, <em>Quan Dao*</em>, Ligong Han, Song Wen, Minhao Bai, Di Liu, Han Zhang, Martin Renqiang Min, Felix Juefei-Xu, Chaowei Tan, and
           <span class="more-authors" title="click to view 1 more author" onclick="
                 var element = $(this);
                 element.attr('title', '');
@@ -564,7 +428,7 @@
         
         
         <div class="periodical">
-          <em>arXiv preprint arXiv:2410.08207</em>, Jun 2024
+          <em>In IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)</em>, 2026
         </div>
         <div class="periodical">
           
@@ -573,7 +437,7 @@
           <!-- Links/Buttons -->
           <div class="links">
             <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-            <a href="http://arxiv.org/abs/2410.08207" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
+            <a href="https://arxiv.org/abs/2410.08207" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
             <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
           </div>
           
@@ -588,11 +452,11 @@
           </div>
 <!-- Hidden bibtex block -->
           <div class="bibtex hidden">
-            <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@article</span><span class="p">{</span><span class="nl">he2024dice</span><span class="p">,</span>
+            <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">he2026dice</span><span class="p">,</span>
   <span class="na">title</span> <span class="p">=</span> <span class="s">{DICE: Discrete Inversion Enabling Controllable Editing for Multinomial Diffusion and Masked Generative Models}</span><span class="p">,</span>
   <span class="na">author</span> <span class="p">=</span> <span class="s">{He*, Xiaoxiao and Dao*, Quan and Han, Ligong and Wen, Song and Bai, Minhao and Liu, Di and Zhang, Han and Min, Martin Renqiang and Juefei-Xu, Felix and Tan, Chaowei and others}</span><span class="p">,</span>
-  <span class="na">journal</span> <span class="p">=</span> <span class="s">{arXiv preprint arXiv:2410.08207}</span><span class="p">,</span>
-  <span class="na">year</span> <span class="p">=</span> <span class="s">{2024}</span><span class="p">,</span>
+  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)}</span><span class="p">,</span>
+  <span class="na">year</span> <span class="p">=</span> <span class="s">{2026}</span><span class="p">,</span>
 <span class="p">}</span></code></pre></figure>
           </div>
         </div>
@@ -600,8 +464,149 @@
 </li>
 <li>
 <!-- _layouts/bib.html -->
-      <div class="row">
-        <div class="col-sm-2 preview">
+      <div class="row pub-entry">
+        <div class="col-sm-3 pub-thumb">
+<figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/publication_preview/sLCT-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/publication_preview/sLCT-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/publication_preview/sLCT-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/publication_preview/sLCT.png" class="preview rounded" width="auto" height="auto" alt="Improved Training Technique for Latent Consistency Models" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+<abbr class="venue venue-overlay">ICLR 2025</abbr>
+</div>
+
+        <!-- Entry bib key -->
+        <div id="dao2024improvedict" class="col-sm-9 pub-body">
+        <!-- Title -->
+        <div class="title">Improved Training Technique for Latent Consistency Models</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        <em>Quan Dao*</em>, Khanh Doan*, Di Liu, Trung Le, and Dimitris Metaxas</div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em>In International Conference on Learning Representations (ICLR)</em>, 2025
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+            <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
+            <a href="https://arxiv.org/abs/2502.01441" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
+            <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
+            <a href="https://github.com/quandao10/sLCT" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Code</a>
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          <!-- Hidden abstract block -->
+          <div class="abstract hidden">
+            <p>Consistency models are a new family of generative models capable of producing high-quality samples in either a single step or multiple steps. Recently, consistency models have demonstrated impressive performance, achieving results on par with diffusion models in the pixel space. However, the success of scaling consistency training to large-scale datasets, particularly for text-to-image and video generation tasks, is determined by performance in the latent space. In this work, we analyze the statistical differences between pixel and latent spaces, discovering that latent data often contains highly impulsive outliers, which significantly degrade the performance of iCT in the latent space. To address this, we replace Pseudo-Huber losses with Cauchy losses, effectively mitigating the impact of outliers. Additionally, we introduce a diffusion loss at early timesteps and employ optimal transport (OT) coupling to further enhance performance. Lastly, we introduce the adaptive scaling-c scheduler to manage the robust training process and adopt Non-scaling LayerNorm in the architecture to better capture the statistics of the features and reduce outlier impact. With these strategies, we successfully train latent consistency models capable of high-quality sampling with one or two steps, significantly narrowing the performance gap between latent consistency and diffusion models.</p>
+          </div>
+<!-- Hidden bibtex block -->
+          <div class="bibtex hidden">
+            <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">dao2024improvedict</span><span class="p">,</span>
+  <span class="na">title</span> <span class="p">=</span> <span class="s">{Improved Training Technique for Latent Consistency Models}</span><span class="p">,</span>
+  <span class="na">author</span> <span class="p">=</span> <span class="s">{Dao*, Quan and Doan*, Khanh and Liu, Di and Le, Trung and Metaxas, Dimitris}</span><span class="p">,</span>
+  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{International Conference on Learning Representations (ICLR)}</span><span class="p">,</span>
+  <span class="na">year</span> <span class="p">=</span> <span class="s">{2025}</span><span class="p">,</span>
+<span class="p">}</span></code></pre></figure>
+          </div>
+        </div>
+      </div>
+</li>
+<li>
+<!-- _layouts/bib.html -->
+      <div class="row pub-entry">
+        <div class="col-sm-3 pub-thumb">
+<figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/publication_preview/SCflow-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/publication_preview/SCflow-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/publication_preview/SCflow-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/publication_preview/SCflow.png" class="preview rounded" width="auto" height="auto" alt="Self-Corrected Flow Distillation for Consistent One-Step and Few-Step Image Generation" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+<abbr class="venue venue-overlay">AAAI 2025</abbr>
+</div>
+
+        <!-- Entry bib key -->
+        <div id="dao2024self" class="col-sm-9 pub-body">
+        <!-- Title -->
+        <div class="title">Self-Corrected Flow Distillation for Consistent One-Step and Few-Step Image Generation</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        <em>Quan Dao*</em>, Hao Phung*, Trung Dao, Dimitris Metaxas, and Anh Tran</div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em>In Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)</em>, 2025
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+            <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
+            <a href="https://arxiv.org/abs/2412.16906" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
+            <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          <!-- Hidden abstract block -->
+          <div class="abstract hidden">
+            <p>Flow matching has emerged as a promising framework for training generative models, demonstrating impressive empirical performance while offering relative ease of training compared to diffusion-based models. However, this method still requires numerous function evaluations in the sampling process. To address these limitations, we introduce a self-corrected flow distillation method that effectively integrates consistency models and adversarial training within the flow-matching framework. This work is a pioneer in achieving consistent generation quality in both few-step and one-step sampling. Our extensive experiments validate the effectiveness of our method, yielding superior results both quantitatively and qualitatively on CelebA-HQ and zero-shot benchmarks on the COCO dataset.</p>
+          </div>
+<!-- Hidden bibtex block -->
+          <div class="bibtex hidden">
+            <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">dao2024self</span><span class="p">,</span>
+  <span class="na">title</span> <span class="p">=</span> <span class="s">{Self-Corrected Flow Distillation for Consistent One-Step and Few-Step Image Generation}</span><span class="p">,</span>
+  <span class="na">author</span> <span class="p">=</span> <span class="s">{Dao*, Quan and Phung*, Hao and Dao, Trung and Metaxas, Dimitris and Tran, Anh}</span><span class="p">,</span>
+  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)}</span><span class="p">,</span>
+  <span class="na">year</span> <span class="p">=</span> <span class="s">{2025}</span><span class="p">,</span>
+<span class="p">}</span></code></pre></figure>
+          </div>
+        </div>
+      </div>
+</li>
+<li>
+<!-- _layouts/bib.html -->
+      <div class="row pub-entry">
+        <div class="col-sm-3 pub-thumb">
 <figure>
 
   <picture>
@@ -612,28 +617,29 @@
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/publication_preview/dimsum.png" class="preview z-depth-1 rounded" width="auto" height="auto" alt="dimsum.png" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/publication_preview/dimsum.png" class="preview rounded" width="auto" height="auto" alt="DiMSUM: Diffusion Mamba - A Scalable and Unified Spatial-Frequency Method for Image Generation" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
 </figure>
+<abbr class="venue venue-overlay">NeurIPS 2024</abbr>
 </div>
 
         <!-- Entry bib key -->
-        <div id="phung2024dimsum" class="col-sm-8">
+        <div id="phung2024dimsum" class="col-sm-9 pub-body">
         <!-- Title -->
         <div class="title">DiMSUM: Diffusion Mamba - A Scalable and Unified Spatial-Frequency Method for Image Generation</div>
         <!-- Author -->
         <div class="author">
         
 
-        Hao Phung*, Quan Dao*, Trung Dao, Hoang Phan, Dimitris Metaxas, and Anh Tran</div>
+        Hao Phung*, <em>Quan Dao*</em>, Trung Dao, Hoang Phan, Dimitris Metaxas, and Anh Tran</div>
 
         <!-- Journal/Book title and date -->
         
         
         <div class="periodical">
-          <em>In The Thirty-eighth Annual Conference on Neural Information Processing Systems</em>, Jun 2024
+          <em>In Advances in Neural Information Processing Systems (NeurIPS)</em>, 2024
         </div>
         <div class="periodical">
           
@@ -642,8 +648,9 @@
           <!-- Links/Buttons -->
           <div class="links">
             <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-            <a href="http://arxiv.org/abs/2411.04168v4" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
+            <a href="https://arxiv.org/abs/2411.04168" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
             <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
+            <a href="https://github.com/VinAIResearch/DiMSUM" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Code</a>
           </div>
           
           <div class="badges">
@@ -660,7 +667,7 @@
             <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">phung2024dimsum</span><span class="p">,</span>
   <span class="na">title</span> <span class="p">=</span> <span class="s">{DiMSUM: Diffusion Mamba - A Scalable and Unified Spatial-Frequency Method for Image Generation}</span><span class="p">,</span>
   <span class="na">author</span> <span class="p">=</span> <span class="s">{Phung*, Hao and Dao*, Quan and Dao, Trung and Phan, Hoang and Metaxas, Dimitris and Tran, Anh}</span><span class="p">,</span>
-  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{The Thirty-eighth Annual Conference on Neural Information Processing Systems}</span><span class="p">,</span>
+  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{Advances in Neural Information Processing Systems (NeurIPS)}</span><span class="p">,</span>
   <span class="na">year</span> <span class="p">=</span> <span class="s">{2024}</span><span class="p">,</span>
 <span class="p">}</span></code></pre></figure>
           </div>
@@ -669,287 +676,8 @@
 </li>
 <li>
 <!-- _layouts/bib.html -->
-      <div class="row">
-        <div class="col-sm-2 preview">
-<figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/publication_preview/SCflow-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/publication_preview/SCflow-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/publication_preview/SCflow-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/publication_preview/SCflow.png" class="preview z-depth-1 rounded" width="auto" height="auto" alt="SCflow.png" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-</div>
-
-        <!-- Entry bib key -->
-        <div id="dao2024self" class="col-sm-8">
-        <!-- Title -->
-        <div class="title">Self-Corrected Flow Distillation for Consistent One-Step and Few-Step Text-to-Image Generation</div>
-        <!-- Author -->
-        <div class="author">
-        
-
-        Quan Dao*, Hao Phung*, Trung Dao, Dimitris Metaxas, and Anh Tran</div>
-
-        <!-- Journal/Book title and date -->
-        
-        
-        <div class="periodical">
-          <em>In Association for the Advancement of Artificial Intelligence</em>, Jun 2025
-        </div>
-        <div class="periodical">
-          
-        </div>
-
-          <!-- Links/Buttons -->
-          <div class="links">
-            <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-            <a href="http://arxiv.org/abs/2412.16906" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
-            <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
-          </div>
-          
-          <div class="badges">
-            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
-              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
-          </div>
-
-          <!-- Hidden abstract block -->
-          <div class="abstract hidden">
-            <p>Flow matching has emerged as a promising framework for training generative models, demonstrating impressive empirical performance while offering relative ease of training compared to diffusion-based models. However, this method still requires numerous function evaluations in the sampling process. To address these limitations, we introduce a self-corrected flow distillation method that effectively integrates consistency models and adversarial training within the flow-matching framework. This work is a pioneer in achieving consistent generation quality in both few-step and one-step sampling. Our extensive experiments validate the effectiveness of our method, yielding superior results both quantitatively and qualitatively on CelebA-HQ and zero-shot benchmarks on the COCO dataset.</p>
-          </div>
-<!-- Hidden bibtex block -->
-          <div class="bibtex hidden">
-            <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">dao2024self</span><span class="p">,</span>
-  <span class="na">title</span> <span class="p">=</span> <span class="s">{Self-Corrected Flow Distillation for Consistent One-Step and Few-Step Text-to-Image Generation}</span><span class="p">,</span>
-  <span class="na">author</span> <span class="p">=</span> <span class="s">{Dao*, Quan and Phung*, Hao and Dao, Trung and Metaxas, Dimitris and Tran, Anh}</span><span class="p">,</span>
-  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{Association for the Advancement of Artificial Intelligence}</span><span class="p">,</span>
-  <span class="na">year</span> <span class="p">=</span> <span class="s">{2025}</span><span class="p">,</span>
-<span class="p">}</span></code></pre></figure>
-          </div>
-        </div>
-      </div>
-</li>
-<li>
-<!-- _layouts/bib.html -->
-      <div class="row">
-        <div class="col-sm-2 preview">
-<figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/publication_preview/rduot-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/publication_preview/rduot-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/publication_preview/rduot-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/publication_preview/rduot.png" class="preview z-depth-1 rounded" width="auto" height="auto" alt="rduot.png" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-</div>
-
-        <!-- Entry bib key -->
-        <div id="dao2025high" class="col-sm-8">
-        <!-- Title -->
-        <div class="title">A High-Quality Robust Diffusion Framework for Corrupted Dataset</div>
-        <!-- Author -->
-        <div class="author">
-        
-
-        Quan Dao*, Binh Ta*, Tung Pham, and Anh Tran</div>
-
-        <!-- Journal/Book title and date -->
-        
-        
-        <div class="periodical">
-          <em>In European Conference on Computer Vision</em>, Jun 2024
-        </div>
-        <div class="periodical">
-          
-        </div>
-
-          <!-- Links/Buttons -->
-          <div class="links">
-            <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-            <a href="http://arxiv.org/abs/2311.17101" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
-            <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
-          </div>
-          
-          <div class="badges">
-            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
-              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
-          </div>
-
-          <!-- Hidden abstract block -->
-          <div class="abstract hidden">
-            <p>Developing image-generative models, which are robust to outliers in the training process, has recently drawn attention from the research community. Due to the ease of integrating unbalanced optimal transport (UOT) into adversarial framework, existing works focus mainly on developing robust frameworks for generative adversarial model (GAN). Meanwhile, diffusion models have recently dominated GAN in various tasks and datasets. However, according to our knowledge, none of them are robust to corrupted datasets. Motivated by DDGAN, our work introduces the first robust-to-outlier diffusion. We suggest replacing the UOT-based generative model for GAN in DDGAN to learn the backward diffusion process. Additionally, we demonstrate that the Lipschitz property of divergence in our framework contributes to more stable training convergence. Remarkably, our method not only exhibits robustness to corrupted datasets but also achieves superior performance on clean datasets.</p>
-          </div>
-<!-- Hidden bibtex block -->
-          <div class="bibtex hidden">
-            <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">dao2025high</span><span class="p">,</span>
-  <span class="na">title</span> <span class="p">=</span> <span class="s">{A High-Quality Robust Diffusion Framework for Corrupted Dataset}</span><span class="p">,</span>
-  <span class="na">author</span> <span class="p">=</span> <span class="s">{Dao*, Quan and Ta*, Binh and Pham, Tung and Tran, Anh}</span><span class="p">,</span>
-  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{European Conference on Computer Vision}</span><span class="p">,</span>
-  <span class="na">pages</span> <span class="p">=</span> <span class="s">{107--123}</span><span class="p">,</span>
-  <span class="na">year</span> <span class="p">=</span> <span class="s">{2024}</span><span class="p">,</span>
-  <span class="na">organization</span> <span class="p">=</span> <span class="s">{Springer}</span><span class="p">,</span>
-<span class="p">}</span></code></pre></figure>
-          </div>
-        </div>
-      </div>
-</li>
-<li>
-<!-- _layouts/bib.html -->
-      <div class="row">
-        <div class="col-sm-2 preview">
-<figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/publication_preview/flow-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/publication_preview/flow-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/publication_preview/flow-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/publication_preview/flow.png" class="preview z-depth-1 rounded" width="auto" height="auto" alt="flow.png" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-</div>
-
-        <!-- Entry bib key -->
-        <div id="dao2023flow" class="col-sm-8">
-        <!-- Title -->
-        <div class="title">Flow Matching in Latent Space</div>
-        <!-- Author -->
-        <div class="author">
-        
-
-        Quan Dao*, Hao Phung*, Binh Nguyen, and Anh Tran</div>
-
-        <!-- Journal/Book title and date -->
-        
-        
-        <div class="periodical">
-          <em>arXiv preprint arXiv:2307.08698</em>, Jun 2023
-        </div>
-        <div class="periodical">
-          
-        </div>
-
-          <!-- Links/Buttons -->
-          <div class="links">
-            <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-            <a href="http://arxiv.org/abs/2307.08698v1" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
-            <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
-          </div>
-          
-          <div class="badges">
-            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
-              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
-          </div>
-
-          <!-- Hidden abstract block -->
-          <div class="abstract hidden">
-            <p>Flow matching is a recent framework to train generative models that exhibits impressive empirical performance while being relatively easier to train compared with diffusion-based models. Despite its advantageous properties, prior methods still face the challenges of expensive computing and a large number of function evaluations of off-the-shelf solvers in the pixel space. Furthermore, although latent-based generative methods have shown great success in recent years, this particular model type remains underexplored in this area. In this work, we propose to apply flow matching in the latent spaces of pretrained autoencoders, which offers improved computational efficiency and scalability for high-resolution image synthesis. This enables flow-matching training on constrained computational resources while maintaining their quality and flexibility. Additionally, our work stands as a pioneering contribution in the integration of various conditions into flow matching for conditional generation tasks, including label-conditioned image generation, image inpainting, and semantic-to-image generation. Through extensive experiments, our approach demonstrates its effectiveness in both quantitative and qualitative results on various datasets, such as CelebA-HQ, FFHQ, LSUN Church &amp; Bedroom, and ImageNet. We also provide a theoretical control of the Wasserstein-2 distance between the reconstructed latent flow distribution and true data distribution, showing it is upper-bounded by the latent flow matching objective.</p>
-          </div>
-<!-- Hidden bibtex block -->
-          <div class="bibtex hidden">
-            <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@article</span><span class="p">{</span><span class="nl">dao2023flow</span><span class="p">,</span>
-  <span class="na">title</span> <span class="p">=</span> <span class="s">{Flow Matching in Latent Space}</span><span class="p">,</span>
-  <span class="na">author</span> <span class="p">=</span> <span class="s">{Dao*, Quan and Phung*, Hao and Nguyen, Binh and Tran, Anh}</span><span class="p">,</span>
-  <span class="na">journal</span> <span class="p">=</span> <span class="s">{arXiv preprint arXiv:2307.08698}</span><span class="p">,</span>
-  <span class="na">year</span> <span class="p">=</span> <span class="s">{2023}</span><span class="p">,</span>
-<span class="p">}</span></code></pre></figure>
-          </div>
-        </div>
-      </div>
-</li>
-<li>
-<!-- _layouts/bib.html -->
-      <div class="row">
-        <div class="col-sm-2 preview">
-<figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/publication_preview/anti-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/publication_preview/anti-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/publication_preview/anti-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/publication_preview/anti.png" class="preview z-depth-1 rounded" width="auto" height="auto" alt="anti.png" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-</div>
-
-        <!-- Entry bib key -->
-        <div id="van2023anti" class="col-sm-8">
-        <!-- Title -->
-        <div class="title">Anti-DreamBooth: Protecting users from personalized text-to-image synthesis</div>
-        <!-- Author -->
-        <div class="author">
-        
-
-        Thanh Van Le*, Hao Phung*, Thuan Hoang Nguyen*, Quan Dao*, Ngoc Tran, and Anh Tran</div>
-
-        <!-- Journal/Book title and date -->
-        
-        
-        <div class="periodical">
-          <em>In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, Oct 2023
-        </div>
-        <div class="periodical">
-          
-        </div>
-
-          <!-- Links/Buttons -->
-          <div class="links">
-            <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-            <a href="http://arxiv.org/abs/2303.15433" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
-            <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
-          </div>
-          
-          <div class="badges">
-            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
-              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
-          </div>
-
-          <!-- Hidden abstract block -->
-          <div class="abstract hidden">
-            <p>Text-to-image diffusion models are nothing but a revolution, allowing anyone, even without design skills, to create realistic images from simple text inputs. With powerful personalization tools like DreamBooth, they can generate images of a specific person just by learning from his/her few reference images. However, when misused, such a powerful and convenient tool can produce fake news or disturbing content targeting any individual victim, posing a severe negative social impact. In this paper, we explore a defense system called Anti-DreamBooth against such malicious use of DreamBooth. The system aims to add subtle noise perturbation to each user’s image before publishing in order to disrupt the generation quality of any DreamBooth model trained on these perturbed images. We investigate a wide range of algorithms for perturbation optimization and extensively evaluate them on two facial datasets over various text-to-image model versions. Despite the complicated formulation of DreamBooth and Diffusion-based text-to-image models, our methods effectively defend users from the malicious use of those models. Their effectiveness withstands even adverse conditions, such as model or prompt/term mismatching between training and testing.</p>
-          </div>
-<!-- Hidden bibtex block -->
-          <div class="bibtex hidden">
-            <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">van2023anti</span><span class="p">,</span>
-  <span class="na">title</span> <span class="p">=</span> <span class="s">{Anti-DreamBooth: Protecting users from personalized text-to-image synthesis}</span><span class="p">,</span>
-  <span class="na">author</span> <span class="p">=</span> <span class="s">{Van Le*, Thanh and Phung*, Hao and Nguyen*, Thuan Hoang and Dao*, Quan and Tran, Ngoc and Tran, Anh}</span><span class="p">,</span>
-  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}</span><span class="p">,</span>
-  <span class="na">month</span> <span class="p">=</span> <span class="nv">oct</span><span class="p">,</span>
-  <span class="na">year</span> <span class="p">=</span> <span class="s">{2023}</span><span class="p">,</span>
-<span class="p">}</span></code></pre></figure>
-          </div>
-        </div>
-      </div>
-</li>
-<li>
-<!-- _layouts/bib.html -->
-      <div class="row">
-        <div class="col-sm-2 preview">
+      <div class="row pub-entry">
+        <div class="col-sm-3 pub-thumb">
 <figure>
 
   <picture>
@@ -960,28 +688,29 @@
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/publication_preview/single_wavelet.png" class="preview z-depth-1 rounded" width="auto" height="auto" alt="single_wavelet.png" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/publication_preview/single_wavelet.png" class="preview rounded" width="auto" height="auto" alt="Wavelet Diffusion Models Are Fast and Scalable Image Generators" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
 </figure>
+<abbr class="venue venue-overlay">CVPR 2023</abbr>
 </div>
 
         <!-- Entry bib key -->
-        <div id="Phung_2023_CVPR" class="col-sm-8">
+        <div id="Phung_2023_CVPR" class="col-sm-9 pub-body">
         <!-- Title -->
         <div class="title">Wavelet Diffusion Models Are Fast and Scalable Image Generators</div>
         <!-- Author -->
         <div class="author">
         
 
-        Hao Phung*, Quan Dao*, and Anh Tran</div>
+        Hao Phung*, <em>Quan Dao*</em>, and Anh Tran</div>
 
         <!-- Journal/Book title and date -->
         
         
         <div class="periodical">
-          <em>In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, Jun 2023
+          <em>In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 2023
         </div>
         <div class="periodical">
           
@@ -990,8 +719,9 @@
           <!-- Links/Buttons -->
           <div class="links">
             <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-            <a href="http://arxiv.org/abs/2211.16152" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
+            <a href="https://arxiv.org/abs/2211.16152" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a>
             <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
+            <a href="https://github.com/VinAIResearch/WaveDiff" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Code</a>
           </div>
           
           <div class="badges">
@@ -1006,12 +736,11 @@
 <!-- Hidden bibtex block -->
           <div class="bibtex hidden">
             <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">Phung_2023_CVPR</span><span class="p">,</span>
-  <span class="na">author</span> <span class="p">=</span> <span class="s">{Phung*, Hao and Dao*, Quan and Tran, Anh}</span><span class="p">,</span>
   <span class="na">title</span> <span class="p">=</span> <span class="s">{Wavelet Diffusion Models Are Fast and Scalable Image Generators}</span><span class="p">,</span>
+  <span class="na">author</span> <span class="p">=</span> <span class="s">{Phung*, Hao and Dao*, Quan and Tran, Anh}</span><span class="p">,</span>
   <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}</span><span class="p">,</span>
-  <span class="na">month</span> <span class="p">=</span> <span class="nv">jun</span><span class="p">,</span>
   <span class="na">year</span> <span class="p">=</span> <span class="s">{2023}</span><span class="p">,</span>
-  <span class="na">pages</span> <span class="p">=</span> <span class="s">{10199-10208}</span><span class="p">,</span>
+  <span class="na">pages</span> <span class="p">=</span> <span class="s">{10199--10208}</span><span class="p">,</span>
 <span class="p">}</span></code></pre></figure>
           </div>
         </div>
@@ -1028,13 +757,12 @@
             <a href="https://scholar.google.com/citations?user=g0RS3_kAAAAJ" title="Google Scholar" rel="external nofollow noopener" target="_blank"><i class="ai ai-google-scholar"></i></a>
             <a href="https://www.semanticscholar.org/author/2198448749" title="Semantic Scholar" rel="external nofollow noopener" target="_blank"><i class="ai ai-semantic-scholar"></i></a>
             <a href="https://github.com/quandao10" title="GitHub" rel="external nofollow noopener" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="/feed.xml" title="RSS Feed"><i class="fas fa-rss-square"></i></a>
             
 
               </div>
 
               <div class="contact-note">
-                You can contact me via my email.
+                The best way to reach me is by email at kevinquandao10 [at] gmail [dot] com.
 
               </div>
 
@@ -1046,11 +774,10 @@
       
     </div>
 
-    <!-- Footer -->    
-    <footer class="fixed-bottom">
-      <div class="container mt-0">
+    <!-- Footer -->    <footer class="sticky-bottom mt-5">
+      <div class="container">
         © Copyright 2026 Quan  Dao. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>.
-Last updated: June 21, 2026.
+Last updated: October 14, 2026.
       </div>
     </footer>
 
