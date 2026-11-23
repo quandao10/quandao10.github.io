@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://quandao10.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://quandao10.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-23T22:07:44+00:00</updated><id>https://quandao10.github.io/feed.xml</id><title type="html">Quan Dao</title><subtitle>Quan Dao is a Ph.D. student in Computer Science at Rutgers University working on efficient generative modeling, including diffusion and flow-based models.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://quandao10.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://quandao10.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-23T22:24:39+00:00</updated><id>https://quandao10.github.io/feed.xml</id><title type="html">Quan Dao</title><subtitle>Quan Dao is a Ph.D. student in Computer Science at Rutgers University working on efficient generative modeling, including diffusion and flow-based models.
 </subtitle><entry><title type="html">Semantic Detour Flow</title><link href="https://quandao10.github.io/blog/2026/semantic-detour-flow/" rel="alternate" type="text/html" title="Semantic Detour Flow" /><published>2026-11-23T00:00:00+00:00</published><updated>2026-11-23T00:00:00+00:00</updated><id>https://quandao10.github.io/blog/2026/semantic-detour-flow</id><content type="html" xml:base="https://quandao10.github.io/blog/2026/semantic-detour-flow/"><![CDATA[<div class="detour-authors">
   <div class="names">
     Quan Dao<sup>1</sup>,
@@ -272,7 +272,8 @@ textures and rendered text that a semantic-latent decoder can lose.</p>
 
 <h2 id="gallery">Gallery</h2>
 
-<p>Fifty-two samples from the 3.3B model at 1024×1024. Click any image to open it at full resolution.</p>
+<p>Samples from the 3.3B model at about 1024×1024 and several aspect ratios.
+Click any image to open it at full resolution.</p>
 
 <div class="detour-grid">
 
@@ -386,51 +387,6 @@ textures and rendered text that a semantic-latent decoder can lose.</p>
 
   
   <img src="/assets/img/detour/gallery/s37.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s37.jpg" loading="lazy" alt="Sample 37" />
-
-  
-  <img src="/assets/img/detour/gallery/s38.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s38.jpg" loading="lazy" alt="Sample 38" />
-
-  
-  <img src="/assets/img/detour/gallery/s39.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s39.jpg" loading="lazy" alt="Sample 39" />
-
-  
-  <img src="/assets/img/detour/gallery/s40.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s40.jpg" loading="lazy" alt="Sample 40" />
-
-  
-  <img src="/assets/img/detour/gallery/s41.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s41.jpg" loading="lazy" alt="Sample 41" />
-
-  
-  <img src="/assets/img/detour/gallery/s42.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s42.jpg" loading="lazy" alt="Sample 42" />
-
-  
-  <img src="/assets/img/detour/gallery/s43.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s43.jpg" loading="lazy" alt="Sample 43" />
-
-  
-  <img src="/assets/img/detour/gallery/s44.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s44.jpg" loading="lazy" alt="Sample 44" />
-
-  
-  <img src="/assets/img/detour/gallery/s45.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s45.jpg" loading="lazy" alt="Sample 45" />
-
-  
-  <img src="/assets/img/detour/gallery/s46.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s46.jpg" loading="lazy" alt="Sample 46" />
-
-  
-  <img src="/assets/img/detour/gallery/s47.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s47.jpg" loading="lazy" alt="Sample 47" />
-
-  
-  <img src="/assets/img/detour/gallery/s48.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s48.jpg" loading="lazy" alt="Sample 48" />
-
-  
-  <img src="/assets/img/detour/gallery/s49.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s49.jpg" loading="lazy" alt="Sample 49" />
-
-  
-  <img src="/assets/img/detour/gallery/s50.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s50.jpg" loading="lazy" alt="Sample 50" />
-
-  
-  <img src="/assets/img/detour/gallery/s51.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s51.jpg" loading="lazy" alt="Sample 51" />
-
-  
-  <img src="/assets/img/detour/gallery/s52.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s52.jpg" loading="lazy" alt="Sample 52" />
 
 </div>
 
