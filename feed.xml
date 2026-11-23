@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://quandao10.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://quandao10.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-23T21:43:41+00:00</updated><id>https://quandao10.github.io/feed.xml</id><title type="html">Quan Dao</title><subtitle>Quan Dao is a Ph.D. student in Computer Science at Rutgers University working on efficient generative modeling, including diffusion and flow-based models.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://quandao10.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://quandao10.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-23T21:55:16+00:00</updated><id>https://quandao10.github.io/feed.xml</id><title type="html">Quan Dao</title><subtitle>Quan Dao is a Ph.D. student in Computer Science at Rutgers University working on efficient generative modeling, including diffusion and flow-based models.
 </subtitle><entry><title type="html">Semantic Detour Flow</title><link href="https://quandao10.github.io/blog/2026/semantic-detour-flow/" rel="alternate" type="text/html" title="Semantic Detour Flow" /><published>2026-11-23T00:00:00+00:00</published><updated>2026-11-23T00:00:00+00:00</updated><id>https://quandao10.github.io/blog/2026/semantic-detour-flow</id><content type="html" xml:base="https://quandao10.github.io/blog/2026/semantic-detour-flow/"><![CDATA[<p>Diffusion models trained in semantic latent spaces converge much faster than pixel-space
 models, but they inherit a decoder that caps fine detail. <strong>Semantic Detour Flow</strong> closes most
 of that gap without any decoder: it is a pixel-space flow that follows frozen DINOv2 features
@@ -12,20 +12,8 @@ sampling that runs entirely in pixel space.</p>
   <div><div class="v">0.90 / 87.8</div><div class="k">GenEval / DPG-Bench, 512</div></div>
 </div>
 
-<figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/detour/teaser-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/detour/teaser-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/detour/teaser-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/detour/teaser.jpg" class="img-fluid rounded" width="auto" height="auto" alt="Samples from Semantic Detour Flow" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
+<figure class="detour-fig">
+  <img src="/assets/img/detour/teaser.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/full/teaser.jpg" alt="Samples from Semantic Detour Flow" />
 </figure>
 
 <h2 id="why-pixel-diffusion-is-slow">Why pixel diffusion is slow</h2>
@@ -72,30 +60,16 @@ That coincidence is convenient, not essential; other encoders and code widths wo
 at; on the right the state \(z_t\) the network actually sees. Near noise the signal is a semantic
 prototype; near data it is the photograph.</p>
 
-<figure>
+<div class="detour-video">
+  <video controls="" playsinline="" autoplay="" loop="" muted="" preload="metadata" poster="/assets/img/detour/video_poster.jpg">
+    <source src="/assets/video/detour_path.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
 
-  
-
-  <video src="/assets/video/detour_path.mp4" class="img-fluid rounded" width="auto" height="auto" autoplay="" controls="" loop="" muted="" />
-
-  
-
-</figure>
-
-<figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/detour/system-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/detour/system-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/detour/system-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/detour/system.jpg" class="img-fluid" width="auto" height="auto" alt="The detour path and the network" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
+<figure class="detour-fig">
+  <img src="/assets/img/detour/system.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/full/system.jpg" alt="The detour path and the network" />
+  <figcaption>Left: the signal \(m_t\) and the state \(z_t\) on a real image, with the code shown by its PCA colours. Right: the network predicts image and code.</figcaption>
 </figure>
 
 <p>Sampling needs none of this machinery. It integrates a pixel-space ODE from noise to data —
@@ -204,45 +178,27 @@ alone is already better at a much lower Inception score; together they are bette
   </tbody>
 </table>
 
-<div class="row">
-  <div class="col-sm-6 mt-3 mt-md-0">
-    <figure>
+<h3 id="256256">256×256</h3>
 
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/detour/imagenet256-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/detour/imagenet256-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/detour/imagenet256-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/detour/imagenet256.jpg" class="img-fluid rounded" width="auto" height="auto" alt="ImageNet 256 samples" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
+<figure class="detour-fig">
+  <img src="/assets/img/detour/imagenet256.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/full/imagenet256.jpg" alt="ImageNet 256 samples" />
 </figure>
 
-  </div>
-  <div class="col-sm-6 mt-3 mt-md-0">
-    <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/detour/imagenet512-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/detour/imagenet512-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/detour/imagenet512-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/detour/imagenet512.jpg" class="img-fluid rounded" width="auto" height="auto" alt="ImageNet 512 samples" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
+<figure class="detour-fig">
+  <img src="/assets/img/detour/imagenet256_b.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/full/imagenet256_b.jpg" alt="Uncurated ImageNet 256 samples" />
+  <figcaption>Uncurated samples from Detour-XL/16, CFG 1.75 + AutoGuidance 2.0 — the setting that gives FID-50k 1.43.</figcaption>
 </figure>
 
-  </div>
-</div>
-<div class="caption">ImageNet samples at 256×256 (left) and 512×512 (right).</div>
+<h3 id="512512">512×512</h3>
+
+<figure class="detour-fig">
+  <img src="/assets/img/detour/imagenet512.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/full/imagenet512.jpg" alt="ImageNet 512 samples" />
+</figure>
+
+<figure class="detour-fig">
+  <img src="/assets/img/detour/imagenet512_b.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/full/imagenet512_b.jpg" alt="Uncurated ImageNet 512 samples" />
+  <figcaption>Uncurated samples from Detour-XL/32, CFG 2.0 + AutoGuidance 2.0 — the setting that gives FID-50k 1.59.</figcaption>
+</figure>
 
 <h2 id="text-to-image">Text to image</h2>
 
@@ -253,199 +209,175 @@ it reaches comparable text alignment in <strong>1.5× fewer training iterations<
 ahead of the pixel-space models we compare against at both resolutions, while keeping the fine
 textures and rendered text that a semantic-latent decoder can lose.</p>
 
-<figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/detour/t2i_convergence-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/detour/t2i_convergence-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/detour/t2i_convergence-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/detour/t2i_convergence.jpg" class="img-fluid" width="auto" height="auto" alt="Text-to-image convergence against plain pixel flow" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
+<figure class="detour-fig">
+  <img src="/assets/img/detour/t2i_convergence.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/full/t2i_convergence.jpg" alt="Text-to-image convergence against plain pixel flow" />
 </figure>
 
-<figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/detour/t2i_text_render-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/detour/t2i_text_render-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/detour/t2i_text_render-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/detour/t2i_text_render.jpg" class="img-fluid" width="auto" height="auto" alt="Rendered text" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
+<figure class="detour-fig">
+  <img src="/assets/img/detour/t2i_text_render.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/full/t2i_text_render.jpg" alt="Rendered text" />
 </figure>
 
 <h2 id="gallery">Gallery</h2>
 
-<p>Fifty-two samples from the 3.3B model at 1024×1024. Click any image to enlarge.</p>
+<p>Fifty-two samples from the 3.3B model at 1024×1024. Click any image to open it at full resolution.</p>
 
 <div class="detour-grid">
 
   
-  <img src="/assets/img/detour/gallery/s01.jpg" data-zoomable="" loading="lazy" alt="Sample 1" />
+  <img src="/assets/img/detour/gallery/s01.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s01.jpg" loading="lazy" alt="Sample 1" />
 
   
-  <img src="/assets/img/detour/gallery/s02.jpg" data-zoomable="" loading="lazy" alt="Sample 2" />
+  <img src="/assets/img/detour/gallery/s02.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s02.jpg" loading="lazy" alt="Sample 2" />
 
   
-  <img src="/assets/img/detour/gallery/s03.jpg" data-zoomable="" loading="lazy" alt="Sample 3" />
+  <img src="/assets/img/detour/gallery/s03.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s03.jpg" loading="lazy" alt="Sample 3" />
 
   
-  <img src="/assets/img/detour/gallery/s04.jpg" data-zoomable="" loading="lazy" alt="Sample 4" />
+  <img src="/assets/img/detour/gallery/s04.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s04.jpg" loading="lazy" alt="Sample 4" />
 
   
-  <img src="/assets/img/detour/gallery/s05.jpg" data-zoomable="" loading="lazy" alt="Sample 5" />
+  <img src="/assets/img/detour/gallery/s05.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s05.jpg" loading="lazy" alt="Sample 5" />
 
   
-  <img src="/assets/img/detour/gallery/s06.jpg" data-zoomable="" loading="lazy" alt="Sample 6" />
+  <img src="/assets/img/detour/gallery/s06.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s06.jpg" loading="lazy" alt="Sample 6" />
 
   
-  <img src="/assets/img/detour/gallery/s07.jpg" data-zoomable="" loading="lazy" alt="Sample 7" />
+  <img src="/assets/img/detour/gallery/s07.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s07.jpg" loading="lazy" alt="Sample 7" />
 
   
-  <img src="/assets/img/detour/gallery/s08.jpg" data-zoomable="" loading="lazy" alt="Sample 8" />
+  <img src="/assets/img/detour/gallery/s08.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s08.jpg" loading="lazy" alt="Sample 8" />
 
   
-  <img src="/assets/img/detour/gallery/s09.jpg" data-zoomable="" loading="lazy" alt="Sample 9" />
+  <img src="/assets/img/detour/gallery/s09.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s09.jpg" loading="lazy" alt="Sample 9" />
 
   
-  <img src="/assets/img/detour/gallery/s10.jpg" data-zoomable="" loading="lazy" alt="Sample 10" />
+  <img src="/assets/img/detour/gallery/s10.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s10.jpg" loading="lazy" alt="Sample 10" />
 
   
-  <img src="/assets/img/detour/gallery/s11.jpg" data-zoomable="" loading="lazy" alt="Sample 11" />
+  <img src="/assets/img/detour/gallery/s11.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s11.jpg" loading="lazy" alt="Sample 11" />
 
   
-  <img src="/assets/img/detour/gallery/s12.jpg" data-zoomable="" loading="lazy" alt="Sample 12" />
+  <img src="/assets/img/detour/gallery/s12.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s12.jpg" loading="lazy" alt="Sample 12" />
 
   
-  <img src="/assets/img/detour/gallery/s13.jpg" data-zoomable="" loading="lazy" alt="Sample 13" />
+  <img src="/assets/img/detour/gallery/s13.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s13.jpg" loading="lazy" alt="Sample 13" />
 
   
-  <img src="/assets/img/detour/gallery/s14.jpg" data-zoomable="" loading="lazy" alt="Sample 14" />
+  <img src="/assets/img/detour/gallery/s14.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s14.jpg" loading="lazy" alt="Sample 14" />
 
   
-  <img src="/assets/img/detour/gallery/s15.jpg" data-zoomable="" loading="lazy" alt="Sample 15" />
+  <img src="/assets/img/detour/gallery/s15.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s15.jpg" loading="lazy" alt="Sample 15" />
 
   
-  <img src="/assets/img/detour/gallery/s16.jpg" data-zoomable="" loading="lazy" alt="Sample 16" />
+  <img src="/assets/img/detour/gallery/s16.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s16.jpg" loading="lazy" alt="Sample 16" />
 
   
-  <img src="/assets/img/detour/gallery/s17.jpg" data-zoomable="" loading="lazy" alt="Sample 17" />
+  <img src="/assets/img/detour/gallery/s17.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s17.jpg" loading="lazy" alt="Sample 17" />
 
   
-  <img src="/assets/img/detour/gallery/s18.jpg" data-zoomable="" loading="lazy" alt="Sample 18" />
+  <img src="/assets/img/detour/gallery/s18.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s18.jpg" loading="lazy" alt="Sample 18" />
 
   
-  <img src="/assets/img/detour/gallery/s19.jpg" data-zoomable="" loading="lazy" alt="Sample 19" />
+  <img src="/assets/img/detour/gallery/s19.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s19.jpg" loading="lazy" alt="Sample 19" />
 
   
-  <img src="/assets/img/detour/gallery/s20.jpg" data-zoomable="" loading="lazy" alt="Sample 20" />
+  <img src="/assets/img/detour/gallery/s20.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s20.jpg" loading="lazy" alt="Sample 20" />
 
   
-  <img src="/assets/img/detour/gallery/s21.jpg" data-zoomable="" loading="lazy" alt="Sample 21" />
+  <img src="/assets/img/detour/gallery/s21.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s21.jpg" loading="lazy" alt="Sample 21" />
 
   
-  <img src="/assets/img/detour/gallery/s22.jpg" data-zoomable="" loading="lazy" alt="Sample 22" />
+  <img src="/assets/img/detour/gallery/s22.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s22.jpg" loading="lazy" alt="Sample 22" />
 
   
-  <img src="/assets/img/detour/gallery/s23.jpg" data-zoomable="" loading="lazy" alt="Sample 23" />
+  <img src="/assets/img/detour/gallery/s23.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s23.jpg" loading="lazy" alt="Sample 23" />
 
   
-  <img src="/assets/img/detour/gallery/s24.jpg" data-zoomable="" loading="lazy" alt="Sample 24" />
+  <img src="/assets/img/detour/gallery/s24.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s24.jpg" loading="lazy" alt="Sample 24" />
 
   
-  <img src="/assets/img/detour/gallery/s25.jpg" data-zoomable="" loading="lazy" alt="Sample 25" />
+  <img src="/assets/img/detour/gallery/s25.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s25.jpg" loading="lazy" alt="Sample 25" />
 
   
-  <img src="/assets/img/detour/gallery/s26.jpg" data-zoomable="" loading="lazy" alt="Sample 26" />
+  <img src="/assets/img/detour/gallery/s26.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s26.jpg" loading="lazy" alt="Sample 26" />
 
   
-  <img src="/assets/img/detour/gallery/s27.jpg" data-zoomable="" loading="lazy" alt="Sample 27" />
+  <img src="/assets/img/detour/gallery/s27.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s27.jpg" loading="lazy" alt="Sample 27" />
 
   
-  <img src="/assets/img/detour/gallery/s28.jpg" data-zoomable="" loading="lazy" alt="Sample 28" />
+  <img src="/assets/img/detour/gallery/s28.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s28.jpg" loading="lazy" alt="Sample 28" />
 
   
-  <img src="/assets/img/detour/gallery/s29.jpg" data-zoomable="" loading="lazy" alt="Sample 29" />
+  <img src="/assets/img/detour/gallery/s29.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s29.jpg" loading="lazy" alt="Sample 29" />
 
   
-  <img src="/assets/img/detour/gallery/s30.jpg" data-zoomable="" loading="lazy" alt="Sample 30" />
+  <img src="/assets/img/detour/gallery/s30.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s30.jpg" loading="lazy" alt="Sample 30" />
 
   
-  <img src="/assets/img/detour/gallery/s31.jpg" data-zoomable="" loading="lazy" alt="Sample 31" />
+  <img src="/assets/img/detour/gallery/s31.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s31.jpg" loading="lazy" alt="Sample 31" />
 
   
-  <img src="/assets/img/detour/gallery/s32.jpg" data-zoomable="" loading="lazy" alt="Sample 32" />
+  <img src="/assets/img/detour/gallery/s32.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s32.jpg" loading="lazy" alt="Sample 32" />
 
   
-  <img src="/assets/img/detour/gallery/s33.jpg" data-zoomable="" loading="lazy" alt="Sample 33" />
+  <img src="/assets/img/detour/gallery/s33.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s33.jpg" loading="lazy" alt="Sample 33" />
 
   
-  <img src="/assets/img/detour/gallery/s34.jpg" data-zoomable="" loading="lazy" alt="Sample 34" />
+  <img src="/assets/img/detour/gallery/s34.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s34.jpg" loading="lazy" alt="Sample 34" />
 
   
-  <img src="/assets/img/detour/gallery/s35.jpg" data-zoomable="" loading="lazy" alt="Sample 35" />
+  <img src="/assets/img/detour/gallery/s35.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s35.jpg" loading="lazy" alt="Sample 35" />
 
   
-  <img src="/assets/img/detour/gallery/s36.jpg" data-zoomable="" loading="lazy" alt="Sample 36" />
+  <img src="/assets/img/detour/gallery/s36.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s36.jpg" loading="lazy" alt="Sample 36" />
 
   
-  <img src="/assets/img/detour/gallery/s37.jpg" data-zoomable="" loading="lazy" alt="Sample 37" />
+  <img src="/assets/img/detour/gallery/s37.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s37.jpg" loading="lazy" alt="Sample 37" />
 
   
-  <img src="/assets/img/detour/gallery/s38.jpg" data-zoomable="" loading="lazy" alt="Sample 38" />
+  <img src="/assets/img/detour/gallery/s38.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s38.jpg" loading="lazy" alt="Sample 38" />
 
   
-  <img src="/assets/img/detour/gallery/s39.jpg" data-zoomable="" loading="lazy" alt="Sample 39" />
+  <img src="/assets/img/detour/gallery/s39.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s39.jpg" loading="lazy" alt="Sample 39" />
 
   
-  <img src="/assets/img/detour/gallery/s40.jpg" data-zoomable="" loading="lazy" alt="Sample 40" />
+  <img src="/assets/img/detour/gallery/s40.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s40.jpg" loading="lazy" alt="Sample 40" />
 
   
-  <img src="/assets/img/detour/gallery/s41.jpg" data-zoomable="" loading="lazy" alt="Sample 41" />
+  <img src="/assets/img/detour/gallery/s41.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s41.jpg" loading="lazy" alt="Sample 41" />
 
   
-  <img src="/assets/img/detour/gallery/s42.jpg" data-zoomable="" loading="lazy" alt="Sample 42" />
+  <img src="/assets/img/detour/gallery/s42.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s42.jpg" loading="lazy" alt="Sample 42" />
 
   
-  <img src="/assets/img/detour/gallery/s43.jpg" data-zoomable="" loading="lazy" alt="Sample 43" />
+  <img src="/assets/img/detour/gallery/s43.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s43.jpg" loading="lazy" alt="Sample 43" />
 
   
-  <img src="/assets/img/detour/gallery/s44.jpg" data-zoomable="" loading="lazy" alt="Sample 44" />
+  <img src="/assets/img/detour/gallery/s44.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s44.jpg" loading="lazy" alt="Sample 44" />
 
   
-  <img src="/assets/img/detour/gallery/s45.jpg" data-zoomable="" loading="lazy" alt="Sample 45" />
+  <img src="/assets/img/detour/gallery/s45.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s45.jpg" loading="lazy" alt="Sample 45" />
 
   
-  <img src="/assets/img/detour/gallery/s46.jpg" data-zoomable="" loading="lazy" alt="Sample 46" />
+  <img src="/assets/img/detour/gallery/s46.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s46.jpg" loading="lazy" alt="Sample 46" />
 
   
-  <img src="/assets/img/detour/gallery/s47.jpg" data-zoomable="" loading="lazy" alt="Sample 47" />
+  <img src="/assets/img/detour/gallery/s47.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s47.jpg" loading="lazy" alt="Sample 47" />
 
   
-  <img src="/assets/img/detour/gallery/s48.jpg" data-zoomable="" loading="lazy" alt="Sample 48" />
+  <img src="/assets/img/detour/gallery/s48.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s48.jpg" loading="lazy" alt="Sample 48" />
 
   
-  <img src="/assets/img/detour/gallery/s49.jpg" data-zoomable="" loading="lazy" alt="Sample 49" />
+  <img src="/assets/img/detour/gallery/s49.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s49.jpg" loading="lazy" alt="Sample 49" />
 
   
-  <img src="/assets/img/detour/gallery/s50.jpg" data-zoomable="" loading="lazy" alt="Sample 50" />
+  <img src="/assets/img/detour/gallery/s50.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s50.jpg" loading="lazy" alt="Sample 50" />
 
   
-  <img src="/assets/img/detour/gallery/s51.jpg" data-zoomable="" loading="lazy" alt="Sample 51" />
+  <img src="/assets/img/detour/gallery/s51.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s51.jpg" loading="lazy" alt="Sample 51" />
 
   
-  <img src="/assets/img/detour/gallery/s52.jpg" data-zoomable="" loading="lazy" alt="Sample 52" />
+  <img src="/assets/img/detour/gallery/s52.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/gallery/full/s52.jpg" loading="lazy" alt="Sample 52" />
 
 </div>
 
@@ -455,20 +387,8 @@ textures and rendered text that a semantic-latent decoder can lose.</p>
 image and code together. The loss is a single velocity objective against targets \(x\) and \(c(x)\),
 with DINOv2 frozen throughout — it is used to define the path, never trained.</p>
 
-<figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/detour/t2i_arch-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/detour/t2i_arch-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/detour/t2i_arch-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/detour/t2i_arch.jpg" class="img-fluid" width="auto" height="auto" alt="Text-to-image architectures" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
+<figure class="detour-fig">
+  <img src="/assets/img/detour/t2i_arch.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/full/t2i_arch.jpg" alt="Text-to-image architectures" />
 </figure>
 
 <hr />
