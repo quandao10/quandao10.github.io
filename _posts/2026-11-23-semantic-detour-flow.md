@@ -56,7 +56,41 @@ _styles: >
   .detour-num .v { font-size: 1.9rem; font-weight: 600; line-height: 1.1; }
   .detour-num .k { font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; opacity: .68; }
   table.detour td, table.detour th { padding: .35rem .6rem; }
+  .detour-authors {
+    margin: 0 0 1.8rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(128,128,128,.22);
+  }
+  .detour-authors .names {
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+  .detour-authors .names sup { font-size: .72em; opacity: .75; padding-left: .1em; }
+  .detour-authors .affil {
+    font-size: .88rem;
+    opacity: .72;
+    margin-top: .5rem;
+    line-height: 1.6;
+  }
+  .detour-authors .affil sup { padding-right: .15em; }
 ---
+
+<div class="detour-authors">
+  <div class="names">
+    Quan Dao<sup>1</sup>,
+    Tuan Pham<sup>2</sup>,
+    Anh Nguyen<sup>3</sup>,
+    Duc Vu<sup>1</sup>,
+    Quyen Tran<sup>1</sup>,
+    Stephan Mandt<sup>2</sup>,
+    Dimitris Metaxas<sup>1</sup>
+  </div>
+  <div class="affil">
+    <sup>1</sup>Rutgers University &nbsp;·&nbsp;
+    <sup>2</sup>UC Irvine &nbsp;·&nbsp;
+    <sup>3</sup>Johns Hopkins University
+  </div>
+</div>
 
 Diffusion models trained in semantic latent spaces converge much faster than pixel-space
 models, but they inherit a decoder that caps fine detail. **Semantic Detour Flow** closes most
@@ -235,8 +269,3 @@ with DINOv2 frozen throughout — it is used to define the path, never trained.
 <figure class="detour-fig">
   <img src="{{ '/assets/img/detour/t2i_arch.jpg' | relative_url }}" data-zoomable data-zoom-src="{{ '/assets/img/detour/full/t2i_arch.jpg' | relative_url }}" alt="Text-to-image architectures" />
 </figure>
-
----
-
-Quan Dao, Tuan Pham, Anh Nguyen, Duc Vu, Quyen Tran, Stephan Mandt, Dimitris Metaxas.
-Rutgers University, UC Irvine, and Johns Hopkins University.
