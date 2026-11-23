@@ -73,6 +73,29 @@ _styles: >
     line-height: 1.6;
   }
   .detour-authors .affil sup { padding-right: .15em; }
+  .in-grid {
+    display: grid;
+    gap: 12px;
+    margin: 1.4rem 0 2rem;
+  }
+  .in-grid-256 { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .in-grid-512 { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .in-grid figure { margin: 0; }
+  .in-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    cursor: zoom-in;
+    image-rendering: auto;
+  }
+  .in-grid figcaption {
+    font-size: .76rem;
+    opacity: .66;
+    margin-top: .3rem;
+    text-align: center;
+    line-height: 1.3;
+  }
 ---
 
 <div class="detour-authors">
@@ -209,25 +232,61 @@ alone is already better at a much lower Inception score; together they are bette
 
 ### 256×256
 
-<figure class="detour-fig">
-  <img src="{{ '/assets/img/detour/imagenet256.jpg' | relative_url }}" data-zoomable data-zoom-src="{{ '/assets/img/detour/full/imagenet256.jpg' | relative_url }}" alt="ImageNet 256 samples" />
-</figure>
+Detour-XL/16, CFG 1.75 + AutoGuidance 2.0 — the setting that gives FID-50k 1.43.
+One sample per class, shown at the model's native 256×256. Click to view at full size.
 
-<figure class="detour-fig">
-  <img src="{{ '/assets/img/detour/imagenet256_b.jpg' | relative_url }}" data-zoomable data-zoom-src="{{ '/assets/img/detour/full/imagenet256_b.jpg' | relative_url }}" alt="Uncurated ImageNet 256 samples" />
-  <figcaption>Uncurated samples from Detour-XL/16, CFG 1.75 + AutoGuidance 2.0 — the setting that gives FID-50k 1.43.</figcaption>
-</figure>
+<div class="in-grid in-grid-256">
+  <figure><img src="{{ '/assets/img/detour/in256/009-ostrich.png' | relative_url }}" data-zoomable loading="lazy" alt="ostrich" /><figcaption>ostrich</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/015-robin.png' | relative_url }}" data-zoomable loading="lazy" alt="robin" /><figcaption>robin</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/033-loggerhead.png' | relative_url }}" data-zoomable loading="lazy" alt="loggerhead" /><figcaption>loggerhead</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/088-macaw.png' | relative_url }}" data-zoomable loading="lazy" alt="macaw" /><figcaption>macaw</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/100-black-swan.png' | relative_url }}" data-zoomable loading="lazy" alt="black swan" /><figcaption>black swan</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/108-sea-anemone.png' | relative_url }}" data-zoomable loading="lazy" alt="sea anemone" /><figcaption>sea anemone</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/130-flamingo.png' | relative_url }}" data-zoomable loading="lazy" alt="flamingo" /><figcaption>flamingo</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/207-golden-retriever.png' | relative_url }}" data-zoomable loading="lazy" alt="golden retriever" /><figcaption>golden retriever</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/250-siberian-husky.png' | relative_url }}" data-zoomable loading="lazy" alt="siberian husky" /><figcaption>siberian husky</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/279-arctic-fox.png' | relative_url }}" data-zoomable loading="lazy" alt="arctic fox" /><figcaption>arctic fox</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/291-lion.png' | relative_url }}" data-zoomable loading="lazy" alt="lion" /><figcaption>lion</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/330-wood-rabbit.png' | relative_url }}" data-zoomable loading="lazy" alt="wood rabbit" /><figcaption>wood rabbit</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/360-otter.png' | relative_url }}" data-zoomable loading="lazy" alt="otter" /><figcaption>otter</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/386-african-elephant.png' | relative_url }}" data-zoomable loading="lazy" alt="african elephant" /><figcaption>african elephant</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/387-lesser-panda.png' | relative_url }}" data-zoomable loading="lazy" alt="lesser panda" /><figcaption>lesser panda</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/388-giant-panda.png' | relative_url }}" data-zoomable loading="lazy" alt="giant panda" /><figcaption>giant panda</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/417-balloon.png' | relative_url }}" data-zoomable loading="lazy" alt="balloon" /><figcaption>balloon</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/483-castle.png' | relative_url }}" data-zoomable loading="lazy" alt="castle" /><figcaption>castle</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/510-container-ship.png' | relative_url }}" data-zoomable loading="lazy" alt="container ship" /><figcaption>container ship</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/812-space-shuttle.png' | relative_url }}" data-zoomable loading="lazy" alt="space shuttle" /><figcaption>space shuttle</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/829-streetcar.png' | relative_url }}" data-zoomable loading="lazy" alt="streetcar" /><figcaption>streetcar</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/928-ice-cream.png' | relative_url }}" data-zoomable loading="lazy" alt="ice cream" /><figcaption>ice cream</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/948-granny-smith.png' | relative_url }}" data-zoomable loading="lazy" alt="granny smith" /><figcaption>granny smith</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/949-strawberry.png' | relative_url }}" data-zoomable loading="lazy" alt="strawberry" /><figcaption>strawberry</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/963-pizza.png' | relative_url }}" data-zoomable loading="lazy" alt="pizza" /><figcaption>pizza</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/970-alp.png' | relative_url }}" data-zoomable loading="lazy" alt="alp" /><figcaption>alp</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/975-lakeside.png' | relative_url }}" data-zoomable loading="lazy" alt="lakeside" /><figcaption>lakeside</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in256/980-volcano.png' | relative_url }}" data-zoomable loading="lazy" alt="volcano" /><figcaption>volcano</figcaption></figure>
+</div>
 
 ### 512×512
 
-<figure class="detour-fig">
-  <img src="{{ '/assets/img/detour/imagenet512.jpg' | relative_url }}" data-zoomable data-zoom-src="{{ '/assets/img/detour/full/imagenet512.jpg' | relative_url }}" alt="ImageNet 512 samples" />
-</figure>
+Detour-XL/32, CFG 2.5 + AutoGuidance 2.0, at the native 512×512.
 
-<figure class="detour-fig">
-  <img src="{{ '/assets/img/detour/imagenet512_b.jpg' | relative_url }}" data-zoomable data-zoom-src="{{ '/assets/img/detour/full/imagenet512_b.jpg' | relative_url }}" alt="Uncurated ImageNet 512 samples" />
-  <figcaption>Uncurated samples from Detour-XL/32, CFG 2.0 + AutoGuidance 2.0 — the setting that gives FID-50k 1.59.</figcaption>
-</figure>
+<div class="in-grid in-grid-512">
+  <figure><img src="{{ '/assets/img/detour/in512/00-001-goldfish.png' | relative_url }}" data-zoomable loading="lazy" alt="goldfish" /><figcaption>goldfish</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in512/01-022-bald-eagle.png' | relative_url }}" data-zoomable loading="lazy" alt="bald eagle" /><figcaption>bald eagle</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in512/02-145-king-penguin.png' | relative_url }}" data-zoomable loading="lazy" alt="king penguin" /><figcaption>king penguin</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in512/03-292-tiger.png' | relative_url }}" data-zoomable loading="lazy" alt="tiger" /><figcaption>tiger</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in512/04-323-monarch.png' | relative_url }}" data-zoomable loading="lazy" alt="monarch" /><figcaption>monarch</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in512/05-089-sulphur-crested-cockatoo.png' | relative_url }}" data-zoomable loading="lazy" alt="sulphur crested cockatoo" /><figcaption>sulphur crested cockatoo</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in512/06-296-ice-bear.png' | relative_url }}" data-zoomable loading="lazy" alt="ice bear" /><figcaption>ice bear</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in512/07-340-zebra.png' | relative_url }}" data-zoomable loading="lazy" alt="zebra" /><figcaption>zebra</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in512/08-107-jellyfish.png' | relative_url }}" data-zoomable loading="lazy" alt="jellyfish" /><figcaption>jellyfish</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in512/09-973-coral-reef.png' | relative_url }}" data-zoomable loading="lazy" alt="coral reef" /><figcaption>coral reef</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in512/10-425-barn.png' | relative_url }}" data-zoomable loading="lazy" alt="barn" /><figcaption>barn</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in512/11-437-beacon.png' | relative_url }}" data-zoomable loading="lazy" alt="beacon" /><figcaption>beacon</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in512/12-933-cheeseburger.png' | relative_url }}" data-zoomable loading="lazy" alt="cheeseburger" /><figcaption>cheeseburger</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in512/13-985-daisy.png' | relative_url }}" data-zoomable loading="lazy" alt="daisy" /><figcaption>daisy</figcaption></figure>
+  <figure><img src="{{ '/assets/img/detour/in512/14-992-agaric.png' | relative_url }}" data-zoomable loading="lazy" alt="agaric" /><figcaption>agaric</figcaption></figure>
+</div>
 
 ## Text to image
 
