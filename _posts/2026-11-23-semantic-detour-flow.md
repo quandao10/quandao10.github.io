@@ -307,10 +307,11 @@ textures and rendered text that a semantic-latent decoder can lose.
 
 ## Gallery
 
-Fifty-two samples from the 3.3B model at 1024×1024. Click any image to open it at full resolution.
+Samples from the 3.3B model at about 1024×1024 and several aspect ratios.
+Click any image to open it at full resolution.
 
 <div class="detour-grid">
-{% for i in (1..52) %}
+{% for i in (1..37) %}
   {% assign n = i | prepend: '0' | slice: -2, 2 %}
   <img src="{{ '/assets/img/detour/gallery/s' | append: n | append: '.jpg' | relative_url }}"
        data-zoomable
