@@ -121,8 +121,8 @@ bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: blog # blog_name will be displayed in your blog page
-blog_nav_title: blog # leave blank to hide the blog from the nav bar
+blog_name: Blogs # blog_name will be displayed in your blog page
+blog_nav_title: Blogs # leave blank to hide the blog from the nav bar
 blog_description: Notes on generative modelling.
 permalink: /blog/:year/:title/
 
