@@ -320,6 +320,22 @@ Click any image to open it at full resolution.
 {% endfor %}
 </div>
 
+### More samples
+
+Fifty-two further samples from the same model, the set used in the appendix.
+These sheets were saved at a lower resolution than the gallery above, so the
+full-size view tops out near the model's own 1024 px rather than above it.
+
+<div class="detour-grid">
+{% for i in (1..52) %}
+  {% assign n = i | prepend: '0' | slice: -2, 2 %}
+  <img src="{{ '/assets/img/detour/appendix/a' | append: n | append: '.jpg' | relative_url }}"
+       data-zoomable
+       data-zoom-src="{{ '/assets/img/detour/appendix/full/a' | append: n | append: '.jpg' | relative_url }}"
+       loading="lazy" alt="Appendix sample {{ i }}" />
+{% endfor %}
+</div>
+
 ## Architecture, briefly
 
 A 32-pixel encoder lays out the image and passes its tokens to a 16-pixel decoder that predicts
