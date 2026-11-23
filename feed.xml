@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://quandao10.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://quandao10.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-23T21:58:46+00:00</updated><id>https://quandao10.github.io/feed.xml</id><title type="html">Quan Dao</title><subtitle>Quan Dao is a Ph.D. student in Computer Science at Rutgers University working on efficient generative modeling, including diffusion and flow-based models.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://quandao10.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://quandao10.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-23T22:05:54+00:00</updated><id>https://quandao10.github.io/feed.xml</id><title type="html">Quan Dao</title><subtitle>Quan Dao is a Ph.D. student in Computer Science at Rutgers University working on efficient generative modeling, including diffusion and flow-based models.
 </subtitle><entry><title type="html">Semantic Detour Flow</title><link href="https://quandao10.github.io/blog/2026/semantic-detour-flow/" rel="alternate" type="text/html" title="Semantic Detour Flow" /><published>2026-11-23T00:00:00+00:00</published><updated>2026-11-23T00:00:00+00:00</updated><id>https://quandao10.github.io/blog/2026/semantic-detour-flow</id><content type="html" xml:base="https://quandao10.github.io/blog/2026/semantic-detour-flow/"><![CDATA[<div class="detour-authors">
   <div class="names">
     Quan Dao<sup>1</sup>,
@@ -197,25 +197,61 @@ alone is already better at a much lower Inception score; together they are bette
 
 <h3 id="256256">256×256</h3>
 
-<figure class="detour-fig">
-  <img src="/assets/img/detour/imagenet256.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/full/imagenet256.jpg" alt="ImageNet 256 samples" />
-</figure>
+<p>Detour-XL/16, CFG 1.75 + AutoGuidance 2.0 — the setting that gives FID-50k 1.43.
+One sample per class, shown at the model’s native 256×256. Click to view at full size.</p>
 
-<figure class="detour-fig">
-  <img src="/assets/img/detour/imagenet256_b.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/full/imagenet256_b.jpg" alt="Uncurated ImageNet 256 samples" />
-  <figcaption>Uncurated samples from Detour-XL/16, CFG 1.75 + AutoGuidance 2.0 — the setting that gives FID-50k 1.43.</figcaption>
-</figure>
+<div class="in-grid in-grid-256">
+  <figure><img src="/assets/img/detour/in256/009-ostrich.png" data-zoomable="" loading="lazy" alt="ostrich" /><figcaption>ostrich</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/015-robin.png" data-zoomable="" loading="lazy" alt="robin" /><figcaption>robin</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/033-loggerhead.png" data-zoomable="" loading="lazy" alt="loggerhead" /><figcaption>loggerhead</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/088-macaw.png" data-zoomable="" loading="lazy" alt="macaw" /><figcaption>macaw</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/100-black-swan.png" data-zoomable="" loading="lazy" alt="black swan" /><figcaption>black swan</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/108-sea-anemone.png" data-zoomable="" loading="lazy" alt="sea anemone" /><figcaption>sea anemone</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/130-flamingo.png" data-zoomable="" loading="lazy" alt="flamingo" /><figcaption>flamingo</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/207-golden-retriever.png" data-zoomable="" loading="lazy" alt="golden retriever" /><figcaption>golden retriever</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/250-siberian-husky.png" data-zoomable="" loading="lazy" alt="siberian husky" /><figcaption>siberian husky</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/279-arctic-fox.png" data-zoomable="" loading="lazy" alt="arctic fox" /><figcaption>arctic fox</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/291-lion.png" data-zoomable="" loading="lazy" alt="lion" /><figcaption>lion</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/330-wood-rabbit.png" data-zoomable="" loading="lazy" alt="wood rabbit" /><figcaption>wood rabbit</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/360-otter.png" data-zoomable="" loading="lazy" alt="otter" /><figcaption>otter</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/386-african-elephant.png" data-zoomable="" loading="lazy" alt="african elephant" /><figcaption>african elephant</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/387-lesser-panda.png" data-zoomable="" loading="lazy" alt="lesser panda" /><figcaption>lesser panda</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/388-giant-panda.png" data-zoomable="" loading="lazy" alt="giant panda" /><figcaption>giant panda</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/417-balloon.png" data-zoomable="" loading="lazy" alt="balloon" /><figcaption>balloon</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/483-castle.png" data-zoomable="" loading="lazy" alt="castle" /><figcaption>castle</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/510-container-ship.png" data-zoomable="" loading="lazy" alt="container ship" /><figcaption>container ship</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/812-space-shuttle.png" data-zoomable="" loading="lazy" alt="space shuttle" /><figcaption>space shuttle</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/829-streetcar.png" data-zoomable="" loading="lazy" alt="streetcar" /><figcaption>streetcar</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/928-ice-cream.png" data-zoomable="" loading="lazy" alt="ice cream" /><figcaption>ice cream</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/948-granny-smith.png" data-zoomable="" loading="lazy" alt="granny smith" /><figcaption>granny smith</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/949-strawberry.png" data-zoomable="" loading="lazy" alt="strawberry" /><figcaption>strawberry</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/963-pizza.png" data-zoomable="" loading="lazy" alt="pizza" /><figcaption>pizza</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/970-alp.png" data-zoomable="" loading="lazy" alt="alp" /><figcaption>alp</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/975-lakeside.png" data-zoomable="" loading="lazy" alt="lakeside" /><figcaption>lakeside</figcaption></figure>
+  <figure><img src="/assets/img/detour/in256/980-volcano.png" data-zoomable="" loading="lazy" alt="volcano" /><figcaption>volcano</figcaption></figure>
+</div>
 
 <h3 id="512512">512×512</h3>
 
-<figure class="detour-fig">
-  <img src="/assets/img/detour/imagenet512.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/full/imagenet512.jpg" alt="ImageNet 512 samples" />
-</figure>
+<p>Detour-XL/32, CFG 2.5 + AutoGuidance 2.0, at the native 512×512.</p>
 
-<figure class="detour-fig">
-  <img src="/assets/img/detour/imagenet512_b.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/full/imagenet512_b.jpg" alt="Uncurated ImageNet 512 samples" />
-  <figcaption>Uncurated samples from Detour-XL/32, CFG 2.0 + AutoGuidance 2.0 — the setting that gives FID-50k 1.59.</figcaption>
-</figure>
+<div class="in-grid in-grid-512">
+  <figure><img src="/assets/img/detour/in512/00-001-goldfish.png" data-zoomable="" loading="lazy" alt="goldfish" /><figcaption>goldfish</figcaption></figure>
+  <figure><img src="/assets/img/detour/in512/01-022-bald-eagle.png" data-zoomable="" loading="lazy" alt="bald eagle" /><figcaption>bald eagle</figcaption></figure>
+  <figure><img src="/assets/img/detour/in512/02-145-king-penguin.png" data-zoomable="" loading="lazy" alt="king penguin" /><figcaption>king penguin</figcaption></figure>
+  <figure><img src="/assets/img/detour/in512/03-292-tiger.png" data-zoomable="" loading="lazy" alt="tiger" /><figcaption>tiger</figcaption></figure>
+  <figure><img src="/assets/img/detour/in512/04-323-monarch.png" data-zoomable="" loading="lazy" alt="monarch" /><figcaption>monarch</figcaption></figure>
+  <figure><img src="/assets/img/detour/in512/05-089-sulphur-crested-cockatoo.png" data-zoomable="" loading="lazy" alt="sulphur crested cockatoo" /><figcaption>sulphur crested cockatoo</figcaption></figure>
+  <figure><img src="/assets/img/detour/in512/06-296-ice-bear.png" data-zoomable="" loading="lazy" alt="ice bear" /><figcaption>ice bear</figcaption></figure>
+  <figure><img src="/assets/img/detour/in512/07-340-zebra.png" data-zoomable="" loading="lazy" alt="zebra" /><figcaption>zebra</figcaption></figure>
+  <figure><img src="/assets/img/detour/in512/08-107-jellyfish.png" data-zoomable="" loading="lazy" alt="jellyfish" /><figcaption>jellyfish</figcaption></figure>
+  <figure><img src="/assets/img/detour/in512/09-973-coral-reef.png" data-zoomable="" loading="lazy" alt="coral reef" /><figcaption>coral reef</figcaption></figure>
+  <figure><img src="/assets/img/detour/in512/10-425-barn.png" data-zoomable="" loading="lazy" alt="barn" /><figcaption>barn</figcaption></figure>
+  <figure><img src="/assets/img/detour/in512/11-437-beacon.png" data-zoomable="" loading="lazy" alt="beacon" /><figcaption>beacon</figcaption></figure>
+  <figure><img src="/assets/img/detour/in512/12-933-cheeseburger.png" data-zoomable="" loading="lazy" alt="cheeseburger" /><figcaption>cheeseburger</figcaption></figure>
+  <figure><img src="/assets/img/detour/in512/13-985-daisy.png" data-zoomable="" loading="lazy" alt="daisy" /><figcaption>daisy</figcaption></figure>
+  <figure><img src="/assets/img/detour/in512/14-992-agaric.png" data-zoomable="" loading="lazy" alt="agaric" /><figcaption>agaric</figcaption></figure>
+</div>
 
 <h2 id="text-to-image">Text to image</h2>
 
