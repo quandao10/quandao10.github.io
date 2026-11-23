@@ -23,15 +23,28 @@ _styles: >
     border-radius: 6px;
     display: block;
     break-inside: avoid;
+    cursor: zoom-in;
     transition: transform .18s ease, box-shadow .18s ease;
   }
   .detour-grid img:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(0,0,0,.18);
   }
-  .detour-lede {
-    font-size: 1.05rem;
-    line-height: 1.6;
+  .detour-fig { margin: 1.8rem 0; }
+  .detour-fig img { width: 100%; height: auto; display: block; border-radius: 4px; cursor: zoom-in; }
+  .detour-fig figcaption {
+    font-size: .88rem;
+    opacity: .72;
+    margin-top: .5rem;
+    text-align: left;
+  }
+  .detour-video { width: 100%; margin: 1.8rem 0; }
+  .detour-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    background: #faf9f7;
   }
   .detour-num {
     display: flex;
@@ -40,17 +53,8 @@ _styles: >
     margin: 1.6rem 0;
   }
   .detour-num div { min-width: 0; }
-  .detour-num .v {
-    font-size: 1.9rem;
-    font-weight: 600;
-    line-height: 1.1;
-  }
-  .detour-num .k {
-    font-size: .82rem;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    opacity: .68;
-  }
+  .detour-num .v { font-size: 1.9rem; font-weight: 600; line-height: 1.1; }
+  .detour-num .k { font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; opacity: .68; }
   table.detour td, table.detour th { padding: .35rem .6rem; }
 ---
 
@@ -67,7 +71,9 @@ sampling that runs entirely in pixel space.
   <div><div class="v">0.90 / 87.8</div><div class="k">GenEval / DPG-Bench, 512</div></div>
 </div>
 
-{% include figure.html path="assets/img/detour/teaser.jpg" class="img-fluid rounded" zoomable=true alt="Samples from Semantic Detour Flow" %}
+<figure class="detour-fig">
+  <img src="{{ '/assets/img/detour/teaser.jpg' | relative_url }}" data-zoomable data-zoom-src="{{ '/assets/img/detour/full/teaser.jpg' | relative_url }}" alt="Samples from Semantic Detour Flow" />
+</figure>
 
 ## Why pixel diffusion is slow
 
@@ -117,9 +123,17 @@ The video runs the equation above continuously in $$t$$, on a real image with it
 at; on the right the state $$z_t$$ the network actually sees. Near noise the signal is a semantic
 prototype; near data it is the photograph.
 
-{% include video.html path="assets/video/detour_path.mp4" class="img-fluid rounded" controls=true autoplay=true loop=true muted=true %}
+<div class="detour-video">
+  <video controls playsinline autoplay loop muted preload="metadata" poster="{{ '/assets/img/detour/video_poster.jpg' | relative_url }}">
+    <source src="{{ '/assets/video/detour_path.mp4' | relative_url }}" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
 
-{% include figure.html path="assets/img/detour/system.jpg" class="img-fluid" zoomable=true alt="The detour path and the network" %}
+<figure class="detour-fig">
+  <img src="{{ '/assets/img/detour/system.jpg' | relative_url }}" data-zoomable data-zoom-src="{{ '/assets/img/detour/full/system.jpg' | relative_url }}" alt="The detour path and the network" />
+  <figcaption>Left: the signal \(m_t\) and the state \(z_t\) on a real image, with the code shown by its PCA colours. Right: the network predicts image and code.</figcaption>
+</figure>
 
 Sampling needs none of this machinery. It integrates a pixel-space ODE from noise to data —
 no encoder, no decoder, nothing to reconstruct through.
@@ -159,15 +173,27 @@ alone is already better at a much lower Inception score; together they are bette
 | **CFG 1.75 + AutoGuidance 2.0** | **1.43** | 267 |
 {: .detour}
 
-<div class="row">
-  <div class="col-sm-6 mt-3 mt-md-0">
-    {% include figure.html path="assets/img/detour/imagenet256.jpg" class="img-fluid rounded" zoomable=true alt="ImageNet 256 samples" %}
-  </div>
-  <div class="col-sm-6 mt-3 mt-md-0">
-    {% include figure.html path="assets/img/detour/imagenet512.jpg" class="img-fluid rounded" zoomable=true alt="ImageNet 512 samples" %}
-  </div>
-</div>
-<div class="caption">ImageNet samples at 256×256 (left) and 512×512 (right).</div>
+### 256×256
+
+<figure class="detour-fig">
+  <img src="{{ '/assets/img/detour/imagenet256.jpg' | relative_url }}" data-zoomable data-zoom-src="{{ '/assets/img/detour/full/imagenet256.jpg' | relative_url }}" alt="ImageNet 256 samples" />
+</figure>
+
+<figure class="detour-fig">
+  <img src="{{ '/assets/img/detour/imagenet256_b.jpg' | relative_url }}" data-zoomable data-zoom-src="{{ '/assets/img/detour/full/imagenet256_b.jpg' | relative_url }}" alt="Uncurated ImageNet 256 samples" />
+  <figcaption>Uncurated samples from Detour-XL/16, CFG 1.75 + AutoGuidance 2.0 — the setting that gives FID-50k 1.43.</figcaption>
+</figure>
+
+### 512×512
+
+<figure class="detour-fig">
+  <img src="{{ '/assets/img/detour/imagenet512.jpg' | relative_url }}" data-zoomable data-zoom-src="{{ '/assets/img/detour/full/imagenet512.jpg' | relative_url }}" alt="ImageNet 512 samples" />
+</figure>
+
+<figure class="detour-fig">
+  <img src="{{ '/assets/img/detour/imagenet512_b.jpg' | relative_url }}" data-zoomable data-zoom-src="{{ '/assets/img/detour/full/imagenet512_b.jpg' | relative_url }}" alt="Uncurated ImageNet 512 samples" />
+  <figcaption>Uncurated samples from Detour-XL/32, CFG 2.0 + AutoGuidance 2.0 — the setting that gives FID-50k 1.59.</figcaption>
+</figure>
 
 ## Text to image
 
@@ -178,18 +204,25 @@ A 3.3B model scores **GenEval 0.90 / DPG-Bench 87.8** at 512×512 and **0.88 / 8
 ahead of the pixel-space models we compare against at both resolutions, while keeping the fine
 textures and rendered text that a semantic-latent decoder can lose.
 
-{% include figure.html path="assets/img/detour/t2i_convergence.jpg" class="img-fluid" zoomable=true alt="Text-to-image convergence against plain pixel flow" %}
+<figure class="detour-fig">
+  <img src="{{ '/assets/img/detour/t2i_convergence.jpg' | relative_url }}" data-zoomable data-zoom-src="{{ '/assets/img/detour/full/t2i_convergence.jpg' | relative_url }}" alt="Text-to-image convergence against plain pixel flow" />
+</figure>
 
-{% include figure.html path="assets/img/detour/t2i_text_render.jpg" class="img-fluid" zoomable=true alt="Rendered text" %}
+<figure class="detour-fig">
+  <img src="{{ '/assets/img/detour/t2i_text_render.jpg' | relative_url }}" data-zoomable data-zoom-src="{{ '/assets/img/detour/full/t2i_text_render.jpg' | relative_url }}" alt="Rendered text" />
+</figure>
 
 ## Gallery
 
-Fifty-two samples from the 3.3B model at 1024×1024. Click any image to enlarge.
+Fifty-two samples from the 3.3B model at 1024×1024. Click any image to open it at full resolution.
 
 <div class="detour-grid">
 {% for i in (1..52) %}
   {% assign n = i | prepend: '0' | slice: -2, 2 %}
-  <img src="{{ '/assets/img/detour/gallery/s' | append: n | append: '.jpg' | relative_url }}" data-zoomable loading="lazy" alt="Sample {{ i }}" />
+  <img src="{{ '/assets/img/detour/gallery/s' | append: n | append: '.jpg' | relative_url }}"
+       data-zoomable
+       data-zoom-src="{{ '/assets/img/detour/gallery/full/s' | append: n | append: '.jpg' | relative_url }}"
+       loading="lazy" alt="Sample {{ i }}" />
 {% endfor %}
 </div>
 
@@ -199,7 +232,9 @@ A 32-pixel encoder lays out the image and passes its tokens to a 16-pixel decode
 image and code together. The loss is a single velocity objective against targets $$x$$ and $$c(x)$$,
 with DINOv2 frozen throughout — it is used to define the path, never trained.
 
-{% include figure.html path="assets/img/detour/t2i_arch.jpg" class="img-fluid" zoomable=true alt="Text-to-image architectures" %}
+<figure class="detour-fig">
+  <img src="{{ '/assets/img/detour/t2i_arch.jpg' | relative_url }}" data-zoomable data-zoom-src="{{ '/assets/img/detour/full/t2i_arch.jpg' | relative_url }}" alt="Text-to-image architectures" />
+</figure>
 
 ---
 
