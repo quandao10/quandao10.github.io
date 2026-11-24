@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://quandao10.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://quandao10.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-24T23:13:49+00:00</updated><id>https://quandao10.github.io/feed.xml</id><title type="html">Quan Dao</title><subtitle>Quan Dao is a Ph.D. student in Computer Science at Rutgers University working on efficient generative modeling, including diffusion and flow-based models.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://quandao10.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://quandao10.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-24T23:17:05+00:00</updated><id>https://quandao10.github.io/feed.xml</id><title type="html">Quan Dao</title><subtitle>Quan Dao is a Ph.D. student in Computer Science at Rutgers University working on efficient generative modeling, including diffusion and flow-based models.
 </subtitle><entry><title type="html">Semantic Detour Flow</title><link href="https://quandao10.github.io/blog/2026/semantic-detour-flow/" rel="alternate" type="text/html" title="Semantic Detour Flow" /><published>2026-11-23T00:00:00+00:00</published><updated>2026-11-23T00:00:00+00:00</updated><id>https://quandao10.github.io/blog/2026/semantic-detour-flow</id><content type="html" xml:base="https://quandao10.github.io/blog/2026/semantic-detour-flow/"><![CDATA[<div class="detour-authors">
   <div class="names">
     Quan Dao<sup>1</sup>,
@@ -299,7 +299,8 @@ above. Shown at the model’s native 256×256, uncurated. Click to view at full 
 <h3 id="512512">512×512</h3>
 
 <p><strong>Model samples, not real images.</strong> Detour-XL/32, CFG 2.5 + AutoGuidance 2.0, at the native
-512×512, uncurated.</p>
+512×512. Fifteen picks selected from a 50k sampling run — chosen, unlike the 256 grid above, which is
+one sample per class.</p>
 
 <div class="in-grid in-grid-512">
   <figure><img src="/assets/img/detour/in512/00-001-goldfish.png" data-zoomable="" loading="lazy" alt="goldfish" /><figcaption>goldfish</figcaption></figure>
