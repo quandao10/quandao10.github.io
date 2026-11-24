@@ -294,7 +294,8 @@ above. Shown at the model's native 256×256, uncurated. Click to view at full si
 ### 512×512
 
 **Model samples, not real images.** Detour-XL/32, CFG 2.5 + AutoGuidance 2.0, at the native
-512×512, uncurated.
+512×512. Fifteen picks selected from a 50k sampling run — chosen, unlike the 256 grid above, which is
+one sample per class.
 
 <div class="in-grid in-grid-512">
   <figure><img src="{{ '/assets/img/detour/in512/00-001-goldfish.png' | relative_url }}" data-zoomable loading="lazy" alt="goldfish" /><figcaption>goldfish</figcaption></figure>
