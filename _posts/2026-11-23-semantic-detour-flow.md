@@ -256,8 +256,9 @@ cost of diversity, and FID sees the bill that IS does not.
 
 ### 256×256
 
-Detour-XL/16, CFG 1.75 + AutoGuidance 2.0 — the setting that gives FID-50k 1.43.
-One sample per class, shown at the model's native 256×256. Click to view at full size.
+**Model samples, not real images.** One sample per class from Detour-XL/16 at **epoch 200**,
+CFG 1.75 + AutoGuidance 2.0 — the setting that gives FID-50k 1.43, not the epoch-320 setting quoted
+above. Shown at the model's native 256×256, uncurated. Click to view at full size.
 
 <div class="in-grid in-grid-256">
   <figure><img src="{{ '/assets/img/detour/in256/009-ostrich.png' | relative_url }}" data-zoomable loading="lazy" alt="ostrich" /><figcaption>ostrich</figcaption></figure>
@@ -292,7 +293,8 @@ One sample per class, shown at the model's native 256×256. Click to view at ful
 
 ### 512×512
 
-Detour-XL/32, CFG 2.5 + AutoGuidance 2.0, at the native 512×512.
+**Model samples, not real images.** Detour-XL/32, CFG 2.5 + AutoGuidance 2.0, at the native
+512×512, uncurated.
 
 <div class="in-grid in-grid-512">
   <figure><img src="{{ '/assets/img/detour/in512/00-001-goldfish.png' | relative_url }}" data-zoomable loading="lazy" alt="goldfish" /><figcaption>goldfish</figcaption></figure>
