@@ -123,8 +123,8 @@ sampling that runs entirely in pixel space.
 
 <div class="detour-num">
   <div><div class="v">92.8 → 38.8</div><div class="k">FID-10k, 20 epochs, same network</div></div>
-  <div><div class="v">1.3525</div><div class="k">FID-50k, ImageNet 256</div></div>
-  <div><div class="v">1.3541</div><div class="k">FID-50k, ImageNet 512</div></div>
+  <div><div class="v">1.35</div><div class="k">FID-50k, ImageNet 256</div></div>
+  <div><div class="v">1.35</div><div class="k">FID-50k, ImageNet 512</div></div>
   <div><div class="v">0.90 / 87.8</div><div class="k">GenEval / DPG-Bench, 512</div></div>
 </div>
 
@@ -219,10 +219,10 @@ while generating directly in pixels.
 At 256×256, Detour-XL/16 reaches **FID-50k 1.43** in 200 epochs; at 512×512, Detour-XL/32 reaches
 **1.59** in 160 epochs. Without guidance the same models reach 3.69 and 4.19.
 
-Both runs were continued, and both now reach **1.35**: 256×256 gets **1.3525** at epoch 320, and
-512×512 gets **1.3541** at epoch 280. At 512 most of that came from the guidance *window* rather than
-from the extra epochs — the same setting on [0.05, 0.75] measures 1.4571 and 1.4572 on two separate
-runs, and widening to [0.05, 0.9], the value 256 already used, gives 1.3541. Epoch 320 at 512 is worse
+Both runs were continued, and both now reach **1.35**: 256×256 gets **1.35** at epoch 320, and
+512×512 gets **1.35** at epoch 280. At 512 most of that came from the guidance *window* rather than
+from the extra epochs — the same setting on [0.05, 0.75] measures 1.46 on two separate
+runs, and widening to [0.05, 0.9], the value 256 already used, gives 1.35. Epoch 320 at 512 is worse
 than 280, so the longer run is not uniformly better.
 
 Guidance matters, and the two kinds compose. Classifier-free guidance alone plateaus; autoguidance
@@ -240,14 +240,14 @@ The same comparison at epoch 320, and at 512×512 at epoch 280, both on the wind
 
 | Sampling | FID-50k | IS |
 |---|---|---|
-| **XL/16 @320** — unguided | 3.2385 | 192 |
-| CFG 2.5 alone | 2.1271 | 300 |
-| AutoGuidance 2.0 | 1.5913 | 220 |
-| **CFG 1.625 + AutoGuidance 2.0** | **1.3525** | 267 |
-| **XL/32 @280, 512×512** — unguided | 3.727 | 201 |
-| CFG 4.0 alone | 2.324 | 334 |
-| AutoGuidance 2.0 | 1.535 | 238 |
-| **CFG 2.0 + AutoGuidance 2.0** | **1.3541** | 297 |
+| **XL/16 @320** — unguided | 3.24 | 192 |
+| CFG 2.5 alone | 2.13 | 300 |
+| AutoGuidance 2.0 | 1.59 | 220 |
+| **CFG 1.625 + AutoGuidance 2.0** | **1.35** | 267 |
+| **XL/32 @280, 512×512** — unguided | 3.73 | 201 |
+| CFG 4.0 alone | 2.32 | 334 |
+| AutoGuidance 2.0 | 1.54 | 238 |
+| **CFG 2.0 + AutoGuidance 2.0** | **1.35** | 297 |
 {: .detour}
 
 Note what CFG alone does to the Inception score: it is the *highest* of the four at both resolutions
