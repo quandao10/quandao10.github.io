@@ -249,11 +249,11 @@ sampling that runs entirely in pixel space.</p>
 <div class="k">FID-10k, 20 epochs, same network</div>
 </div>
   <div>
-<div class="v">1.3525</div>
+<div class="v">1.35</div>
 <div class="k">FID-50k, ImageNet 256</div>
 </div>
   <div>
-<div class="v">1.3541</div>
+<div class="v">1.35</div>
 <div class="k">FID-50k, ImageNet 512</div>
 </div>
   <div>
@@ -393,10 +393,10 @@ while generating directly in pixels.</p>
 <p>At 256×256, Detour-XL/16 reaches <strong>FID-50k 1.43</strong> in 200 epochs; at 512×512, Detour-XL/32 reaches
 <strong>1.59</strong> in 160 epochs. Without guidance the same models reach 3.69 and 4.19.</p>
 
-<p>Both runs were continued, and both now reach <strong>1.35</strong>: 256×256 gets <strong>1.3525</strong> at epoch 320, and
-512×512 gets <strong>1.3541</strong> at epoch 280. At 512 most of that came from the guidance <em>window</em> rather than
-from the extra epochs — the same setting on [0.05, 0.75] measures 1.4571 and 1.4572 on two separate
-runs, and widening to [0.05, 0.9], the value 256 already used, gives 1.3541. Epoch 320 at 512 is worse
+<p>Both runs were continued, and both now reach <strong>1.35</strong>: 256×256 gets <strong>1.35</strong> at epoch 320, and
+512×512 gets <strong>1.35</strong> at epoch 280. At 512 most of that came from the guidance <em>window</em> rather than
+from the extra epochs — the same setting on [0.05, 0.75] measures 1.46 on two separate
+runs, and widening to [0.05, 0.9], the value 256 already used, gives 1.35. Epoch 320 at 512 is worse
 than 280, so the longer run is not uniformly better.</p>
 
 <p>Guidance matters, and the two kinds compose. Classifier-free guidance alone plateaus; autoguidance
@@ -448,43 +448,43 @@ alone is already better at a much lower Inception score; together they are bette
     <tr>
       <td>
 <strong>XL/16 @320</strong> — unguided</td>
-      <td>3.2385</td>
+      <td>3.24</td>
       <td>192</td>
     </tr>
     <tr>
       <td>CFG 2.5 alone</td>
-      <td>2.1271</td>
+      <td>2.13</td>
       <td>300</td>
     </tr>
     <tr>
       <td>AutoGuidance 2.0</td>
-      <td>1.5913</td>
+      <td>1.59</td>
       <td>220</td>
     </tr>
     <tr>
       <td><strong>CFG 1.625 + AutoGuidance 2.0</strong></td>
-      <td><strong>1.3525</strong></td>
+      <td><strong>1.35</strong></td>
       <td>267</td>
     </tr>
     <tr>
       <td>
 <strong>XL/32 @280, 512×512</strong> — unguided</td>
-      <td>3.727</td>
+      <td>3.73</td>
       <td>201</td>
     </tr>
     <tr>
       <td>CFG 4.0 alone</td>
-      <td>2.324</td>
+      <td>2.32</td>
       <td>334</td>
     </tr>
     <tr>
       <td>AutoGuidance 2.0</td>
-      <td>1.535</td>
+      <td>1.54</td>
       <td>238</td>
     </tr>
     <tr>
       <td><strong>CFG 2.0 + AutoGuidance 2.0</strong></td>
-      <td><strong>1.3541</strong></td>
+      <td><strong>1.35</strong></td>
       <td>297</td>
     </tr>
   </tbody>
