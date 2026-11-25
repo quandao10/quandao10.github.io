@@ -704,35 +704,6 @@ It scales. At XL, feedback roughly halves FID-10k at epoch 20 (16.5 → 8.36), a
 already passed the 200-epoch model without feedback** (6.40 against 6.86). Unguided FID-50k at epoch 80
 goes from 5.34 to 3.18.
 
-### Why it is not in the main models
-
-<div class="dt-wrap"><div class="dt-scroll">
-<table class="dt">
-<thead>
-<tr><th>Detour-XL/16, epoch 80</th><th>Guidance</th><th>FID-10k</th><th>FID-50k</th><th>IS</th></tr>
-</thead><tbody>
-<tr><td>Detour</td><td>none</td><td>8.06</td><td>5.34</td><td>157</td></tr>
-<tr><td></td><td>CFG 2.25</td><td><span class="u">&ndash;</span></td><td>2.75</td><td>269</td></tr>
-<tr class="ours"><td></td><td>CFG 1.75 + AG 2.0</td><td>4.42</td><td>1.87</td><td>248</td></tr>
-<tr class="sec"><td colspan="5">With code feedback</td></tr>
-<tr><td>+ feedback</td><td>none</td><td>5.70</td><td>3.18</td><td>234</td></tr>
-<tr><td></td><td>CFG 1.25</td><td>5.66</td><td>3.12</td><td>239</td></tr>
-<tr><td></td><td>AG 2.5</td><td>4.60</td><td>2.09</td><td>250</td></tr>
-<tr><td></td><td>CFG 1.125 + AG 2.5</td><td>4.63</td><td>2.12</td><td>260</td></tr>
-</tbody></table></div>
-<p class="dt-cap">Guidance on [0.05, 0.9]; AutoGuidance uses each model's own epoch-20 checkpoint. IS on 50k samples.</p>
-</div>
-
-**The unguided gain does not survive guidance.** Feedback wins by 2.2 FID unguided and still loses
-guided: 2.09 against 1.87. The clue is the Inception score — feedback reaches 234 *unguided*, where the
-baseline needs CFG to get to 269, and then CFG buys it almost nothing (3.18 → 3.12 at its best scale).
-
-A plausible reason is that feedback spoils its own weak model. AutoGuidance works by contrasting the
-model against an undertrained copy of itself, and we use each model's epoch-20 checkpoint for that. A
-feedback model at epoch 20 is *already good* — which is exactly what makes it a poor weak model. An
-earlier checkpoint might restore the gap, but we have not tried it, so feedback stays out of the main
-XL models despite the convergence it buys.
-
 ## Architecture, briefly
 
 A 32-pixel encoder lays out the image and passes its tokens to a 16-pixel decoder that predicts
