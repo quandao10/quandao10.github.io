@@ -234,6 +234,14 @@ _styles: >
   <span>Checkpoints <span class="soon">coming soon</span></span>
 </div>
 
+<div class="detour-video">
+  <video controls playsinline preload="none" poster="{{ '/assets/img/detour/promo_poster.jpg' | relative_url }}">
+    <source src="{{ '/assets/video/detour_promo.mp4' | relative_url }}" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+<p class="detour-note" style="text-align:center">A short walk through the method and the results (1 min 21 s, with sound).</p>
+
 Diffusion models trained in semantic latent spaces converge much faster than pixel-space
 models, but they inherit a decoder that caps fine detail. **Semantic Detour Flow** closes most
 of that gap without any decoder: it is a pixel-space flow that follows frozen DINOv2 features<sup class="cit"><a href="#ref-1">1</a></sup>
