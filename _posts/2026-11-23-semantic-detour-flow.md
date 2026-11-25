@@ -145,14 +145,6 @@ _styles: >
     table.dt { font-size: .76rem; }
     table.dt th, table.dt td { padding: .3rem .4rem; }
   }
-  table.dt .sc {
-    display: block;
-    font-size: .68em;
-    font-weight: 400;
-    opacity: .5;
-    letter-spacing: .01em;
-    margin-top: .05rem;
-  }
   table.dt .gsep { border-left: 1px solid rgba(128,128,128,.22); }
   table.dt thead th.grp.gsep { border-left: 1px solid rgba(128,128,128,.22); }
   .cit { font-size: .62em; vertical-align: super; line-height: 0; margin-left: .1em; }
@@ -336,7 +328,7 @@ Heun 50 steps). Putting DINOv2 features into the path is by far the largest sing
 <tr><td>+ detour path</td><td>66.6</td><td>&minus;26.2</td><td><span class="u">&ndash;</span></td></tr>
 <tr><td>+ trigonometric mix</td><td>52.7</td><td>&minus;13.9</td><td><span class="u">&ndash;</span></td></tr>
 <tr><td>+ norm bump</td><td>49.1</td><td>&minus;3.6</td><td><span class="u">&ndash;</span></td></tr>
-<tr><td>+ fitted logit-normal $$t$$</td><td>47.9</td><td>&minus;1.2</td><td>23.4</td></tr>
+<tr><td>+ fitted logit-normal <em>t</em></td><td>47.9</td><td>&minus;1.2</td><td>23.4</td></tr>
 <tr><td>+ interval sampling</td><td>45.5</td><td>&minus;2.4</td><td>20.4</td></tr>
 <tr class="ours"><td>+ multi-layer code</td><td>38.8</td><td>&minus;6.7</td><td>15.8</td></tr>
 </tbody></table></div>
@@ -367,12 +359,13 @@ alone is already better at a much lower Inception score; together they are bette
 <tr><th>Guidance</th><th class="gsep">FID-50k</th><th>IS</th><th class="gsep">FID-50k</th><th>IS</th><th class="gsep">FID-50k</th><th>IS</th></tr>
 </thead><tbody>
 <tr><td>Unguided</td><td class="gsep">3.69</td><td>182</td><td class="gsep">3.24</td><td>192</td><td class="gsep">3.73</td><td>201</td></tr>
-<tr><td>CFG only</td><td class="gsep">2.27<span class="sc">scale 2.25</span></td><td>283</td><td class="gsep">2.13<span class="sc">scale 2.5</span></td><td>300</td><td class="gsep">2.32<span class="sc">scale 4.0</span></td><td>334</td></tr>
-<tr><td>AutoGuidance only</td><td class="gsep">1.81<span class="sc">scale 2.0</span></td><td>210</td><td class="gsep">1.59<span class="sc">scale 2.0</span></td><td>220</td><td class="gsep">1.54<span class="sc">scale 2.0</span></td><td>238</td></tr>
-<tr class="ours"><td>CFG + AutoGuidance</td><td class="gsep">1.43<span class="sc">1.75 + 2.0</span></td><td>267</td><td class="gsep">1.35<span class="sc">1.625 + 2.0</span></td><td>267</td><td class="gsep">1.35<span class="sc">2.0 + 2.0</span></td><td>297</td></tr>
+<tr><td>CFG only</td><td class="gsep">2.27</td><td>283</td><td class="gsep">2.13</td><td>300</td><td class="gsep">2.32</td><td>334</td></tr>
+<tr><td>AutoGuidance only</td><td class="gsep">1.81</td><td>210</td><td class="gsep">1.59</td><td>220</td><td class="gsep">1.54</td><td>238</td></tr>
+<tr class="ours"><td>CFG + AutoGuidance</td><td class="gsep">1.43</td><td>267</td><td class="gsep">1.35</td><td>267</td><td class="gsep">1.35</td><td>297</td></tr>
 </tbody></table></div>
-<p class="dt-cap">Euler 100 on the grid $$t=u^4$$, EMA2, guidance on the window [0.05, 0.9]. Small
-figures are the guidance scales; AutoGuidance always contrasts against the same run at epoch 20.</p>
+<p class="dt-cap">Euler 100 on the grid <em>t</em>&nbsp;=&nbsp;<em>u</em><sup>4</sup>, EMA2, guidance on the
+window [0.05, 0.9]. Each cell uses the best scale for that setting, and AutoGuidance always contrasts
+against the same run at epoch 20.</p>
 </div>
 
 Note what CFG alone does to the Inception score: it is the *highest* of the four at both resolutions
@@ -631,7 +624,7 @@ with the same sampler: relative comparisons, not best achievable numbers.
 <div class="dt-wrap"><div class="dt-scroll">
 <table class="dt">
 <thead>
-<tr><th>Encoder</th><th>Adaptation</th><th>$$C$$</th><th>State</th><th>$$R^2$$</th><th>FID-50k</th></tr>
+<tr><th>Encoder</th><th>Adaptation</th><th><em>C</em></th><th>State</th><th><em>R</em><sup>2</sup></th><th>FID-50k</th></tr>
 </thead><tbody>
 <tr><td>DINOv2-B</td><td><span class="u">&ndash;</span></td><td>768</td><td>3</td><td><span class="u">&ndash;</span></td><td>16.85</td></tr>
 <tr class="ours"><td>DINOv2-L</td><td>project</td><td>768</td><td>3</td><td>0.682</td><td>15.01</td></tr>
@@ -640,7 +633,7 @@ with the same sampler: relative comparisons, not best achievable numbers.
 <tr><td>MAE<sup class="cit"><a href="#ref-33">33</a></sup></td><td><span class="u">&ndash;</span></td><td>768</td><td>3</td><td>0.916</td><td>22.77</td></tr>
 <tr><td>LeJEPA<sup class="cit"><a href="#ref-34">34</a></sup></td><td><span class="u">&ndash;</span></td><td>768</td><td>3</td><td>0.793</td><td>23.05</td></tr>
 </tbody></table></div>
-<p class="dt-cap">$$R^2$$ is linear patch reconstruction from the code token, estimated from 1.03M tokens.</p>
+<p class="dt-cap"><em>R</em><sup>2</sup> is linear patch reconstruction from the code token, estimated from 1.03M tokens.</p>
 </div>
 
 **Projecting beats padding.** DINOv2-L has 1024 channels, which pixel shuffle turns into a four-channel
