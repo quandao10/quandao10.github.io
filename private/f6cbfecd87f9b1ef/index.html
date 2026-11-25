@@ -82,7 +82,7 @@ anywhere, or press Esc, to close</span></div>
 (function(){
  "use strict";
  var BASE = "/private/f6cbfecd87f9b1ef/";
- var BUST = "?v=cd4f208a";
+ var BUST = "?v=9c30bce5";
  var gate=document.getElementById("gate"), msg=document.getElementById("m"),
      post=document.getElementById("post"), ribbon=document.getElementById("ribbon");
  function say(t,c){msg.textContent=t; msg.className="msg"+(c?" "+c:"");}
@@ -119,7 +119,11 @@ anywhere, or press Esc, to close</span></div>
  function buildTOC(){
    var toc=document.getElementById("toc");
    var heads=[].slice.call(post.querySelectorAll("h2, h3"));
-   if(!heads.length){ toc.style.display="none"; return; }
+   if(!heads.length){
+     toc.style.display="none";
+     document.getElementById("shell").style.gridTemplateColumns="minmax(0,1fr)";
+     return;
+   }
    var seen={};
    heads.forEach(function(h){
      var id=slugify(h.textContent||"s");
