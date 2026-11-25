@@ -443,7 +443,7 @@ is the one that matters — most entries above us are trained three to eight tim
 
 ### 256×256
 
-**Model samples, not real images.** One sample per class from Detour-XL/16 at **epoch 200**,
+One sample per class from Detour-XL/16 at **epoch 200**,
 CFG 1.75 + AutoGuidance 2.0 — the setting that gives FID-50k 1.43, not the epoch-320 setting quoted
 above. Shown at the model's native 256×256, uncurated. Click to view at full size.
 
@@ -480,7 +480,7 @@ above. Shown at the model's native 256×256, uncurated. Click to view at full si
 
 ### 512×512
 
-**Model samples, not real images.** Detour-XL/32, CFG 2.5 + AutoGuidance 2.0, at the native
+Detour-XL/32, CFG 2.5 + AutoGuidance 2.0, at the native
 512×512. Fifteen picks selected from a 50k sampling run — chosen, unlike the 256 grid above, which is
 one sample per class.
 
