@@ -439,3 +439,27 @@ footer.sticky-bottom {
   padding-bottom: 1.5rem;
   text-align: center;
 }
+
+// Image zoom above everything else
+//
+// The sidebar table of contents is a Bootstrap .sticky-top, which carries
+// z-index 1020, while medium-zoom's overlay defaults to 100 and the opened
+// image to 101 -- so the TOC painted on top of a zoomed figure. Lift the zoom
+// above the sticky layer, and drop the TOC out of the way while a zoom is open.
+
+.medium-zoom-overlay {
+  z-index: 1060;
+}
+
+.medium-zoom-image--opened {
+  z-index: 1061;
+}
+
+body.zoom-open {
+  #toc-sidebar,
+  nav.sticky-top,
+  .navbar,
+  progress {
+    z-index: 1 !important;
+  }
+}
