@@ -618,11 +618,11 @@ full-size view tops out near the model's own 1024 px rather than above it.
 {% endfor %}
 </div>
 
-## Which encoder, and how wide a code?
+## Vision encoder and code dimension
 
 The default code is DINOv2-B with 768 channels, chosen because that is exactly a 16&times;16&times;3 pixel
 patch: the pixel shuffle $$\Phi$$ maps the code into an RGB-shaped state without changing its dimension
-or its norm. Two questions follow — what happens when the encoder's width does not match, and does the
+or its norm. Two questions follow — what happens when the code dimension does not match, and does the
 choice of encoder matter at all? All runs below are JiT-B/16 on ImageNet 256 for 80 epochs, unguided,
 with the same sampler: relative comparisons, not best achievable numbers.
 
