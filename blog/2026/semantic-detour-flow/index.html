@@ -490,7 +490,19 @@ runs, and widening to [0.05, 0.9], the value 256 already used, gives 1.35. Epoch
 than 280, so the longer run is not uniformly better.</p>
 
 <p>Guidance matters, and the two kinds compose. Classifier-free guidance<sup class="cit"><a href="#ref-2">2</a></sup> alone plateaus; autoguidance<sup class="cit"><a href="#ref-3">3</a></sup>
-alone is already better at a much lower Inception score; together they are better than either.</p>
+alone is already better at a much lower Inception score; together they are better than either. CFG
+contrasts the conditional velocity against the unconditional one, \(v_c - v_u\); AutoGuidance contrasts
+it against the <em>same model earlier in training</em>, \(v_c - v_g\), using the epoch-20 checkpoint as
+\(v_g\) so it needs no extra training. The two directions are nearly orthogonal (\(\cos \approx 0.2\)),
+so they add:</p>
+
+\[v \;=\; v_u \;+\; s\,(v_c - v_u) \;+\; (a-1)\,(v_c - v_g),
+\qquad t \in [0.05,\, 0.9],\]
+
+<p>with \(v = v_c\) outside that window. The split of labour is clean: <strong>CFG picks the class near noise,
+where the class is still undecided, and AutoGuidance improves quality along the rest of the path.</strong>
+That is also why the window matters — the CFG term goes to zero once the code reveals the class, so
+running it over the whole path only costs compute.</p>
 
 <div class="dt-wrap">
 <div class="dt-scroll">
@@ -556,10 +568,6 @@ alone is already better at a much lower Inception score; together they are bette
 window [0.05, 0.9]. Each cell uses the best scale for that setting, and AutoGuidance always contrasts
 against the same run at epoch 20.</p>
 </div>
-
-<p>Note what CFG alone does to the Inception score: it is the <em>highest</em> of the four at both resolutions
-(300 and 334) while the FID is a full point worse. A large guidance scale buys class-typicality at the
-cost of diversity, and FID sees the bill that IS does not.</p>
 
 <h3 id="against-the-field">Against the field</h3>
 
