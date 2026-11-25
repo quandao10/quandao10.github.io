@@ -1419,4 +1419,19 @@ footer.sticky-bottom {
   text-align: center;
 }
 
+.medium-zoom-overlay {
+  z-index: 1060;
+}
+
+.medium-zoom-image--opened {
+  z-index: 1061;
+}
+
+body.zoom-open #toc-sidebar,
+body.zoom-open nav.sticky-top,
+body.zoom-open .navbar,
+body.zoom-open progress {
+  z-index: 1 !important;
+}
+
 /*# sourceMappingURL=main.css.map */
