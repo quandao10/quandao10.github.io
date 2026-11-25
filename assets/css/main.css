@@ -1420,6 +1420,7 @@ footer.sticky-bottom {
 }
 
 .medium-zoom-overlay {
+  background: var(--global-bg-color) !important;
   z-index: 1060;
 }
 
@@ -1431,7 +1432,10 @@ body.zoom-open #toc-sidebar,
 body.zoom-open nav.sticky-top,
 body.zoom-open .navbar,
 body.zoom-open progress {
+  opacity: 0 !important;
+  pointer-events: none !important;
   z-index: 1 !important;
+  transition: opacity 0.2s ease;
 }
 
 /*# sourceMappingURL=main.css.map */
