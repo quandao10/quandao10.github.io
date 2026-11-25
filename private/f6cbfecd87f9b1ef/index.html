@@ -96,20 +96,61 @@
      post.innerHTML=html;
      gate.hidden=true; post.hidden=false; ribbon.hidden=false;
      document.title="Pixel Perceiver";
-     // media: decrypt on demand, nearest-first, so the page is readable immediately
-     var pend=[].slice.call(post.querySelectorAll("[data-enc]"));
-     var io2=new IntersectionObserver(function(es){
-       es.forEach(function(en){
-         if(!en.isIntersecting) return;
-         var el=en.target; io2.unobserve(el);
-         var p=el.getAttribute("data-enc");
-         open1(key, BASE+"enc/"+p+".bin").then(function(buf){
-           var mime=/\.mp4$/.test(p)?"video/mp4":(/\.png$/.test(p)?"image/png":"image/jpeg");
+     // Media: every encrypted reference is a data-* attribute. Elements may carry two
+     // (a <video> with both a poster and a source), and <source> needs the parent to reload.
+     function paint1(el){
+       var jobs=[];
+       if(el.hasAttribute("data-enc")) jobs.push(["src", el.getAttribute("data-enc")]);
+       if(el.hasAttribute("data-poster-enc")) jobs.push(["poster", el.getAttribute("data-poster-enc")]);
+       jobs.forEach(function(j){
+         var kind=j[0], path=j[1];
+         open1(key, BASE+"enc/"+path+".bin").then(function(buf){
+           var mime=/\.mp4$/.test(path)?"video/mp4"
+                   :(/\.png$/.test(path)?"image/png":"image/jpeg");
            var u=URL.createObjectURL(new Blob([buf],{type:mime}));
-           if(el.tagName==="VIDEO"||el.tagName==="IMG"){el.src=u;}
-           else{el.setAttribute("poster",u);}
-         }).catch(function(){});
+           if(kind==="poster"){ el.setAttribute("poster",u); return; }
+           el.setAttribute("src",u);
+           if(el.tagName==="SOURCE"){
+             var v=el.parentNode;
+             if(v && v.load) v.load();
+           }
+         }).catch(function(e){ el.setAttribute("data-enc-failed", String(e && e.message)); });
        });
+     }
+     var pend=[].slice.call(post.querySelectorAll("[data-enc],[data-poster-enc]"));
+     if(!("IntersectionObserver" in window)){
+       pend.forEach(paint1);                       // old browser: just decrypt everything
+     } else {
+       var io2=new IntersectionObserver(function(es){
+         es.forEach(function(en){
+           if(!en.isIntersecting) return;
+           io2.unobserve(en.target);
+           paint1(en.target);
+         });
+       },{rootMargin:"600px"});
+       pend.forEach(function(el){
+         // a <source> is zero-sized, so observe the <video> that holds it
+         io2.observe(el.tagName==="SOURCE" ? el.parentNode : el);
+       });
+       // a <source> observed via its parent still needs its own paint
+       pend.filter(function(el){return el.tagName==="SOURCE";}).forEach(paint1);
+     }
+     // "Download MP4": decrypt, then hand over a blob (plain Pages, so <a download> works)
+     [].slice.call(post.querySelectorAll("[data-dl-enc]")).forEach(function(a2){
+       a2.addEventListener("click", function(ev){
+         ev.preventDefault();
+         var path=a2.getAttribute("data-dl-enc"), old=a2.textContent;
+         a2.textContent="Decrypting\u2026";
+         open1(key, BASE+"enc/"+path+".bin").then(function(buf){
+           var u=URL.createObjectURL(new Blob([buf],{type:"video/mp4"}));
+           var t=document.createElement("a");
+           t.href=u; t.download=path.split("/").pop();
+           document.body.appendChild(t); t.click(); t.remove();
+           setTimeout(function(){URL.revokeObjectURL(u);},30000);
+           a2.textContent=old;
+         }).catch(function(){ a2.textContent="failed"; });
+       });
+     });
      },{rootMargin:"600px"});
      pend.forEach(function(el){
        // a <video data-enc> may also carry a poster marker on itself
