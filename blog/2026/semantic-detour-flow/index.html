@@ -955,53 +955,6 @@ is the one that matters — most entries above us are trained three to eight tim
 <p class="dt-cap">ImageNet 512×512. Same convention.</p>
 </div>
 
-<h3 id="where-the-gain-comes-from">Where the gain comes from</h3>
-
-<p>FID folds fidelity and coverage into one number, so a model can improve it by sharpening samples and
-quietly shedding diversity. Precision and recall separate the two. Measured with the ADM evaluator on
-the same 50k samples that produced each FID:</p>
-
-<table class="detour">
-  <thead>
-    <tr>
-      <th>Checkpoint</th>
-      <th>Precision</th>
-      <th>Recall</th>
-      <th>FID-50k</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>256, epoch 200</td>
-      <td>0.765</td>
-      <td>0.653</td>
-      <td>1.427</td>
-    </tr>
-    <tr>
-      <td><strong>256, epoch 320</strong></td>
-      <td>0.761</td>
-      <td><strong>0.670</strong></td>
-      <td><strong>1.353</strong></td>
-    </tr>
-    <tr>
-      <td>512, epoch 160</td>
-      <td>0.794</td>
-      <td>0.649</td>
-      <td>1.587</td>
-    </tr>
-    <tr>
-      <td><strong>512, epoch 280</strong></td>
-      <td>0.788</td>
-      <td><strong>0.680</strong></td>
-      <td><strong>1.355</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Precision is flat at both resolutions — within run-to-run variation — while recall gains 1.7 points at
-256 and 3.1 at 512. <strong>The improvement is coverage, not fidelity.</strong> The model is not trading away
-diversity to buy a better score, which is the failure a FID-only comparison would have hidden.</p>
-
 <h3 id="256256">256×256</h3>
 
 <p><strong>Model samples, not real images.</strong> One sample per class from Detour-XL/16 at <strong>epoch 200</strong>,
