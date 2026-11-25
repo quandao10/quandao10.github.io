@@ -145,6 +145,16 @@ _styles: >
     table.dt { font-size: .76rem; }
     table.dt th, table.dt td { padding: .3rem .4rem; }
   }
+  table.dt .sc {
+    display: block;
+    font-size: .68em;
+    font-weight: 400;
+    opacity: .5;
+    letter-spacing: .01em;
+    margin-top: .05rem;
+  }
+  table.dt .gsep { border-left: 1px solid rgba(128,128,128,.22); }
+  table.dt thead th.grp.gsep { border-left: 1px solid rgba(128,128,128,.22); }
   .cit { font-size: .62em; vertical-align: super; line-height: 0; margin-left: .1em; }
   .cit a { text-decoration: none; opacity: .75; }
   .cit a:hover { opacity: 1; }
@@ -317,16 +327,21 @@ no encoder, no decoder, nothing to reconstruct through.
 Each row adds one piece to plain pixel flow, using the *same* network (JiT-B, 296M, unguided FID,
 Heun 50 steps). Putting DINOv2 features into the path is by far the largest single gain.
 
-| Model | FID-10k, 20 ep. | Δ | FID-50k, 80 ep. |
-|---|---|---|---|
-| Pixel flow (JiT, same network) | 92.8 | — | 48.3 |
-| + detour path | 66.6 | −26.2 | — |
-| + trigonometric mix | 52.7 | −13.9 | — |
-| + norm bump | 49.1 | −3.6 | — |
-| + fitted logit-normal $$t$$ | 47.9 | −1.2 | 23.4 |
-| + interval sampling | 45.5 | −2.4 | 20.4 |
-| + multi-layer code | **38.8** | −6.7 | **15.8** |
-{: .detour}
+<div class="dt-wrap"><div class="dt-scroll">
+<table class="dt">
+<thead>
+<tr><th>Model</th><th>FID-10k, 20 ep.</th><th>&Delta;</th><th>FID-50k, 80 ep.</th></tr>
+</thead><tbody>
+<tr><td>Pixel flow (JiT, same network)</td><td>92.8</td><td><span class="u">&ndash;</span></td><td>48.3</td></tr>
+<tr><td>+ detour path</td><td>66.6</td><td>&minus;26.2</td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>+ trigonometric mix</td><td>52.7</td><td>&minus;13.9</td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>+ norm bump</td><td>49.1</td><td>&minus;3.6</td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>+ fitted logit-normal $$t$$</td><td>47.9</td><td>&minus;1.2</td><td>23.4</td></tr>
+<tr><td>+ interval sampling</td><td>45.5</td><td>&minus;2.4</td><td>20.4</td></tr>
+<tr class="ours"><td>+ multi-layer code</td><td>38.8</td><td>&minus;6.7</td><td>15.8</td></tr>
+</tbody></table></div>
+<p class="dt-cap">JiT-B, 296M parameters, unguided, Heun 50 with a uniform time grid.</p>
+</div>
 
 Semantic latent diffusion still converges faster, but the detour recovers much of the advantage
 while generating directly in pixels.
@@ -345,27 +360,20 @@ than 280, so the longer run is not uniformly better.
 Guidance matters, and the two kinds compose. Classifier-free guidance<sup class="cit"><a href="#ref-2">2</a></sup> alone plateaus; autoguidance<sup class="cit"><a href="#ref-3">3</a></sup>
 alone is already better at a much lower Inception score; together they are better than either.
 
-| Sampling (Detour-XL/16, epoch 200) | FID-50k | IS |
-|---|---|---|
-| Unguided | 3.69 | 182 |
-| CFG 2.25 on [0.05, 0.9] | 2.27 | 283 |
-| AutoGuidance 2.0 | 1.81 | 210 |
-| **CFG 1.75 + AutoGuidance 2.0** | **1.43** | 267 |
-{: .detour}
-
-The same comparison at epoch 320, and at 512×512 at epoch 280, both on the window [0.05, 0.9]:
-
-| Sampling | FID-50k | IS |
-|---|---|---|
-| **XL/16 @320** — unguided | 3.24 | 192 |
-| CFG 2.5 alone | 2.13 | 300 |
-| AutoGuidance 2.0 | 1.59 | 220 |
-| **CFG 1.625 + AutoGuidance 2.0** | **1.35** | 267 |
-| **XL/32 @280, 512×512** — unguided | 3.73 | 201 |
-| CFG 4.0 alone | 2.32 | 334 |
-| AutoGuidance 2.0 | 1.54 | 238 |
-| **CFG 2.0 + AutoGuidance 2.0** | **1.35** | 297 |
-{: .detour}
+<div class="dt-wrap"><div class="dt-scroll">
+<table class="dt">
+<thead>
+<tr class="grp-row"><th></th><th class="grp gsep" colspan="2">256, epoch 200</th><th class="grp gsep" colspan="2">256, epoch 320</th><th class="grp gsep" colspan="2">512, epoch 280</th></tr>
+<tr><th>Guidance</th><th class="gsep">FID-50k</th><th>IS</th><th class="gsep">FID-50k</th><th>IS</th><th class="gsep">FID-50k</th><th>IS</th></tr>
+</thead><tbody>
+<tr><td>Unguided</td><td class="gsep">3.69</td><td>182</td><td class="gsep">3.24</td><td>192</td><td class="gsep">3.73</td><td>201</td></tr>
+<tr><td>CFG only</td><td class="gsep">2.27<span class="sc">scale 2.25</span></td><td>283</td><td class="gsep">2.13<span class="sc">scale 2.5</span></td><td>300</td><td class="gsep">2.32<span class="sc">scale 4.0</span></td><td>334</td></tr>
+<tr><td>AutoGuidance only</td><td class="gsep">1.81<span class="sc">scale 2.0</span></td><td>210</td><td class="gsep">1.59<span class="sc">scale 2.0</span></td><td>220</td><td class="gsep">1.54<span class="sc">scale 2.0</span></td><td>238</td></tr>
+<tr class="ours"><td>CFG + AutoGuidance</td><td class="gsep">1.43<span class="sc">1.75 + 2.0</span></td><td>267</td><td class="gsep">1.35<span class="sc">1.625 + 2.0</span></td><td>267</td><td class="gsep">1.35<span class="sc">2.0 + 2.0</span></td><td>297</td></tr>
+</tbody></table></div>
+<p class="dt-cap">Euler 100 on the grid $$t=u^4$$, EMA2, guidance on the window [0.05, 0.9]. Small
+figures are the guidance scales; AutoGuidance always contrasts against the same run at epoch 20.</p>
+</div>
 
 Note what CFG alone does to the Inception score: it is the *highest* of the four at both resolutions
 (300 and 334) while the FID is a full point worse. A large guidance scale buys class-typicality at the
