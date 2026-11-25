@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Protected page</title>
+<style>
+ :root{--bg:#faf9f7;--fg:#1b1b1f;--dim:#65656d;--line:#e3e3df;--accent:#1d5c86;
+  --global-divider-color:#e3e3df;--global-text-color:#1b1b1f;--global-theme-color:#1d5c86;
+  --global-code-bg-color:#f1f1ee;color-scheme:light}
+ @media (prefers-color-scheme:dark){:root{--bg:#121214;--fg:#ededf0;--dim:#9a9aa3;--line:#2a2b32;
+  --accent:#6fb3dd;--global-divider-color:#2a2b32;--global-text-color:#ededf0;
+  --global-theme-color:#6fb3dd;--global-code-bg-color:#1c1d21;color-scheme:dark}}
+ *{box-sizing:border-box}
+ body{margin:0;background:var(--bg);color:var(--fg);line-height:1.6;font-size:16px;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  padding-left:max(18px,env(safe-area-inset-left,0px));
+  padding-right:max(18px,env(safe-area-inset-right,0px))}
+ .shell{max-width:760px;margin:0 auto;padding-block:16vh 10vh}
+ h1.lock{font-size:1.35rem;margin:0 0 .4rem;letter-spacing:-.01em}
+ p.sub{color:var(--dim);font-size:.92rem;margin:0 0 1.4rem}
+ form{display:flex;gap:.5rem;flex-wrap:wrap}
+ input{flex:1 1 240px;min-width:0;font:inherit;font-size:.95rem;padding:.6rem .8rem;
+  border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--fg)}
+ input:focus{outline:2px solid var(--accent);outline-offset:1px}
+ button{font:inherit;font-size:.92rem;padding:.6rem 1.1rem;border:1px solid var(--line);
+  border-radius:9px;background:var(--bg);color:var(--fg);cursor:pointer}
+ button:hover{border-color:var(--accent);color:var(--accent)}
+ .msg{font-size:.88rem;margin-top:.9rem;min-height:1.3em}
+ .msg.bad{color:#b4472f} .msg.work{color:var(--dim)}
+ #post{max-width:860px;margin:0 auto;padding-block:30px 60px}
+ #post h1.pv-title{font-size:2rem;letter-spacing:-.02em;margin:0 0 1.2rem}
+ #post img,#post video{max-width:100%}
+ #post table{width:100%}
+ .ribbon{max-width:860px;margin:0 auto;font-size:.8rem;color:var(--dim);
+  border-bottom:1px solid var(--line);padding:10px 0}
+</style>
+</head>
+<body>
+<div class="shell" id="gate">
+  <h1 class="lock">This page is protected</h1>
+  <p class="sub">Enter the password to decrypt it. Nothing readable is stored here — the text
+  and every clip are encrypted, and the key never leaves your browser.</p>
+  <form id="f" autocomplete="off">
+    <input id="pw" type="password" placeholder="Password" aria-label="Password" autofocus>
+    <button type="submit">Unlock</button>
+  </form>
+  <div class="msg" id="m"></div>
+</div>
+<div class="ribbon" id="ribbon" hidden>Decrypted in your browser · unlisted page</div>
+<div id="post" hidden></div>
+<script>
+(function(){
+ "use strict";
+ var BASE = "/private/f6cbfecd87f9b1ef/";
+ var gate=document.getElementById("gate"), msg=document.getElementById("m"),
+     post=document.getElementById("post"), ribbon=document.getElementById("ribbon");
+ function say(t,c){msg.textContent=t; msg.className="msg"+(c?" "+c:"");}
+ var dec=new TextDecoder();
+
+ function b64(s){var r=atob(s),a=new Uint8Array(r.length);
+   for(var i=0;i<r.length;i++)a[i]=r.charCodeAt(i);return a;}
+
+ async function keyFrom(pw, salt, iters){
+   var base=await crypto.subtle.importKey("raw", new TextEncoder().encode(pw),
+     "PBKDF2", false, ["deriveKey"]);
+   return crypto.subtle.deriveKey(
+     {name:"PBKDF2", salt:salt, iterations:iters, hash:"SHA-256"},
+     base, {name:"AES-GCM", length:256}, false, ["decrypt"]);
+ }
+ async function open1(key, url){
+   var r=await fetch(url, {cache:"no-store"});
+   if(!r.ok) throw new Error("fetch "+r.status);
+   var buf=new Uint8Array(await r.arrayBuffer());
+   return crypto.subtle.decrypt({name:"AES-GCM", iv:buf.slice(0,12)}, key, buf.slice(12));
+ }
+
+ document.getElementById("f").addEventListener("submit", async function(e){
+   e.preventDefault();
+   var pw=document.getElementById("pw").value;
+   if(!pw){say("Enter the password.","bad");return;}
+   if(!crypto.subtle){say("This browser cannot decrypt the page (no Web Crypto over http).","bad");return;}
+   say("Deriving key…","work");
+   try{
+     var man=await (await fetch(BASE+"manifest.json",{cache:"no-store"})).json();
+     var key=await keyFrom(pw, b64(man.salt), man.iter);
+     say("Decrypting…","work");
+     var html=dec.decode(await open1(key, BASE+"page.bin"));
+     post.innerHTML=html;
+     gate.hidden=true; post.hidden=false; ribbon.hidden=false;
+     document.title="Pixel Perceiver";
+     // media: decrypt on demand, nearest-first, so the page is readable immediately
+     var pend=[].slice.call(post.querySelectorAll("[data-enc]"));
+     var io2=new IntersectionObserver(function(es){
+       es.forEach(function(en){
+         if(!en.isIntersecting) return;
+         var el=en.target; io2.unobserve(el);
+         var p=el.getAttribute("data-enc");
+         open1(key, BASE+"enc/"+p+".bin").then(function(buf){
+           var mime=/\.mp4$/.test(p)?"video/mp4":(/\.png$/.test(p)?"image/png":"image/jpeg");
+           var u=URL.createObjectURL(new Blob([buf],{type:mime}));
+           if(el.tagName==="VIDEO"||el.tagName==="IMG"){el.src=u;}
+           else{el.setAttribute("poster",u);}
+         }).catch(function(){});
+       });
+     },{rootMargin:"600px"});
+     pend.forEach(function(el){
+       // a <video data-enc> may also carry a poster marker on itself
+       io2.observe(el);
+     });
+   }catch(err){
+     say("Wrong password, or the page could not be decrypted.","bad");
+   }
+ });
+})();
+</script>
+</body>
+</html>
