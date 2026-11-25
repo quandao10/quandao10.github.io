@@ -30,7 +30,24 @@
  button:hover{border-color:var(--accent);color:var(--accent)}
  .msg{font-size:.88rem;margin-top:.9rem;min-height:1.3em}
  .msg.bad{color:#b4472f} .msg.work{color:var(--dim)}
- #post{max-width:860px;margin:0 auto;padding-block:30px 60px}
+ #shell{display:grid;grid-template-columns:210px minmax(0,1fr);gap:34px;
+  max-width:1180px;margin:0 auto;padding-block:30px 60px}
+ #toc{position:sticky;top:18px;align-self:start;max-height:calc(100vh - 36px);overflow:auto;
+  font-size:.8rem;line-height:1.45;border-left:1px solid var(--line);padding-left:12px}
+ #toc .tt{font-size:.66rem;text-transform:uppercase;letter-spacing:.09em;opacity:.45;
+  margin:0 0 .5rem}
+ #toc a{display:block;color:var(--dim);text-decoration:none;padding:.17rem 0}
+ #toc a:hover{color:var(--accent)}
+ #toc a.sub{padding-left:.7rem;font-size:.76rem;opacity:.8}
+ #toc a.here{color:var(--accent);font-weight:600}
+ #post{max-width:860px;margin:0;padding:0}
+ @media (max-width:900px){#shell{grid-template-columns:1fr;gap:0}#toc{display:none}}
+ #zoom{position:fixed;inset:0;z-index:60;background:rgba(8,8,10,.94);display:none;
+  align-items:center;justify-content:center;cursor:zoom-out;padding:24px}
+ #zoom.on{display:flex}
+ #zoom img{max-width:96vw;max-height:92vh;border-radius:6px;display:block}
+ #zoom .hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#9a9aa3;
+  font-size:.76rem}
  #post h1.pv-title{font-size:2rem;letter-spacing:-.02em;margin:0 0 1.2rem}
  #post img,#post video{max-width:100%}
  #post table{width:100%}
@@ -50,12 +67,19 @@
   <div class="msg" id="m"></div>
 </div>
 <div class="ribbon" id="ribbon" hidden>Decrypted in your browser · unlisted page</div>
-<div id="post" hidden></div>
+<div id="shell" hidden>
+  <nav id="toc" aria-label="Contents"><p class="tt">Contents</p></nav>
+  <div id="post"></div>
+</div>
+<div id="zoom" role="dialog" aria-label="Enlarged image">
+<img alt=""><span class="hint">click
+anywhere, or press Esc, to close</span>
+</div>
 <script>
 (function(){
  "use strict";
  var BASE = "/private/f6cbfecd87f9b1ef/";
- var BUST = "?v=35caa63d";
+ var BUST = "?v=e1ac9564";
  var gate=document.getElementById("gate"), msg=document.getElementById("m"),
      post=document.getElementById("post"), ribbon=document.getElementById("ribbon");
  function say(t,c){msg.textContent=t; msg.className="msg"+(c?" "+c:"");}
@@ -86,6 +110,62 @@
    return crypto.subtle.decrypt({name:"AES-GCM", iv:buf.slice(0,12)}, key, buf.slice(12));
  }
 
+ function slugify(t){
+   return t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,48);
+ }
+ function buildTOC(){
+   var toc=document.getElementById("toc");
+   var heads=[].slice.call(post.querySelectorAll("h2, h3"));
+   if(!heads.length){ toc.style.display="none"; return; }
+   var seen={};
+   heads.forEach(function(h){
+     var id=slugify(h.textContent||"s");
+     while(seen[id]) id+="-x";
+     seen[id]=1; h.id=id;
+     var a=document.createElement("a");
+     a.href="#"+id; a.textContent=h.textContent.replace(/\s+/g," ").trim();
+     if(h.tagName==="H3") a.className="sub";
+     a.addEventListener("click",function(ev){
+       ev.preventDefault();
+       h.scrollIntoView({behavior:"smooth",block:"start"});
+     });
+     toc.appendChild(a);
+   });
+   // highlight the section you are in: one observer over every heading
+   if("IntersectionObserver" in window){
+     var links={};
+     [].slice.call(toc.querySelectorAll("a")).forEach(function(a){
+       links[a.getAttribute("href").slice(1)]=a;
+     });
+     var spy=new IntersectionObserver(function(es){
+       es.forEach(function(e){
+         if(!e.isIntersecting) return;
+         var a=links[e.target.id];
+         if(!a) return;
+         [].slice.call(toc.querySelectorAll("a.here")).forEach(function(x){
+           x.classList.remove("here");
+         });
+         a.classList.add("here");
+       });
+     },{rootMargin:"-10% 0px -80% 0px"});
+     heads.forEach(function(h){ spy.observe(h); });
+   }
+ }
+ function wireZoom(){
+   var z=document.getElementById("zoom"), zi=z.querySelector("img");
+   post.addEventListener("click",function(e){
+     var t=e.target;
+     if(!t || t.tagName!=="IMG") return;
+     if(!t.src) return;
+     zi.src=t.src; zi.alt=t.alt||"";
+     z.classList.add("on");
+   });
+   function close(){ z.classList.remove("on"); zi.removeAttribute("src"); }
+   z.addEventListener("click",close);
+   document.addEventListener("keydown",function(e){
+     if(e.key==="Escape" && z.classList.contains("on")) close();
+   });
+ }
  document.getElementById("f").addEventListener("submit", async function(e){
    e.preventDefault();
    // A pasted password often carries a trailing newline or space, and sometimes a
@@ -122,7 +202,10 @@
        });
      };
      post.innerHTML=html;
-     gate.hidden=true; post.hidden=false; ribbon.hidden=false;
+     gate.hidden=true; document.getElementById('shell').hidden=false; ribbon.hidden=false;
+     // The al-folio layout never runs on this page - the shell renders the decrypted HTML
+     // itself - so its table of contents and its image zoom have to be provided here.
+     buildTOC(); wireZoom();
      // innerHTML does not execute <script>, so re-insert each one to run it
      [].slice.call(post.querySelectorAll("script")).forEach(function(old2){
        var sc=document.createElement("script");
