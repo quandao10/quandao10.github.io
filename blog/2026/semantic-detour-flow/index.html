@@ -1025,8 +1025,10 @@ it reaches comparable text alignment in <strong>1.5× fewer training iterations<
 ahead of the pixel-space models we compare against at both resolutions, while keeping the fine
 textures and rendered text that a semantic-latent decoder can lose.</p>
 
-<p>Both rows below are the same checkpoint, evaluated at the two resolutions it was trained on. No prompt
-rewriting is used anywhere in the table. Grey rows are latent-space models.</p>
+<p>Both Detour rows are the same checkpoint, evaluated at the two resolutions it was trained on. No prompt
+rewriting is used anywhere. Muted rows are latent-space models.</p>
+
+<h3 id="geneval">GenEval</h3>
 
 <div class="dt-wrap">
 <div class="dt-scroll">
@@ -1253,8 +1255,11 @@ rewriting is used anywhere in the table. Grey rows are latent-space models.</p>
 </tbody>
 </table>
 </div>
-<p class="dt-cap">GenEval, no prompt rewriting. Muted rows are latent-space models.</p>
+<p class="dt-cap">Counting and position are the two tasks that need the layout settled before any
+texture is drawn — and the two that pixel-space models usually lose.</p>
 </div>
+
+<h3 id="dpg-bench">DPG-Bench</h3>
 
 <div class="dt-wrap">
 <div class="dt-scroll">
@@ -1466,9 +1471,9 @@ rewriting is used anywhere in the table. Grey rows are latent-space models.</p>
 <p class="dt-cap">DPG-Bench. Baselines are from the original papers or from Tuna-2, SANA, Janus-Pro and Qwen-Image.</p>
 </div>
 
-<p>The per-task breakdown is where the path shows itself. Counting (0.83) and position (0.86) are the two
-GenEval tasks that need the layout settled before any texture is drawn, and they are exactly the tasks
-pixel-space models usually lose — PixNerd scores 0.44 on counting, PixelDiT 0.53 on position. Deciding
+<p>The GenEval per-task breakdown is where the path shows itself. Counting (0.83) and position (0.86) are
+the two tasks that need the layout settled before any texture is drawn, and they are exactly where
+pixel-space models fall down — PixNerd scores 0.44 on counting, PixelDiT 0.53 on position. Deciding
 semantics first is worth more there than anywhere else.</p>
 
 <figure class="detour-fig">
