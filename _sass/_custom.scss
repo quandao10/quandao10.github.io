@@ -448,6 +448,10 @@ footer.sticky-bottom {
 // above the sticky layer, and drop the TOC out of the way while a zoom is open.
 
 .medium-zoom-overlay {
+  // The overlay colour was set from JavaScript at init, so it could be left on the wrong
+  // theme. Drive it from the theme variable instead, which updates with the theme itself.
+  // (opacity is left alone: medium-zoom animates it from 0 to 1 and back on close)
+  background: var(--global-bg-color) !important;
   z-index: 1060;
 }
 
@@ -455,11 +459,17 @@ footer.sticky-bottom {
   z-index: 1061;
 }
 
+// Raising z-index alone is not enough if a sticky ancestor forms its own stacking context,
+// so take the page chrome out of sight entirely while a zoom is open. opacity and
+// visibility do not depend on stacking order.
 body.zoom-open {
   #toc-sidebar,
   nav.sticky-top,
   .navbar,
   progress {
+    opacity: 0 !important;
+    pointer-events: none !important;
     z-index: 1 !important;
+    transition: opacity 0.2s ease;
   }
 }
