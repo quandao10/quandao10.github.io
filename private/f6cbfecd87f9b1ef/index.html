@@ -83,11 +83,16 @@
    if(!pw){say("Enter the password.","bad");return;}
    if(!crypto.subtle){say("This browser cannot decrypt the page (no Web Crypto over http).","bad");return;}
    say("Deriving key…","work");
+   var stage="load";   // load -> password -> render, so errors are not all "wrong password"
    try{
-     var man=await (await fetch(BASE+"manifest.json",{cache:"no-store"})).json();
+     var mr=await fetch(BASE+"manifest.json",{cache:"no-store"});
+     if(!mr.ok) throw new Error("HTTP "+mr.status);
+     var man=await mr.json();
+     stage="password";
      var key=await keyFrom(pw, b64(man.salt), man.iter);
      say("Decrypting…","work");
      var html=dec.decode(await open1(key, BASE+"page.bin"));
+     stage="render";
      post.innerHTML=html;
      gate.hidden=true; post.hidden=false; ribbon.hidden=false;
      document.title="Pixel Perceiver";
@@ -111,7 +116,14 @@
        io2.observe(el);
      });
    }catch(err){
-     say("Wrong password, or the page could not be decrypted.","bad");
+     if(stage==="load"){
+       say("Could not load this page's data ("+err.message+"). Check the link, or the "
+           +"deploy may still be running.","bad");
+     } else if(stage==="password"){
+       say("That password did not work.","bad");
+     } else {
+       say("Decrypted, but the page could not be rendered.","bad");
+     }
    }
  });
 })();
