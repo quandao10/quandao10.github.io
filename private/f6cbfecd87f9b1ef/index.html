@@ -55,11 +55,19 @@
 (function(){
  "use strict";
  var BASE = "/private/f6cbfecd87f9b1ef/";
- var BUST = "?v=e95455ff";
+ var BUST = "?v=22c7fdca";
  var gate=document.getElementById("gate"), msg=document.getElementById("m"),
      post=document.getElementById("post"), ribbon=document.getElementById("ribbon");
  function say(t,c){msg.textContent=t; msg.className="msg"+(c?" "+c:"");}
  var dec=new TextDecoder();
+ // A script error used to leave the button doing nothing at all, with no message on screen.
+ window.addEventListener("error", function(ev){
+   say("Script error: "+(ev.message||"unknown")+" (line "+(ev.lineno||"?")+")","bad");
+ });
+ window.addEventListener("unhandledrejection", function(ev){
+   var r=ev.reason;
+   say("Failed: "+((r&&r.message)||r||"unknown"),"bad");
+ });
 
  function b64(s){var r=atob(s),a=new Uint8Array(r.length);
    for(var i=0;i<r.length;i++)a[i]=r.charCodeAt(i);return a;}
@@ -88,6 +96,7 @@
    if(!crypto.subtle){say("This browser cannot decrypt the page (no Web Crypto over http).","bad");return;}
    say("Deriving key…","work");
    var stage="load";   // load -> password -> render, so errors are not all "wrong password"
+   var html;           // MUST be declared: "use strict" makes a bare assignment throw
    try{
      var mr=await fetch(BASE+"manifest.json"+BUST,{cache:"no-store"});
      if(!mr.ok) throw new Error("HTTP "+mr.status);
@@ -160,11 +169,6 @@
            a2.textContent=old;
          }).catch(function(){ a2.textContent="failed"; });
        });
-     });
-     },{rootMargin:"600px"});
-     pend.forEach(function(el){
-       // a <video data-enc> may also carry a poster marker on itself
-       io2.observe(el);
      });
    }catch(err){
      if(stage==="load"){
