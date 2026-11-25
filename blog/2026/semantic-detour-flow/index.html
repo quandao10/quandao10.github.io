@@ -181,11 +181,49 @@
   text-transform: uppercase;
   letter-spacing: .07em;
   opacity: .75;
-} .detour-wide {
-  overflow-x: auto;
-  margin: 1.2rem 0;
-  -webkit-overflow-scrolling: touch;
-} .detour-wide table { margin: 0; font-size: .8rem; white-space: nowrap; } .detour-wide td, .detour-wide th { padding: .3rem .5rem; } .detour-wide tbody tr.ours { font-weight: 600; } .detour-wide tbody tr.latent td { opacity: .55; } .detour-note {
+} .dt-wrap { margin: 1.5rem 0; } .dt-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; } table.dt {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: .84rem;
+  font-variant-numeric: tabular-nums;
+} table.dt th, table.dt td {
+  padding: .34rem .55rem;
+  border: 0;
+  white-space: nowrap;
+} table.dt thead th {
+  font-size: .7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .055em;
+  opacity: .6;
+  text-align: right;
+  border-bottom: 1px solid var(--global-divider-color);
+  vertical-align: bottom;
+} table.dt thead th:first-child { text-align: left; } table.dt thead th.grp {
+  text-align: center;
+  border-bottom: 0;
+  padding-bottom: .1rem;
+  opacity: .45;
+} table.dt thead tr.grp-row th.grp { border-bottom: 1px solid var(--global-divider-color); } table.dt td { text-align: right; } table.dt td:first-child { text-align: left; } table.dt tbody tr.sec td {
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  opacity: .5;
+  padding-top: .7rem;
+  padding-bottom: .1rem;
+} table.dt tbody tr.latent td { opacity: .5; } table.dt tbody tr.ours td {
+  font-weight: 600;
+  background: var(--global-code-bg-color);
+} table.dt tbody tr.ours td:first-child { box-shadow: inset 2px 0 0 var(--global-theme-color); } table.dt tbody tr + tr td { border-top: 1px solid rgba(128,128,128,.12); } table.dt tbody tr.sec td, table.dt tbody tr.sec + tr td { border-top: 0; } table.dt .u { opacity: .35; } .dt-cap {
+  font-size: .76rem;
+  opacity: .6;
+  margin: .5rem 0 0;
+  white-space: normal;
+} @media (max-width: 640px) {
+  table.dt { font-size: .76rem; }
+  table.dt th, table.dt td { padding: .3rem .4rem; }
+} .detour-note {
   font-size: .82rem;
   opacity: .7;
   margin: -.4rem 0 1.4rem;
@@ -540,395 +578,381 @@ cost of diversity, and FID sees the bill that IS does not.</p>
 <p>Grey rows are latent-space models, which carry a decoder; the rest are pixel space. The epoch column
 is the one that matters — most entries above us are trained three to eight times longer.</p>
 
-<div class="detour-wide">
-
-  <table class="detour">
-    <thead>
-      <tr>
-        <th>ImageNet 256×256</th>
-        <th>Params</th>
-        <th>Ep.</th>
-        <th>FID-50k</th>
-        <th>IS</th>
-        <th>Prec.</th>
-        <th>Rec.</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>DiT-XL/2</td>
-        <td>675M</td>
-        <td>1400</td>
-        <td>2.27</td>
-        <td>278</td>
-        <td>0.83</td>
-        <td>0.57</td>
-      </tr>
-      <tr>
-        <td>REPA</td>
-        <td>675M</td>
-        <td>800</td>
-        <td>1.42</td>
-        <td>306</td>
-        <td>0.80</td>
-        <td>0.65</td>
-      </tr>
-      <tr>
-        <td>LightningDiT</td>
-        <td>675M</td>
-        <td>800</td>
-        <td>1.35</td>
-        <td>295</td>
-        <td>0.79</td>
-        <td>0.65</td>
-      </tr>
-      <tr>
-        <td>RAE</td>
-        <td>839M</td>
-        <td>800</td>
-        <td>1.13</td>
-        <td>263</td>
-        <td>0.78</td>
-        <td>0.67</td>
-      </tr>
-      <tr>
-        <td>ADM-G</td>
-        <td>554M</td>
-        <td>396</td>
-        <td>4.59</td>
-        <td>187</td>
-        <td>0.82</td>
-        <td>0.52</td>
-      </tr>
-      <tr>
-        <td>SiD2</td>
-        <td>—</td>
-        <td>1280</td>
-        <td>1.38</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>PixNerd</td>
-        <td>700M</td>
-        <td>320</td>
-        <td>1.93</td>
-        <td>298</td>
-        <td>0.80</td>
-        <td>0.60</td>
-      </tr>
-      <tr>
-        <td>DeCo</td>
-        <td>682M</td>
-        <td>800</td>
-        <td>1.62</td>
-        <td>301</td>
-        <td>0.80</td>
-        <td>0.62</td>
-      </tr>
-      <tr>
-        <td>PixelDiT</td>
-        <td>797M</td>
-        <td>320</td>
-        <td>1.61</td>
-        <td>293</td>
-        <td>0.78</td>
-        <td>0.64</td>
-      </tr>
-      <tr>
-        <td>JiT-G/16</td>
-        <td>2B</td>
-        <td>600</td>
-        <td>1.82</td>
-        <td>293</td>
-        <td>0.79</td>
-        <td>0.62</td>
-      </tr>
-      <tr>
-        <td>PixelREPA-H</td>
-        <td>953M</td>
-        <td>600</td>
-        <td>1.81</td>
-        <td>317</td>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>PixelDiT2-H</td>
-        <td>1.0B</td>
-        <td>600</td>
-        <td>1.46</td>
-        <td>302</td>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>PixSGR-H</td>
-        <td>875M</td>
-        <td>320</td>
-        <td>1.51</td>
-        <td>311</td>
-        <td>0.78</td>
-        <td>0.65</td>
-      </tr>
-      <tr>
-        <td><em>≤ 200 epochs</em></td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-      </tr>
-      <tr>
-        <td>JiT-XL/16</td>
-        <td>676M</td>
-        <td>200</td>
-        <td>2.89</td>
-        <td>272</td>
-        <td>0.85</td>
-        <td>0.66</td>
-      </tr>
-      <tr>
-        <td>JiT-G/16</td>
-        <td>2B</td>
-        <td>200</td>
-        <td>2.15</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>LatentForcing-L</td>
-        <td>465M</td>
-        <td>200</td>
-        <td>2.48</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>Dino Forcing-XL</td>
-        <td>686M</td>
-        <td>200</td>
-        <td>2.13</td>
-        <td>310</td>
-        <td>0.83</td>
-        <td>0.71</td>
-      </tr>
-      <tr>
-        <td>PixelGen</td>
-        <td>676M</td>
-        <td>160</td>
-        <td>1.83</td>
-        <td>294</td>
-        <td>0.79</td>
-        <td>0.63</td>
-      </tr>
-      <tr>
-        <td><strong>Detour-XL/16</strong></td>
-        <td>849M</td>
-        <td>200</td>
-        <td><strong>1.43</strong></td>
-        <td>267</td>
-        <td>0.77</td>
-        <td>0.65</td>
-      </tr>
-      <tr>
-        <td><strong>Detour-XL/16</strong></td>
-        <td>849M</td>
-        <td>320</td>
-        <td><strong>1.35</strong></td>
-        <td>267</td>
-        <td>0.76</td>
-        <td>0.67</td>
-      </tr>
-    </tbody>
-  </table>
-
+<div class="dt-wrap">
+<div class="dt-scroll">
+<table class="dt">
+<thead>
+<tr>
+<th>Method</th>
+<th>Params</th>
+<th>Ep.</th>
+<th>FID-50k</th>
+<th>IS</th>
+<th>Prec.</th>
+<th>Rec.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="latent">
+<td>DiT-XL/2</td>
+<td>675M</td>
+<td>1400</td>
+<td>2.27</td>
+<td>278</td>
+<td>0.83</td>
+<td>0.57</td>
+</tr>
+<tr class="latent">
+<td>REPA</td>
+<td>675M</td>
+<td>800</td>
+<td>1.42</td>
+<td>306</td>
+<td>0.80</td>
+<td>0.65</td>
+</tr>
+<tr class="latent">
+<td>LightningDiT</td>
+<td>675M</td>
+<td>800</td>
+<td>1.35</td>
+<td>295</td>
+<td>0.79</td>
+<td>0.65</td>
+</tr>
+<tr class="latent">
+<td>RAE</td>
+<td>839M</td>
+<td>800</td>
+<td>1.13</td>
+<td>263</td>
+<td>0.78</td>
+<td>0.67</td>
+</tr>
+<tr>
+<td>ADM-G</td>
+<td>554M</td>
+<td>396</td>
+<td>4.59</td>
+<td>187</td>
+<td>0.82</td>
+<td>0.52</td>
+</tr>
+<tr>
+<td>SiD2</td>
+<td><span class="u">–</span></td>
+<td>1280</td>
+<td>1.38</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+</tr>
+<tr>
+<td>PixNerd</td>
+<td>700M</td>
+<td>320</td>
+<td>1.93</td>
+<td>298</td>
+<td>0.80</td>
+<td>0.60</td>
+</tr>
+<tr>
+<td>DeCo</td>
+<td>682M</td>
+<td>800</td>
+<td>1.62</td>
+<td>301</td>
+<td>0.80</td>
+<td>0.62</td>
+</tr>
+<tr>
+<td>PixelDiT</td>
+<td>797M</td>
+<td>320</td>
+<td>1.61</td>
+<td>293</td>
+<td>0.78</td>
+<td>0.64</td>
+</tr>
+<tr>
+<td>JiT-G/16</td>
+<td>2B</td>
+<td>600</td>
+<td>1.82</td>
+<td>293</td>
+<td>0.79</td>
+<td>0.62</td>
+</tr>
+<tr>
+<td>PixelREPA-H</td>
+<td>953M</td>
+<td>600</td>
+<td>1.81</td>
+<td>317</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+</tr>
+<tr>
+<td>PixelDiT2-H</td>
+<td>1.0B</td>
+<td>600</td>
+<td>1.46</td>
+<td>302</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+</tr>
+<tr>
+<td>PixSGR-H</td>
+<td>875M</td>
+<td>320</td>
+<td>1.51</td>
+<td>311</td>
+<td>0.78</td>
+<td>0.65</td>
+</tr>
+<tr class="sec"><td colspan="7">200 epochs or fewer</td></tr>
+<tr>
+<td>JiT-XL/16</td>
+<td>676M</td>
+<td>200</td>
+<td>2.89</td>
+<td>272</td>
+<td>0.85</td>
+<td>0.66</td>
+</tr>
+<tr>
+<td>JiT-G/16</td>
+<td>2B</td>
+<td>200</td>
+<td>2.15</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+</tr>
+<tr>
+<td>LatentForcing-L</td>
+<td>465M</td>
+<td>200</td>
+<td>2.48</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+</tr>
+<tr>
+<td>Dino Forcing-XL</td>
+<td>686M</td>
+<td>200</td>
+<td>2.13</td>
+<td>310</td>
+<td>0.83</td>
+<td>0.71</td>
+</tr>
+<tr>
+<td>PixelGen</td>
+<td>676M</td>
+<td>160</td>
+<td>1.83</td>
+<td>294</td>
+<td>0.79</td>
+<td>0.63</td>
+</tr>
+<tr class="ours">
+<td>Detour-XL/16</td>
+<td>849M</td>
+<td>200</td>
+<td>1.43</td>
+<td>267</td>
+<td>0.77</td>
+<td>0.65</td>
+</tr>
+<tr class="ours">
+<td>Detour-XL/16</td>
+<td>849M</td>
+<td>320</td>
+<td>1.35</td>
+<td>267</td>
+<td>0.76</td>
+<td>0.67</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="dt-cap">ImageNet 256×256. Muted rows are latent-space models, which carry a decoder; the rest generate in pixel space.</p>
 </div>
 
-<div class="detour-wide">
-
-  <table class="detour">
-    <thead>
-      <tr>
-        <th>ImageNet 512×512</th>
-        <th>Params</th>
-        <th>Ep.</th>
-        <th>FID-50k</th>
-        <th>IS</th>
-        <th>Prec.</th>
-        <th>Rec.</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>DiT-XL/2</td>
-        <td>675M</td>
-        <td>600</td>
-        <td>3.04</td>
-        <td>241</td>
-        <td>0.84</td>
-        <td>0.54</td>
-      </tr>
-      <tr>
-        <td>REPA</td>
-        <td>675M</td>
-        <td>200</td>
-        <td>2.08</td>
-        <td>275</td>
-        <td>0.83</td>
-        <td>0.58</td>
-      </tr>
-      <tr>
-        <td>EDM2-XXL</td>
-        <td>1.5B</td>
-        <td>733</td>
-        <td>1.25</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>RAE</td>
-        <td>839M</td>
-        <td>400</td>
-        <td>1.13</td>
-        <td>260</td>
-        <td>0.80</td>
-        <td>0.63</td>
-      </tr>
-      <tr>
-        <td>ADM-G</td>
-        <td>559M</td>
-        <td>388</td>
-        <td>7.72</td>
-        <td>173</td>
-        <td>0.87</td>
-        <td>0.42</td>
-      </tr>
-      <tr>
-        <td>SiD2</td>
-        <td>—</td>
-        <td>1280</td>
-        <td>1.48</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>PixNerd</td>
-        <td>700M</td>
-        <td>320+</td>
-        <td>2.45</td>
-        <td>276</td>
-        <td>0.79</td>
-        <td>0.63</td>
-      </tr>
-      <tr>
-        <td>PixelDiT</td>
-        <td>797M</td>
-        <td>850</td>
-        <td>1.81</td>
-        <td>279</td>
-        <td>0.78</td>
-        <td>0.67</td>
-      </tr>
-      <tr>
-        <td>JiT-G/32</td>
-        <td>2B</td>
-        <td>600</td>
-        <td>1.78</td>
-        <td>307</td>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>WaiT-G/32</td>
-        <td>2B</td>
-        <td>—</td>
-        <td>1.67</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>PixSGR-H/32</td>
-        <td>879M</td>
-        <td>300</td>
-        <td>1.60</td>
-        <td>318</td>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>PixelDiT2-H/16</td>
-        <td>1.1B</td>
-        <td>680</td>
-        <td>1.48</td>
-        <td>296</td>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>WaiT-G/16</td>
-        <td>2B</td>
-        <td>—</td>
-        <td>1.30</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td><em>≤ 200 epochs</em></td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-      </tr>
-      <tr>
-        <td>JiT-H/32</td>
-        <td>956M</td>
-        <td>200</td>
-        <td>2.51</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>JiT-G/32</td>
-        <td>2B</td>
-        <td>200</td>
-        <td>2.11</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td><strong>Detour-XL/32</strong></td>
-        <td>849M</td>
-        <td>160</td>
-        <td><strong>1.59</strong></td>
-        <td>286</td>
-        <td>0.79</td>
-        <td>0.65</td>
-      </tr>
-      <tr>
-        <td><strong>Detour-XL/32</strong></td>
-        <td>849M</td>
-        <td>280</td>
-        <td><strong>1.35</strong></td>
-        <td>297</td>
-        <td>0.79</td>
-        <td>0.68</td>
-      </tr>
-    </tbody>
-  </table>
-
+<div class="dt-wrap">
+<div class="dt-scroll">
+<table class="dt">
+<thead>
+<tr>
+<th>Method</th>
+<th>Params</th>
+<th>Ep.</th>
+<th>FID-50k</th>
+<th>IS</th>
+<th>Prec.</th>
+<th>Rec.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="latent">
+<td>DiT-XL/2</td>
+<td>675M</td>
+<td>600</td>
+<td>3.04</td>
+<td>241</td>
+<td>0.84</td>
+<td>0.54</td>
+</tr>
+<tr class="latent">
+<td>REPA</td>
+<td>675M</td>
+<td>200</td>
+<td>2.08</td>
+<td>275</td>
+<td>0.83</td>
+<td>0.58</td>
+</tr>
+<tr class="latent">
+<td>EDM2-XXL</td>
+<td>1.5B</td>
+<td>733</td>
+<td>1.25</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+</tr>
+<tr class="latent">
+<td>RAE</td>
+<td>839M</td>
+<td>400</td>
+<td>1.13</td>
+<td>260</td>
+<td>0.80</td>
+<td>0.63</td>
+</tr>
+<tr>
+<td>ADM-G</td>
+<td>559M</td>
+<td>388</td>
+<td>7.72</td>
+<td>173</td>
+<td>0.87</td>
+<td>0.42</td>
+</tr>
+<tr>
+<td>SiD2</td>
+<td><span class="u">–</span></td>
+<td>1280</td>
+<td>1.48</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+</tr>
+<tr>
+<td>PixNerd</td>
+<td>700M</td>
+<td>320+</td>
+<td>2.45</td>
+<td>276</td>
+<td>0.79</td>
+<td>0.63</td>
+</tr>
+<tr>
+<td>PixelDiT</td>
+<td>797M</td>
+<td>850</td>
+<td>1.81</td>
+<td>279</td>
+<td>0.78</td>
+<td>0.67</td>
+</tr>
+<tr>
+<td>JiT-G/32</td>
+<td>2B</td>
+<td>600</td>
+<td>1.78</td>
+<td>307</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+</tr>
+<tr>
+<td>WaiT-G/32</td>
+<td>2B</td>
+<td>600</td>
+<td>1.67</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+</tr>
+<tr>
+<td>PixSGR-H/32</td>
+<td>879M</td>
+<td>300</td>
+<td>1.60</td>
+<td>318</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+</tr>
+<tr>
+<td>PixelDiT2-H/16</td>
+<td>1.1B</td>
+<td>680</td>
+<td>1.48</td>
+<td>296</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+</tr>
+<tr>
+<td>WaiT-G/16</td>
+<td>2B</td>
+<td>600</td>
+<td>1.30</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+</tr>
+<tr class="sec"><td colspan="7">200 epochs or fewer</td></tr>
+<tr>
+<td>JiT-H/32</td>
+<td>956M</td>
+<td>200</td>
+<td>2.51</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+</tr>
+<tr>
+<td>JiT-G/32</td>
+<td>2B</td>
+<td>200</td>
+<td>2.11</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+</tr>
+<tr class="ours">
+<td>Detour-XL/32</td>
+<td>849M</td>
+<td>160</td>
+<td>1.59</td>
+<td>286</td>
+<td>0.79</td>
+<td>0.65</td>
+</tr>
+<tr class="ours">
+<td>Detour-XL/32</td>
+<td>849M</td>
+<td>280</td>
+<td>1.35</td>
+<td>297</td>
+<td>0.79</td>
+<td>0.68</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="dt-cap">ImageNet 512×512. Same convention.</p>
 </div>
 
 <h3 id="where-the-gain-comes-from">Where the gain comes from</h3>
@@ -1051,343 +1075,443 @@ textures and rendered text that a semantic-latent decoder can lose.</p>
 <p>Both rows below are the same checkpoint, evaluated at the two resolutions it was trained on. No prompt
 rewriting is used anywhere in the table. Grey rows are latent-space models.</p>
 
-<div class="detour-wide">
-
-  <table class="detour">
-    <thead>
-      <tr>
-        <th> </th>
-        <th>Params</th>
-        <th>Res</th>
-        <th>Single</th>
-        <th>Two</th>
-        <th>Count</th>
-        <th>Colors</th>
-        <th>Position</th>
-        <th>Attr.</th>
-        <th><strong>GenEval</strong></th>
-        <th>Global</th>
-        <th>Entity</th>
-        <th>Attribute</th>
-        <th>Relation</th>
-        <th>Other</th>
-        <th><strong>DPG</strong></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>SD3-Medium</td>
-        <td>2B</td>
-        <td>1024</td>
-        <td>0.98</td>
-        <td>0.74</td>
-        <td>0.63</td>
-        <td>0.67</td>
-        <td>0.34</td>
-        <td>0.36</td>
-        <td>0.62</td>
-        <td>87.9</td>
-        <td>91.0</td>
-        <td>88.8</td>
-        <td>80.7</td>
-        <td>88.7</td>
-        <td>84.1</td>
-      </tr>
-      <tr>
-        <td>FLUX.1-dev</td>
-        <td>12B</td>
-        <td>1024</td>
-        <td>0.98</td>
-        <td>0.81</td>
-        <td>0.74</td>
-        <td>0.79</td>
-        <td>0.22</td>
-        <td>0.45</td>
-        <td>0.66</td>
-        <td>74.4</td>
-        <td>90.0</td>
-        <td>89.0</td>
-        <td>90.9</td>
-        <td>88.3</td>
-        <td>83.8</td>
-      </tr>
-      <tr>
-        <td>SANA-1.6B</td>
-        <td>1.6B</td>
-        <td>1024</td>
-        <td>0.99</td>
-        <td>0.77</td>
-        <td>0.62</td>
-        <td>0.88</td>
-        <td>0.21</td>
-        <td>0.47</td>
-        <td>0.66</td>
-        <td>86.0</td>
-        <td>91.5</td>
-        <td>88.9</td>
-        <td>91.9</td>
-        <td>90.7</td>
-        <td>84.8</td>
-      </tr>
-      <tr>
-        <td>Lumina-Image 2.0</td>
-        <td>2.6B</td>
-        <td>1024</td>
-        <td>—</td>
-        <td>0.87</td>
-        <td>0.67</td>
-        <td>—</td>
-        <td>—</td>
-        <td>0.62</td>
-        <td>0.73</td>
-        <td>—</td>
-        <td>92.0</td>
-        <td>90.2</td>
-        <td>94.9</td>
-        <td>—</td>
-        <td>87.2</td>
-      </tr>
-      <tr>
-        <td>Z-Image-Turbo</td>
-        <td>6B</td>
-        <td>1024</td>
-        <td>1.00</td>
-        <td>0.95</td>
-        <td>0.77</td>
-        <td>0.89</td>
-        <td>0.65</td>
-        <td>0.68</td>
-        <td>0.82</td>
-        <td>91.3</td>
-        <td>89.6</td>
-        <td>90.1</td>
-        <td>92.2</td>
-        <td>88.7</td>
-        <td>84.9</td>
-      </tr>
-      <tr>
-        <td>Qwen-Image</td>
-        <td>20B</td>
-        <td>1024</td>
-        <td>0.99</td>
-        <td>0.92</td>
-        <td>0.89</td>
-        <td>0.88</td>
-        <td>0.76</td>
-        <td>0.77</td>
-        <td>0.87</td>
-        <td>91.3</td>
-        <td>91.6</td>
-        <td>92.0</td>
-        <td>94.3</td>
-        <td>92.7</td>
-        <td>88.3</td>
-      </tr>
-      <tr>
-        <td>PixNerd-XXL/16</td>
-        <td>1.2B</td>
-        <td>512</td>
-        <td>0.97</td>
-        <td>0.86</td>
-        <td>0.44</td>
-        <td>0.83</td>
-        <td>0.71</td>
-        <td>0.53</td>
-        <td>0.73</td>
-        <td>80.5</td>
-        <td>87.9</td>
-        <td>87.2</td>
-        <td>91.3</td>
-        <td>72.8</td>
-        <td>80.9</td>
-      </tr>
-      <tr>
-        <td>PixelDiT</td>
-        <td>1.3B</td>
-        <td>512</td>
-        <td>1.00</td>
-        <td>0.94</td>
-        <td>0.70</td>
-        <td>0.90</td>
-        <td>0.53</td>
-        <td>0.65</td>
-        <td>0.78</td>
-        <td>88.0</td>
-        <td>90.9</td>
-        <td>87.6</td>
-        <td>89.8</td>
-        <td>88.5</td>
-        <td>83.7</td>
-      </tr>
-      <tr>
-        <td>PixelGen-XXL/16</td>
-        <td>1.1B</td>
-        <td>512</td>
-        <td>0.99</td>
-        <td>0.88</td>
-        <td>0.59</td>
-        <td>0.90</td>
-        <td>0.70</td>
-        <td>0.70</td>
-        <td>0.79</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>DeCo-XXL/16</td>
-        <td>1.1B</td>
-        <td>512</td>
-        <td>1.00</td>
-        <td>0.92</td>
-        <td>0.72</td>
-        <td>0.91</td>
-        <td>0.80</td>
-        <td>0.79</td>
-        <td>0.86</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>81.4</td>
-      </tr>
-      <tr>
-        <td>RG-T2I-L/16</td>
-        <td>0.9B</td>
-        <td>512</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>0.89</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>87.1</td>
-      </tr>
-      <tr>
-        <td>MiniT2I-L/16</td>
-        <td>0.9B</td>
-        <td>512</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>0.88</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>85.9</td>
-      </tr>
-      <tr>
-        <td>PixelFlow-XL/4</td>
-        <td>0.9B</td>
-        <td>512</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>0.60</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>77.9</td>
-      </tr>
-      <tr>
-        <td>Iris</td>
-        <td>3B</td>
-        <td>1024</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>0.80</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>86.5</td>
-      </tr>
-      <tr>
-        <td>Tuna-2</td>
-        <td>7B</td>
-        <td>1024</td>
-        <td>0.99</td>
-        <td>0.96</td>
-        <td>0.80</td>
-        <td>0.91</td>
-        <td>0.84</td>
-        <td>0.76</td>
-        <td>0.87</td>
-        <td>89.5</td>
-        <td>91.4</td>
-        <td>92.1</td>
-        <td>91.9</td>
-        <td>88.8</td>
-        <td>86.5</td>
-      </tr>
-      <tr>
-        <td><strong>Detour</strong></td>
-        <td>3.3B</td>
-        <td>512</td>
-        <td><strong>1.00</strong></td>
-        <td>0.96</td>
-        <td><strong>0.83</strong></td>
-        <td><strong>0.93</strong></td>
-        <td><strong>0.86</strong></td>
-        <td>0.81</td>
-        <td><strong>0.90</strong></td>
-        <td>85.3</td>
-        <td><strong>92.5</strong></td>
-        <td>90.7</td>
-        <td><strong>94.9</strong></td>
-        <td>85.7</td>
-        <td><strong>87.8</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Detour</strong></td>
-        <td>3.3B</td>
-        <td>1024</td>
-        <td>0.98</td>
-        <td><strong>0.98</strong></td>
-        <td>0.78</td>
-        <td>0.89</td>
-        <td>0.83</td>
-        <td><strong>0.82</strong></td>
-        <td>0.88</td>
-        <td>85.3</td>
-        <td>92.3</td>
-        <td>90.4</td>
-        <td><strong>94.9</strong></td>
-        <td>85.9</td>
-        <td>87.4</td>
-      </tr>
-    </tbody>
-  </table>
-
+<div class="dt-wrap">
+<div class="dt-scroll">
+<table class="dt">
+<thead>
+<tr>
+<th>Method</th>
+<th>Params</th>
+<th>Res</th>
+<th>Single</th>
+<th>Two</th>
+<th>Count</th>
+<th>Colors</th>
+<th>Position</th>
+<th>Attr.</th>
+<th>Overall</th>
+</tr>
+</thead>
+<tbody>
+<tr class="latent">
+<td>SD3-Medium</td>
+<td>2B</td>
+<td>1024</td>
+<td>0.98</td>
+<td>0.74</td>
+<td>0.63</td>
+<td>0.67</td>
+<td>0.34</td>
+<td>0.36</td>
+<td>0.62</td>
+</tr>
+<tr class="latent">
+<td>FLUX.1-dev</td>
+<td>12B</td>
+<td>1024</td>
+<td>0.98</td>
+<td>0.81</td>
+<td>0.74</td>
+<td>0.79</td>
+<td>0.22</td>
+<td>0.45</td>
+<td>0.66</td>
+</tr>
+<tr class="latent">
+<td>SANA-1.6B</td>
+<td>1.6B</td>
+<td>1024</td>
+<td>0.99</td>
+<td>0.77</td>
+<td>0.62</td>
+<td>0.88</td>
+<td>0.21</td>
+<td>0.47</td>
+<td>0.66</td>
+</tr>
+<tr class="latent">
+<td>Lumina-Image 2.0</td>
+<td>2.6B</td>
+<td>1024</td>
+<td><span class="u">–</span></td>
+<td>0.87</td>
+<td>0.67</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td>0.62</td>
+<td>0.73</td>
+</tr>
+<tr class="latent">
+<td>Z-Image-Turbo</td>
+<td>6B</td>
+<td>1024</td>
+<td>1.00</td>
+<td>0.95</td>
+<td>0.77</td>
+<td>0.89</td>
+<td>0.65</td>
+<td>0.68</td>
+<td>0.82</td>
+</tr>
+<tr class="latent">
+<td>Qwen-Image</td>
+<td>20B</td>
+<td>1024</td>
+<td>0.99</td>
+<td>0.92</td>
+<td>0.89</td>
+<td>0.88</td>
+<td>0.76</td>
+<td>0.77</td>
+<td>0.87</td>
+</tr>
+<tr>
+<td>PixNerd-XXL/16</td>
+<td>1.2B</td>
+<td>512</td>
+<td>0.97</td>
+<td>0.86</td>
+<td>0.44</td>
+<td>0.83</td>
+<td>0.71</td>
+<td>0.53</td>
+<td>0.73</td>
+</tr>
+<tr>
+<td>PixelDiT</td>
+<td>1.3B</td>
+<td>512</td>
+<td>1.00</td>
+<td>0.94</td>
+<td>0.70</td>
+<td>0.90</td>
+<td>0.53</td>
+<td>0.65</td>
+<td>0.78</td>
+</tr>
+<tr>
+<td>PixelGen-XXL/16</td>
+<td>1.1B</td>
+<td>512</td>
+<td>0.99</td>
+<td>0.88</td>
+<td>0.59</td>
+<td>0.90</td>
+<td>0.70</td>
+<td>0.70</td>
+<td>0.79</td>
+</tr>
+<tr>
+<td>DeCo-XXL/16</td>
+<td>1.1B</td>
+<td>512</td>
+<td>1.00</td>
+<td>0.92</td>
+<td>0.72</td>
+<td>0.91</td>
+<td>0.80</td>
+<td>0.79</td>
+<td>0.86</td>
+</tr>
+<tr>
+<td>RG-T2I-L/16</td>
+<td>0.9B</td>
+<td>512</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td>0.89</td>
+</tr>
+<tr>
+<td>MiniT2I-L/16</td>
+<td>0.9B</td>
+<td>512</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td>0.88</td>
+</tr>
+<tr>
+<td>PixelFlow-XL/4</td>
+<td>0.9B</td>
+<td>512</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td>0.60</td>
+</tr>
+<tr>
+<td>Iris</td>
+<td>3B</td>
+<td>1024</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td>0.80</td>
+</tr>
+<tr>
+<td>Tuna-2</td>
+<td>7B</td>
+<td>1024</td>
+<td>0.99</td>
+<td>0.96</td>
+<td>0.80</td>
+<td>0.91</td>
+<td>0.84</td>
+<td>0.76</td>
+<td>0.87</td>
+</tr>
+<tr class="ours">
+<td>Detour</td>
+<td>3.3B</td>
+<td>512</td>
+<td>1.00</td>
+<td>0.96</td>
+<td>0.83</td>
+<td>0.93</td>
+<td>0.86</td>
+<td>0.81</td>
+<td>0.90</td>
+</tr>
+<tr class="ours">
+<td>Detour</td>
+<td>3.3B</td>
+<td>1024</td>
+<td>0.98</td>
+<td>0.98</td>
+<td>0.78</td>
+<td>0.89</td>
+<td>0.83</td>
+<td>0.82</td>
+<td>0.88</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="dt-cap">GenEval, no prompt rewriting. Muted rows are latent-space models.</p>
 </div>
 
-<p class="detour-note">Bold marks the best pixel-space score in each column; — is unreported. Baselines
-are taken from their original papers or from Tuna-2, SANA, Janus-Pro and Qwen-Image.</p>
+<div class="dt-wrap">
+<div class="dt-scroll">
+<table class="dt">
+<thead>
+<tr>
+<th>Method</th>
+<th>Params</th>
+<th>Res</th>
+<th>Global</th>
+<th>Entity</th>
+<th>Attribute</th>
+<th>Relation</th>
+<th>Other</th>
+<th>Overall</th>
+</tr>
+</thead>
+<tbody>
+<tr class="latent">
+<td>SD3-Medium</td>
+<td>2B</td>
+<td>1024</td>
+<td>87.9</td>
+<td>91.0</td>
+<td>88.8</td>
+<td>80.7</td>
+<td>88.7</td>
+<td>84.1</td>
+</tr>
+<tr class="latent">
+<td>FLUX.1-dev</td>
+<td>12B</td>
+<td>1024</td>
+<td>74.4</td>
+<td>90.0</td>
+<td>89.0</td>
+<td>90.9</td>
+<td>88.3</td>
+<td>83.8</td>
+</tr>
+<tr class="latent">
+<td>SANA-1.6B</td>
+<td>1.6B</td>
+<td>1024</td>
+<td>86.0</td>
+<td>91.5</td>
+<td>88.9</td>
+<td>91.9</td>
+<td>90.7</td>
+<td>84.8</td>
+</tr>
+<tr class="latent">
+<td>Lumina-Image 2.0</td>
+<td>2.6B</td>
+<td>1024</td>
+<td><span class="u">–</span></td>
+<td>92.0</td>
+<td>90.2</td>
+<td>94.9</td>
+<td><span class="u">–</span></td>
+<td>87.2</td>
+</tr>
+<tr class="latent">
+<td>Z-Image-Turbo</td>
+<td>6B</td>
+<td>1024</td>
+<td>91.3</td>
+<td>89.6</td>
+<td>90.1</td>
+<td>92.2</td>
+<td>88.7</td>
+<td>84.9</td>
+</tr>
+<tr class="latent">
+<td>Qwen-Image</td>
+<td>20B</td>
+<td>1024</td>
+<td>91.3</td>
+<td>91.6</td>
+<td>92.0</td>
+<td>94.3</td>
+<td>92.7</td>
+<td>88.3</td>
+</tr>
+<tr>
+<td>PixNerd-XXL/16</td>
+<td>1.2B</td>
+<td>512</td>
+<td>80.5</td>
+<td>87.9</td>
+<td>87.2</td>
+<td>91.3</td>
+<td>72.8</td>
+<td>80.9</td>
+</tr>
+<tr>
+<td>PixelDiT</td>
+<td>1.3B</td>
+<td>512</td>
+<td>88.0</td>
+<td>90.9</td>
+<td>87.6</td>
+<td>89.8</td>
+<td>88.5</td>
+<td>83.7</td>
+</tr>
+<tr>
+<td>PixelGen-XXL/16</td>
+<td>1.1B</td>
+<td>512</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+</tr>
+<tr>
+<td>DeCo-XXL/16</td>
+<td>1.1B</td>
+<td>512</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td>81.4</td>
+</tr>
+<tr>
+<td>RG-T2I-L/16</td>
+<td>0.9B</td>
+<td>512</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td>87.1</td>
+</tr>
+<tr>
+<td>MiniT2I-L/16</td>
+<td>0.9B</td>
+<td>512</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td>85.9</td>
+</tr>
+<tr>
+<td>PixelFlow-XL/4</td>
+<td>0.9B</td>
+<td>512</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td>77.9</td>
+</tr>
+<tr>
+<td>Iris</td>
+<td>3B</td>
+<td>1024</td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td><span class="u">–</span></td>
+<td>86.5</td>
+</tr>
+<tr>
+<td>Tuna-2</td>
+<td>7B</td>
+<td>1024</td>
+<td>89.5</td>
+<td>91.4</td>
+<td>92.1</td>
+<td>91.9</td>
+<td>88.8</td>
+<td>86.5</td>
+</tr>
+<tr class="ours">
+<td>Detour</td>
+<td>3.3B</td>
+<td>512</td>
+<td>85.3</td>
+<td>92.5</td>
+<td>90.7</td>
+<td>94.9</td>
+<td>85.7</td>
+<td>87.8</td>
+</tr>
+<tr class="ours">
+<td>Detour</td>
+<td>3.3B</td>
+<td>1024</td>
+<td>85.3</td>
+<td>92.3</td>
+<td>90.4</td>
+<td>94.9</td>
+<td>85.9</td>
+<td>87.4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="dt-cap">DPG-Bench. Baselines are from the original papers or from Tuna-2, SANA, Janus-Pro and Qwen-Image.</p>
+</div>
 
 <p>The per-task breakdown is where the path shows itself. Counting (0.83) and position (0.86) are the two
 GenEval tasks that need the layout settled before any texture is drawn, and they are exactly the tasks
@@ -1690,109 +1814,95 @@ full-size view tops out near the model’s own 1024 px rather than above it.</p>
 
 <h2 id="which-encoder-and-how-wide-a-code">Which encoder, and how wide a code?</h2>
 
-<p>The default code is DINOv2-B with 768 channels, chosen because that is exactly a 16×16×3 pixel patch:
-the pixel shuffle \(\Phi\) then maps the code into an RGB-shaped state without changing its dimension
-or its norm. Two questions follow. What happens when the encoder’s width doesn’t match, and does the
-choice of encoder matter at all?</p>
+<p>The default code is DINOv2-B with 768 channels, chosen because that is exactly a 16×16×3 pixel
+patch: the pixel shuffle \(\Phi\) maps the code into an RGB-shaped state without changing its dimension
+or its norm. Two questions follow — what happens when the encoder’s width does not match, and does the
+choice of encoder matter at all? All runs below are JiT-B/16 on ImageNet 256 for 80 epochs, unguided,
+with the same sampler: relative comparisons, not best achievable numbers.</p>
 
-<p>All runs below are JiT-B/16 on ImageNet 256 for 80 epochs, unguided, with the same sampler — relative
-comparisons, not best achievable numbers.</p>
+<figure class="detour-fig">
+  <img src="/assets/img/detour/codedim.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/full/codedim.jpg" alt="Code dimension and encoder ablations">
+  <figcaption>Unguided FID-10k during training. Left: projecting a 1024-channel DINOv2-L code down to 768 against padding the state to four channels. Right: three different encoders at the same 768 channels.</figcaption>
+</figure>
 
-<table class="detour">
-  <thead>
-    <tr>
-      <th>Encoder</th>
-      <th>Fit</th>
-      <th>\(C\)</th>
-      <th>State</th>
-      <th>Var. kept</th>
-      <th>Ch. var.</th>
-      <th>\(R^2\)</th>
-      <th>FID-50k</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>DINOv2-B</td>
-      <td>—</td>
-      <td>768</td>
-      <td>3</td>
-      <td>1.000</td>
-      <td>—</td>
-      <td>—</td>
-      <td>16.85</td>
-    </tr>
-    <tr>
-      <td>DINOv2-L</td>
-      <td>project</td>
-      <td>768</td>
-      <td>3</td>
-      <td>0.947</td>
-      <td>0.78–1.30</td>
-      <td>0.682</td>
-      <td><strong>15.01</strong></td>
-    </tr>
-    <tr>
-      <td>DINOv2-L</td>
-      <td>pad</td>
-      <td>1024</td>
-      <td>4</td>
-      <td>1.000</td>
-      <td>0.22–17.48</td>
-      <td>—</td>
-      <td>17.39</td>
-    </tr>
-    <tr>
-      <td>MAE</td>
-      <td>—</td>
-      <td>768</td>
-      <td>3</td>
-      <td>1.000</td>
-      <td>0.09–35.96</td>
-      <td>0.916</td>
-      <td>22.77</td>
-    </tr>
-    <tr>
-      <td>LeJEPA</td>
-      <td>—</td>
-      <td>768</td>
-      <td>3</td>
-      <td>1.000</td>
-      <td>0.48–17.70</td>
-      <td>0.793</td>
-      <td>23.05</td>
-    </tr>
-  </tbody>
+<div class="dt-wrap">
+<div class="dt-scroll">
+<table class="dt">
+<thead>
+<tr>
+<th>Encoder</th>
+<th>Adaptation</th>
+<th>$$C$$</th>
+<th>State</th>
+<th>$$R^2$$</th>
+<th>FID-50k</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DINOv2-B</td>
+<td><span class="u">–</span></td>
+<td>768</td>
+<td>3</td>
+<td><span class="u">–</span></td>
+<td>16.85</td>
+</tr>
+<tr class="ours">
+<td>DINOv2-L</td>
+<td>project</td>
+<td>768</td>
+<td>3</td>
+<td>0.682</td>
+<td>15.01</td>
+</tr>
+<tr>
+<td>DINOv2-L</td>
+<td>pad</td>
+<td>1024</td>
+<td>4</td>
+<td><span class="u">–</span></td>
+<td>17.39</td>
+</tr>
+<tr class="sec"><td colspan="6">Other encoders, same 768-channel interface</td></tr>
+<tr>
+<td>MAE</td>
+<td><span class="u">–</span></td>
+<td>768</td>
+<td>3</td>
+<td>0.916</td>
+<td>22.77</td>
+</tr>
+<tr>
+<td>LeJEPA</td>
+<td><span class="u">–</span></td>
+<td>768</td>
+<td>3</td>
+<td>0.793</td>
+<td>23.05</td>
+</tr>
+</tbody>
 </table>
+</div>
+<p class="dt-cap">$$R^2$$ is linear patch reconstruction from the code token, estimated from 1.03M tokens.</p>
+</div>
 
 <p><strong>Projecting beats padding.</strong> DINOv2-L has 1024 channels, which pixel shuffle turns into a four-channel
 state — and the fourth channel has no clean image behind it, only code. Projecting down to 768 instead
-keeps the original three-channel state and the unmodified pixel-space architecture, and wins by 1.6
-FID-10k and 2.4 FID-50k, <em>despite throwing away 5.3% of the token variance</em>. Keeping the state shaped
-like an image matters more than keeping every direction of the feature.</p>
-
-<p>How the projection is built matters too. Taking the top 768 PCA directions alone leaves channel
-variances spread across 0.23–25.3, which pixel shuffle then distributes unevenly across the three RGB
-planes. Adding a fixed random orthogonal rotation after the projection balances them to 0.78–1.30 and
-equalises the planes to 0.998 : 1.001 : 1.001 — no information is lost, since the rotation is
-orthogonal; it is only spread more evenly across pixel space.</p>
+keeps the three-channel state and the unmodified pixel-space architecture, and wins by 2.4 FID-50k
+(15.01 against 17.39) while retaining 94.7% of the feature variance. The projection is PCA followed by
+a fixed orthogonal rotation, which balances the channel variances so that pixel shuffle spreads them
+evenly across the three RGB planes rather than concentrating them in one. Keeping the state shaped like
+an image matters more than keeping every direction of the feature.</p>
 
 <p><strong>The encoder is not interchangeable.</strong> Swapping DINOv2 for MAE or LeJEPA at the same 768 channels and
-the same architecture costs about 7.6 FID. The interesting part is that neither obvious explanation
-survives:</p>
+the same architecture costs about 8 FID-50k, and both alternatives converge more slowly throughout
+training (figure, right — they are still at 26.0 FID-10k at epoch 80, where DINOv2 is at 18.1).</p>
 
-<ul>
-  <li>
-<em>Pixel predictability</em> — how well a linear ridge regressor reconstructs a patch from its code.
-MAE is <strong>best</strong> at this (\(R^2\) 0.916, against 0.682 for projected DINOv2-L) and generates worst.
-Easier reconstruction does not mean easier generation.</li>
-  <li>
-<em>Channel conditioning</em> — the spread of per-channel variance. LeJEPA is far better conditioned than
-MAE (37× against 400×), yet they land within 0.3 FID of each other.</li>
-</ul>
-
-<p>So DINOv2’s advantage is not that its features are easy to decode, nor that they are well scaled. What
-is left is the semantic structure itself — which is the thing the detour path actually travels along.</p>
+<p>The obvious explanation does not survive. <em>Pixel predictability</em> — how well a linear ridge regressor
+reconstructs a patch from its code — is <strong>highest for MAE</strong> (\(R^2\) 0.916, against 0.682 for projected
+DINOv2-L), and MAE generates worst. Easier reconstruction does not mean easier generation. What
+separates the encoders is the semantic structure of the representation itself, which is the thing the
+detour path actually travels along.</p>
 
 <h2 id="architecture-briefly">Architecture, briefly</h2>
 
