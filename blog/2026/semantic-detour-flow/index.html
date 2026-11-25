@@ -223,7 +223,14 @@
 } @media (max-width: 640px) {
   table.dt { font-size: .76rem; }
   table.dt th, table.dt td { padding: .3rem .4rem; }
-} .cit { font-size: .62em; vertical-align: super; line-height: 0; margin-left: .1em; } .cit a { text-decoration: none; opacity: .75; } .cit a:hover { opacity: 1; } table.dt .cit { opacity: .6; } ol.dt-refs {
+} table.dt .sc {
+  display: block;
+  font-size: .68em;
+  font-weight: 400;
+  opacity: .5;
+  letter-spacing: .01em;
+  margin-top: .05rem;
+} table.dt .gsep { border-left: 1px solid rgba(128,128,128,.22); } table.dt thead th.grp.gsep { border-left: 1px solid rgba(128,128,128,.22); } .cit { font-size: .62em; vertical-align: super; line-height: 0; margin-left: .1em; } .cit a { text-decoration: none; opacity: .75; } .cit a:hover { opacity: 1; } table.dt .cit { opacity: .6; } ol.dt-refs {
   font-size: .82rem;
   line-height: 1.5;
   opacity: .85;
@@ -414,60 +421,65 @@ no encoder, no decoder, nothing to reconstruct through.</p>
 <p>Each row adds one piece to plain pixel flow, using the <em>same</em> network (JiT-B, 296M, unguided FID,
 Heun 50 steps). Putting DINOv2 features into the path is by far the largest single gain.</p>
 
-<table class="detour">
-  <thead>
-    <tr>
-      <th>Model</th>
-      <th>FID-10k, 20 ep.</th>
-      <th>Δ</th>
-      <th>FID-50k, 80 ep.</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Pixel flow (JiT, same network)</td>
-      <td>92.8</td>
-      <td>—</td>
-      <td>48.3</td>
-    </tr>
-    <tr>
-      <td>+ detour path</td>
-      <td>66.6</td>
-      <td>−26.2</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>+ trigonometric mix</td>
-      <td>52.7</td>
-      <td>−13.9</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>+ norm bump</td>
-      <td>49.1</td>
-      <td>−3.6</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>+ fitted logit-normal \(t\)</td>
-      <td>47.9</td>
-      <td>−1.2</td>
-      <td>23.4</td>
-    </tr>
-    <tr>
-      <td>+ interval sampling</td>
-      <td>45.5</td>
-      <td>−2.4</td>
-      <td>20.4</td>
-    </tr>
-    <tr>
-      <td>+ multi-layer code</td>
-      <td><strong>38.8</strong></td>
-      <td>−6.7</td>
-      <td><strong>15.8</strong></td>
-    </tr>
-  </tbody>
+<div class="dt-wrap">
+<div class="dt-scroll">
+<table class="dt">
+<thead>
+<tr>
+<th>Model</th>
+<th>FID-10k, 20 ep.</th>
+<th>Δ</th>
+<th>FID-50k, 80 ep.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pixel flow (JiT, same network)</td>
+<td>92.8</td>
+<td><span class="u">–</span></td>
+<td>48.3</td>
+</tr>
+<tr>
+<td>+ detour path</td>
+<td>66.6</td>
+<td>−26.2</td>
+<td><span class="u">–</span></td>
+</tr>
+<tr>
+<td>+ trigonometric mix</td>
+<td>52.7</td>
+<td>−13.9</td>
+<td><span class="u">–</span></td>
+</tr>
+<tr>
+<td>+ norm bump</td>
+<td>49.1</td>
+<td>−3.6</td>
+<td><span class="u">–</span></td>
+</tr>
+<tr>
+<td>+ fitted logit-normal $$t$$</td>
+<td>47.9</td>
+<td>−1.2</td>
+<td>23.4</td>
+</tr>
+<tr>
+<td>+ interval sampling</td>
+<td>45.5</td>
+<td>−2.4</td>
+<td>20.4</td>
+</tr>
+<tr class="ours">
+<td>+ multi-layer code</td>
+<td>38.8</td>
+<td>−6.7</td>
+<td>15.8</td>
+</tr>
+</tbody>
 </table>
+</div>
+<p class="dt-cap">JiT-B, 296M parameters, unguided, Heun 50 with a uniform time grid.</p>
+</div>
 
 <p>Semantic latent diffusion still converges faster, but the detour recovers much of the advantage
 while generating directly in pixels.</p>
@@ -486,93 +498,78 @@ than 280, so the longer run is not uniformly better.</p>
 <p>Guidance matters, and the two kinds compose. Classifier-free guidance<sup class="cit"><a href="#ref-2">2</a></sup> alone plateaus; autoguidance<sup class="cit"><a href="#ref-3">3</a></sup>
 alone is already better at a much lower Inception score; together they are better than either.</p>
 
-<table class="detour">
-  <thead>
-    <tr>
-      <th>Sampling (Detour-XL/16, epoch 200)</th>
-      <th>FID-50k</th>
-      <th>IS</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Unguided</td>
-      <td>3.69</td>
-      <td>182</td>
-    </tr>
-    <tr>
-      <td>CFG 2.25 on [0.05, 0.9]</td>
-      <td>2.27</td>
-      <td>283</td>
-    </tr>
-    <tr>
-      <td>AutoGuidance 2.0</td>
-      <td>1.81</td>
-      <td>210</td>
-    </tr>
-    <tr>
-      <td><strong>CFG 1.75 + AutoGuidance 2.0</strong></td>
-      <td><strong>1.43</strong></td>
-      <td>267</td>
-    </tr>
-  </tbody>
+<div class="dt-wrap">
+<div class="dt-scroll">
+<table class="dt">
+<thead>
+<tr class="grp-row">
+<th></th>
+<th class="grp gsep" colspan="2">256, epoch 200</th>
+<th class="grp gsep" colspan="2">256, epoch 320</th>
+<th class="grp gsep" colspan="2">512, epoch 280</th>
+</tr>
+<tr>
+<th>Guidance</th>
+<th class="gsep">FID-50k</th>
+<th>IS</th>
+<th class="gsep">FID-50k</th>
+<th>IS</th>
+<th class="gsep">FID-50k</th>
+<th>IS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unguided</td>
+<td class="gsep">3.69</td>
+<td>182</td>
+<td class="gsep">3.24</td>
+<td>192</td>
+<td class="gsep">3.73</td>
+<td>201</td>
+</tr>
+<tr>
+<td>CFG only</td>
+<td class="gsep">2.27<span class="sc">scale 2.25</span>
+</td>
+<td>283</td>
+<td class="gsep">2.13<span class="sc">scale 2.5</span>
+</td>
+<td>300</td>
+<td class="gsep">2.32<span class="sc">scale 4.0</span>
+</td>
+<td>334</td>
+</tr>
+<tr>
+<td>AutoGuidance only</td>
+<td class="gsep">1.81<span class="sc">scale 2.0</span>
+</td>
+<td>210</td>
+<td class="gsep">1.59<span class="sc">scale 2.0</span>
+</td>
+<td>220</td>
+<td class="gsep">1.54<span class="sc">scale 2.0</span>
+</td>
+<td>238</td>
+</tr>
+<tr class="ours">
+<td>CFG + AutoGuidance</td>
+<td class="gsep">1.43<span class="sc">1.75 + 2.0</span>
+</td>
+<td>267</td>
+<td class="gsep">1.35<span class="sc">1.625 + 2.0</span>
+</td>
+<td>267</td>
+<td class="gsep">1.35<span class="sc">2.0 + 2.0</span>
+</td>
+<td>297</td>
+</tr>
+</tbody>
 </table>
-
-<p>The same comparison at epoch 320, and at 512×512 at epoch 280, both on the window [0.05, 0.9]:</p>
-
-<table class="detour">
-  <thead>
-    <tr>
-      <th>Sampling</th>
-      <th>FID-50k</th>
-      <th>IS</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-<strong>XL/16 @320</strong> — unguided</td>
-      <td>3.24</td>
-      <td>192</td>
-    </tr>
-    <tr>
-      <td>CFG 2.5 alone</td>
-      <td>2.13</td>
-      <td>300</td>
-    </tr>
-    <tr>
-      <td>AutoGuidance 2.0</td>
-      <td>1.59</td>
-      <td>220</td>
-    </tr>
-    <tr>
-      <td><strong>CFG 1.625 + AutoGuidance 2.0</strong></td>
-      <td><strong>1.35</strong></td>
-      <td>267</td>
-    </tr>
-    <tr>
-      <td>
-<strong>XL/32 @280, 512×512</strong> — unguided</td>
-      <td>3.73</td>
-      <td>201</td>
-    </tr>
-    <tr>
-      <td>CFG 4.0 alone</td>
-      <td>2.32</td>
-      <td>334</td>
-    </tr>
-    <tr>
-      <td>AutoGuidance 2.0</td>
-      <td>1.54</td>
-      <td>238</td>
-    </tr>
-    <tr>
-      <td><strong>CFG 2.0 + AutoGuidance 2.0</strong></td>
-      <td><strong>1.35</strong></td>
-      <td>297</td>
-    </tr>
-  </tbody>
-</table>
+</div>
+<p class="dt-cap">Euler 100 on the grid $$t=u^4$$, EMA2, guidance on the window [0.05, 0.9]. Small
+figures are the guidance scales; AutoGuidance always contrasts against the same run at epoch 20.</p>
+</div>
 
 <p>Note what CFG alone does to the Inception score: it is the <em>highest</em> of the four at both resolutions
 (300 and 334) while the FID is a full point worse. A large guidance scale buys class-typicality at the
