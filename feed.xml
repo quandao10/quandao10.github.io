@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://quandao10.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://quandao10.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-25T04:13:03+00:00</updated><id>https://quandao10.github.io/feed.xml</id><title type="html">Quan Dao</title><subtitle>Quan Dao is a Ph.D. student in Computer Science at Rutgers University working on efficient generative modeling, including diffusion and flow-based models.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://quandao10.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://quandao10.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-25T04:15:22+00:00</updated><id>https://quandao10.github.io/feed.xml</id><title type="html">Quan Dao</title><subtitle>Quan Dao is a Ph.D. student in Computer Science at Rutgers University working on efficient generative modeling, including diffusion and flow-based models.
 </subtitle><entry><title type="html">Semantic Detour Flow</title><link href="https://quandao10.github.io/blog/2026/semantic-detour-flow/" rel="alternate" type="text/html" title="Semantic Detour Flow" /><published>2026-11-23T00:00:00+00:00</published><updated>2026-11-23T00:00:00+00:00</updated><id>https://quandao10.github.io/blog/2026/semantic-detour-flow</id><content type="html" xml:base="https://quandao10.github.io/blog/2026/semantic-detour-flow/"><![CDATA[<div class="detour-authors">
   <div class="names">
     Quan Dao<sup>1</sup>,
@@ -292,11 +292,12 @@ one sample per class.</p>
 <p>The path needs no class labels, so it transfers to text-to-image directly. With matched networks
 it reaches comparable text alignment in <strong>1.5× fewer training iterations</strong> than plain pixel flow.</p>
 
-<p>A 3.3B model scores <strong>GenEval 0.90 / DPG-Bench 87.8</strong> at 512×512 — ahead of the pixel-space models we
-compare against, while keeping the fine textures and rendered text that a semantic-latent decoder can
-lose. The gallery below is sampled at about 1024×1024 from the same model.</p>
+<p>A 3.3B model scores <strong>GenEval 0.90 / DPG-Bench 87.8</strong> at 512×512 and <strong>0.88 / 87.4</strong> at 1024×1024 —
+ahead of the pixel-space models we compare against at both resolutions, while keeping the fine
+textures and rendered text that a semantic-latent decoder can lose.</p>
 
-<p>No prompt rewriting is used anywhere. Muted rows are latent-space models.</p>
+<p>Both Detour rows are the same checkpoint, evaluated at the two resolutions it was trained on. No prompt
+rewriting is used anywhere. Muted rows are latent-space models.</p>
 
 <h3 id="geneval">GenEval</h3>
 
@@ -321,6 +322,7 @@ lose. The gallery below is sampled at about 1024×1024 from the same model.</p>
 <tr><td>Iris<sup class="cit"><a href="#ref-31">31</a></sup></td><td>3B</td><td>1024</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>0.80</td></tr>
 <tr><td>Tuna-2<sup class="cit"><a href="#ref-32">32</a></sup></td><td>7B</td><td>1024</td><td>0.99</td><td>0.96</td><td>0.80</td><td>0.91</td><td>0.84</td><td>0.76</td><td>0.87</td></tr>
 <tr class="ours"><td>Detour</td><td>3.3B</td><td>512</td><td>1.00</td><td>0.96</td><td>0.83</td><td>0.93</td><td>0.86</td><td>0.81</td><td>0.90</td></tr>
+<tr class="ours"><td>Detour</td><td>3.3B</td><td>1024</td><td>0.98</td><td>0.98</td><td>0.78</td><td>0.89</td><td>0.83</td><td>0.82</td><td>0.88</td></tr>
 </tbody></table></div>
 <p class="dt-cap">Counting and position are the two tasks that need the layout settled before any
 texture is drawn &mdash; and the two that pixel-space models usually lose.</p>
@@ -349,6 +351,7 @@ texture is drawn &mdash; and the two that pixel-space models usually lose.</p>
 <tr><td>Iris<sup class="cit"><a href="#ref-31">31</a></sup></td><td>3B</td><td>1024</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>86.5</td></tr>
 <tr><td>Tuna-2<sup class="cit"><a href="#ref-32">32</a></sup></td><td>7B</td><td>1024</td><td>89.5</td><td>91.4</td><td>92.1</td><td>91.9</td><td>88.8</td><td>86.5</td></tr>
 <tr class="ours"><td>Detour</td><td>3.3B</td><td>512</td><td>85.3</td><td>92.5</td><td>90.7</td><td>94.9</td><td>85.7</td><td>87.8</td></tr>
+<tr class="ours"><td>Detour</td><td>3.3B</td><td>1024</td><td>85.3</td><td>92.3</td><td>90.4</td><td>94.9</td><td>85.9</td><td>87.4</td></tr>
 </tbody></table></div>
 <p class="dt-cap">DPG-Bench. Baselines are from the original papers or from Tuna-2, SANA, Janus-Pro and Qwen-Image.</p>
 </div>
