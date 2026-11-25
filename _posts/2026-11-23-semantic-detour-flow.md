@@ -510,11 +510,12 @@ one sample per class.
 The path needs no class labels, so it transfers to text-to-image directly. With matched networks
 it reaches comparable text alignment in **1.5× fewer training iterations** than plain pixel flow.
 
-A 3.3B model scores **GenEval 0.90 / DPG-Bench 87.8** at 512×512 — ahead of the pixel-space models we
-compare against, while keeping the fine textures and rendered text that a semantic-latent decoder can
-lose. The gallery below is sampled at about 1024×1024 from the same model.
+A 3.3B model scores **GenEval 0.90 / DPG-Bench 87.8** at 512×512 and **0.88 / 87.4** at 1024×1024 —
+ahead of the pixel-space models we compare against at both resolutions, while keeping the fine
+textures and rendered text that a semantic-latent decoder can lose.
 
-No prompt rewriting is used anywhere. Muted rows are latent-space models.
+Both Detour rows are the same checkpoint, evaluated at the two resolutions it was trained on. No prompt
+rewriting is used anywhere. Muted rows are latent-space models.
 
 ### GenEval
 
@@ -539,6 +540,7 @@ No prompt rewriting is used anywhere. Muted rows are latent-space models.
 <tr><td>Iris<sup class="cit"><a href="#ref-31">31</a></sup></td><td>3B</td><td>1024</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>0.80</td></tr>
 <tr><td>Tuna-2<sup class="cit"><a href="#ref-32">32</a></sup></td><td>7B</td><td>1024</td><td>0.99</td><td>0.96</td><td>0.80</td><td>0.91</td><td>0.84</td><td>0.76</td><td>0.87</td></tr>
 <tr class="ours"><td>Detour</td><td>3.3B</td><td>512</td><td>1.00</td><td>0.96</td><td>0.83</td><td>0.93</td><td>0.86</td><td>0.81</td><td>0.90</td></tr>
+<tr class="ours"><td>Detour</td><td>3.3B</td><td>1024</td><td>0.98</td><td>0.98</td><td>0.78</td><td>0.89</td><td>0.83</td><td>0.82</td><td>0.88</td></tr>
 </tbody></table></div>
 <p class="dt-cap">Counting and position are the two tasks that need the layout settled before any
 texture is drawn &mdash; and the two that pixel-space models usually lose.</p>
@@ -567,6 +569,7 @@ texture is drawn &mdash; and the two that pixel-space models usually lose.</p>
 <tr><td>Iris<sup class="cit"><a href="#ref-31">31</a></sup></td><td>3B</td><td>1024</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>86.5</td></tr>
 <tr><td>Tuna-2<sup class="cit"><a href="#ref-32">32</a></sup></td><td>7B</td><td>1024</td><td>89.5</td><td>91.4</td><td>92.1</td><td>91.9</td><td>88.8</td><td>86.5</td></tr>
 <tr class="ours"><td>Detour</td><td>3.3B</td><td>512</td><td>85.3</td><td>92.5</td><td>90.7</td><td>94.9</td><td>85.7</td><td>87.8</td></tr>
+<tr class="ours"><td>Detour</td><td>3.3B</td><td>1024</td><td>85.3</td><td>92.3</td><td>90.4</td><td>94.9</td><td>85.9</td><td>87.4</td></tr>
 </tbody></table></div>
 <p class="dt-cap">DPG-Bench. Baselines are from the original papers or from Tuna-2, SANA, Janus-Pro and Qwen-Image.</p>
 </div>
