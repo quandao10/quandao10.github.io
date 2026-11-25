@@ -55,6 +55,7 @@
 (function(){
  "use strict";
  var BASE = "/private/f6cbfecd87f9b1ef/";
+ var BUST = "?v=e95455ff";
  var gate=document.getElementById("gate"), msg=document.getElementById("m"),
      post=document.getElementById("post"), ribbon=document.getElementById("ribbon");
  function say(t,c){msg.textContent=t; msg.className="msg"+(c?" "+c:"");}
@@ -79,19 +80,28 @@
 
  document.getElementById("f").addEventListener("submit", async function(e){
    e.preventDefault();
-   var pw=document.getElementById("pw").value;
+   // A pasted password often carries a trailing newline or space, and sometimes a
+   // zero-width character; none of that is part of the key.
+   var raw=document.getElementById("pw").value;
+   var pw=raw.replace(/[\u200B-\u200D\uFEFF]/g,"").trim();
    if(!pw){say("Enter the password.","bad");return;}
    if(!crypto.subtle){say("This browser cannot decrypt the page (no Web Crypto over http).","bad");return;}
    say("Deriving key…","work");
    var stage="load";   // load -> password -> render, so errors are not all "wrong password"
    try{
-     var mr=await fetch(BASE+"manifest.json",{cache:"no-store"});
+     var mr=await fetch(BASE+"manifest.json"+BUST,{cache:"no-store"});
      if(!mr.ok) throw new Error("HTTP "+mr.status);
      var man=await mr.json();
      stage="password";
      var key=await keyFrom(pw, b64(man.salt), man.iter);
      say("Decrypting…","work");
-     var html=dec.decode(await open1(key, BASE+"page.bin"));
+     try{
+       html=dec.decode(await open1(key, BASE+"page.bin"+BUST));
+     }catch(e1){
+       if(raw===pw) throw e1;
+       key=await keyFrom(raw, b64(man.salt), man.iter);   // maybe the spaces were real
+       html=dec.decode(await open1(key, BASE+"page.bin"+BUST));
+     }
      stage="render";
      post.innerHTML=html;
      gate.hidden=true; post.hidden=false; ribbon.hidden=false;
@@ -104,7 +114,7 @@
        if(el.hasAttribute("data-poster-enc")) jobs.push(["poster", el.getAttribute("data-poster-enc")]);
        jobs.forEach(function(j){
          var kind=j[0], path=j[1];
-         open1(key, BASE+"enc/"+path+".bin").then(function(buf){
+         open1(key, BASE+"enc/"+path+".bin"+BUST).then(function(buf){
            var mime=/\.mp4$/.test(path)?"video/mp4"
                    :(/\.png$/.test(path)?"image/png":"image/jpeg");
            var u=URL.createObjectURL(new Blob([buf],{type:mime}));
@@ -141,7 +151,7 @@
          ev.preventDefault();
          var path=a2.getAttribute("data-dl-enc"), old=a2.textContent;
          a2.textContent="Decrypting\u2026";
-         open1(key, BASE+"enc/"+path+".bin").then(function(buf){
+         open1(key, BASE+"enc/"+path+".bin"+BUST).then(function(buf){
            var u=URL.createObjectURL(new Blob([buf],{type:"video/mp4"}));
            var t=document.createElement("a");
            t.href=u; t.download=path.split("/").pop();
@@ -161,7 +171,7 @@
        say("Could not load this page's data ("+err.message+"). Check the link, or the "
            +"deploy may still be running.","bad");
      } else if(stage==="password"){
-       say("That password did not work.","bad");
+       say("That password did not work. ("+pw.length+" characters read; page data fingerprint "+man.salt.slice(0,6)+"). If you are sure it is right, reload with Ctrl+Shift+R \u2014 a cached copy of the old page can cause this.","bad");
      } else {
        say("Decrypted, but the page could not be rendered.","bad");
      }
