@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://quandao10.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://quandao10.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-25T03:32:06+00:00</updated><id>https://quandao10.github.io/feed.xml</id><title type="html">Quan Dao</title><subtitle>Quan Dao is a Ph.D. student in Computer Science at Rutgers University working on efficient generative modeling, including diffusion and flow-based models.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://quandao10.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://quandao10.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-25T03:32:19+00:00</updated><id>https://quandao10.github.io/feed.xml</id><title type="html">Quan Dao</title><subtitle>Quan Dao is a Ph.D. student in Computer Science at Rutgers University working on efficient generative modeling, including diffusion and flow-based models.
 </subtitle><entry><title type="html">Semantic Detour Flow</title><link href="https://quandao10.github.io/blog/2026/semantic-detour-flow/" rel="alternate" type="text/html" title="Semantic Detour Flow" /><published>2026-11-23T00:00:00+00:00</published><updated>2026-11-23T00:00:00+00:00</updated><id>https://quandao10.github.io/blog/2026/semantic-detour-flow</id><content type="html" xml:base="https://quandao10.github.io/blog/2026/semantic-detour-flow/"><![CDATA[<div class="detour-authors">
   <div class="names">
     Quan Dao<sup>1</sup>,
@@ -219,7 +219,7 @@ is the one that matters — most entries above us are trained three to eight tim
 
 <h3 id="256256">256×256</h3>
 
-<p><strong>Model samples, not real images.</strong> One sample per class from Detour-XL/16 at <strong>epoch 200</strong>,
+<p>One sample per class from Detour-XL/16 at <strong>epoch 200</strong>,
 CFG 1.75 + AutoGuidance 2.0 — the setting that gives FID-50k 1.43, not the epoch-320 setting quoted
 above. Shown at the model’s native 256×256, uncurated. Click to view at full size.</p>
 
@@ -256,7 +256,7 @@ above. Shown at the model’s native 256×256, uncurated. Click to view at full 
 
 <h3 id="512512">512×512</h3>
 
-<p><strong>Model samples, not real images.</strong> Detour-XL/32, CFG 2.5 + AutoGuidance 2.0, at the native
+<p>Detour-XL/32, CFG 2.5 + AutoGuidance 2.0, at the native
 512×512. Fifteen picks selected from a 50k sampling run — chosen, unlike the 256 grid above, which is
 one sample per class.</p>
 
