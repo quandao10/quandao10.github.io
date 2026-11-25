@@ -491,8 +491,10 @@ A 3.3B model scores **GenEval 0.90 / DPG-Bench 87.8** at 512×512 and **0.88 / 8
 ahead of the pixel-space models we compare against at both resolutions, while keeping the fine
 textures and rendered text that a semantic-latent decoder can lose.
 
-Both rows below are the same checkpoint, evaluated at the two resolutions it was trained on. No prompt
-rewriting is used anywhere in the table. Grey rows are latent-space models.
+Both Detour rows are the same checkpoint, evaluated at the two resolutions it was trained on. No prompt
+rewriting is used anywhere. Muted rows are latent-space models.
+
+### GenEval
 
 <div class="dt-wrap"><div class="dt-scroll">
 <table class="dt">
@@ -517,8 +519,11 @@ rewriting is used anywhere in the table. Grey rows are latent-space models.
 <tr class="ours"><td>Detour</td><td>3.3B</td><td>512</td><td>1.00</td><td>0.96</td><td>0.83</td><td>0.93</td><td>0.86</td><td>0.81</td><td>0.90</td></tr>
 <tr class="ours"><td>Detour</td><td>3.3B</td><td>1024</td><td>0.98</td><td>0.98</td><td>0.78</td><td>0.89</td><td>0.83</td><td>0.82</td><td>0.88</td></tr>
 </tbody></table></div>
-<p class="dt-cap">GenEval, no prompt rewriting. Muted rows are latent-space models.</p>
+<p class="dt-cap">Counting and position are the two tasks that need the layout settled before any
+texture is drawn &mdash; and the two that pixel-space models usually lose.</p>
 </div>
+
+### DPG-Bench
 
 <div class="dt-wrap"><div class="dt-scroll">
 <table class="dt">
@@ -546,9 +551,9 @@ rewriting is used anywhere in the table. Grey rows are latent-space models.
 <p class="dt-cap">DPG-Bench. Baselines are from the original papers or from Tuna-2, SANA, Janus-Pro and Qwen-Image.</p>
 </div>
 
-The per-task breakdown is where the path shows itself. Counting (0.83) and position (0.86) are the two
-GenEval tasks that need the layout settled before any texture is drawn, and they are exactly the tasks
-pixel-space models usually lose — PixNerd scores 0.44 on counting, PixelDiT 0.53 on position. Deciding
+The GenEval per-task breakdown is where the path shows itself. Counting (0.83) and position (0.86) are
+the two tasks that need the layout settled before any texture is drawn, and they are exactly where
+pixel-space models fall down — PixNerd scores 0.44 on counting, PixelDiT 0.53 on position. Deciding
 semantics first is worth more there than anywhere else.
 
 <figure class="detour-fig">
