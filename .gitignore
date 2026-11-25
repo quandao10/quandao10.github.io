@@ -9,3 +9,9 @@ _site
 Gemfile.lock
 vendor
 
+
+# Pixel Perceiver: the readable copy is deliberately NOT published. This repo is public, so the
+# post source and its media stay local; only the AES-GCM ciphertext under private/ is committed.
+_posts/2026-11-25-pixel-perceiver.md
+assets/img/ppv/
+assets/video/ppv/

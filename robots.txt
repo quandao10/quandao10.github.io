@@ -5,3 +5,6 @@ User-agent: *
 Disallow:
 
 Sitemap: {{ site.baseurl | prepend: site.url }}/sitemap.xml
+
+User-agent: *
+Disallow: /private/
