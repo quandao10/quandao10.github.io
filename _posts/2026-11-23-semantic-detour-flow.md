@@ -235,12 +235,35 @@ _styles: >
 </div>
 
 <div class="detour-video">
-  <video controls playsinline preload="none" poster="{{ '/assets/img/detour/promo_poster.jpg' | relative_url }}">
+  <video id="promo-video" controls playsinline preload="none" poster="{{ '/assets/img/detour/promo_poster.jpg' | relative_url }}">
     <source src="{{ '/assets/video/detour_promo.mp4' | relative_url }}" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 </div>
-<p class="detour-note" style="text-align:center">A short walk through the method and the results (1 min 21 s, with sound).</p>
+
+<div class="detour-links" style="margin-top:.7rem">
+  <a href="#" id="promo-fullscreen" aria-label="Play the video full screen">⛶&nbsp; Full screen</a>
+  <a href="{{ '/assets/video/detour_promo.mp4' | relative_url }}" download="semantic-detour-flow.mp4">↓&nbsp; Download MP4 · 22 MB</a>
+</div>
+<p class="detour-note" style="text-align:center">A short walk through the method and the results — 1 min 21 s, with sound.</p>
+
+<script>
+(function () {
+  var v = document.getElementById('promo-video');
+  var b = document.getElementById('promo-fullscreen');
+  if (!v || !b) return;
+  b.addEventListener('click', function (e) {
+    e.preventDefault();
+    var go = v.requestFullscreen || v.webkitRequestFullscreen ||
+             v.webkitEnterFullscreen || v.mozRequestFullScreen || v.msRequestFullscreen;
+    if (go) {
+      var r = go.call(v);
+      if (r && r.catch) r.catch(function () {});
+    }
+    if (v.paused) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
+  });
+})();
+</script>
 
 Diffusion models trained in semantic latent spaces converge much faster than pixel-space
 models, but they inherit a decoder that caps fine detail. **Semantic Detour Flow** closes most
