@@ -60,7 +60,7 @@ robots: noindex, nofollow
 (function(){
  "use strict";
  var BASE = "/private/f6cbfecd87f9b1ef/";
- var BUST = "?v=ff7e3308";
+ var BUST = "?v=57bf88bb";
  var gate=document.getElementById("gate"), msg=document.getElementById("m"),
      post=document.getElementById("post"), ribbon=document.getElementById("ribbon");
  function say(t,c){msg.textContent=t; msg.className="msg"+(c?" "+c:"");}
@@ -117,8 +117,23 @@ robots: noindex, nofollow
        html=dec.decode(await open1(key, BASE+"page.bin"+BUST));
      }
      stage="render";
+     // Let the decrypted page resolve its own assets (the hero strip builds <video> in JS,
+     // so it cannot use the data-enc attributes the shell rewrites).
+     window.__ppvAsset=function(path){
+       return open1(key, BASE+"enc/"+path+".bin"+BUST).then(function(buf){
+         var mime=/\.mp4$/.test(path)?"video/mp4"
+                 :(/\.png$/.test(path)?"image/png":"image/jpeg");
+         return URL.createObjectURL(new Blob([buf],{type:mime}));
+       });
+     };
      post.innerHTML=html;
      gate.hidden=true; post.hidden=false; ribbon.hidden=false;
+     // innerHTML does not execute <script>, so re-insert each one to run it
+     [].slice.call(post.querySelectorAll("script")).forEach(function(old2){
+       var sc=document.createElement("script");
+       if(old2.src) sc.src=old2.src; else sc.textContent=old2.textContent;
+       old2.parentNode.replaceChild(sc, old2);
+     });
      document.title="Pixel Perceiver";
      // Media: every encrypted reference is a data-* attribute. Elements may carry two
      // (a <video> with both a poster and a source), and <source> needs the parent to reload.
