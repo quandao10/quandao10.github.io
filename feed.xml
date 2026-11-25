@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://quandao10.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://quandao10.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-25T03:26:28+00:00</updated><id>https://quandao10.github.io/feed.xml</id><title type="html">Quan Dao</title><subtitle>Quan Dao is a Ph.D. student in Computer Science at Rutgers University working on efficient generative modeling, including diffusion and flow-based models.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://quandao10.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://quandao10.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-25T03:30:50+00:00</updated><id>https://quandao10.github.io/feed.xml</id><title type="html">Quan Dao</title><subtitle>Quan Dao is a Ph.D. student in Computer Science at Rutgers University working on efficient generative modeling, including diffusion and flow-based models.
 </subtitle><entry><title type="html">Semantic Detour Flow</title><link href="https://quandao10.github.io/blog/2026/semantic-detour-flow/" rel="alternate" type="text/html" title="Semantic Detour Flow" /><published>2026-11-23T00:00:00+00:00</published><updated>2026-11-23T00:00:00+00:00</updated><id>https://quandao10.github.io/blog/2026/semantic-detour-flow</id><content type="html" xml:base="https://quandao10.github.io/blog/2026/semantic-detour-flow/"><![CDATA[<div class="detour-authors">
   <div class="names">
     Quan Dao<sup>1</sup>,
@@ -24,7 +24,7 @@
 
 <p>Diffusion models trained in semantic latent spaces converge much faster than pixel-space
 models, but they inherit a decoder that caps fine detail. <strong>Semantic Detour Flow</strong> closes most
-of that gap without any decoder: it is a pixel-space flow that follows frozen DINOv2 features
+of that gap without any decoder: it is a pixel-space flow that follows frozen DINOv2 features<sup class="cit"><a href="#ref-1">1</a></sup>
 at high noise and hands over to pixels at low noise. One network, one velocity loss, and
 sampling that runs entirely in pixel space.</p>
 
@@ -172,7 +172,7 @@ from the extra epochs — the same setting on [0.05, 0.75] measures 1.46 on two 
 runs, and widening to [0.05, 0.9], the value 256 already used, gives 1.35. Epoch 320 at 512 is worse
 than 280, so the longer run is not uniformly better.</p>
 
-<p>Guidance matters, and the two kinds compose. Classifier-free guidance alone plateaus; autoguidance
+<p>Guidance matters, and the two kinds compose. Classifier-free guidance<sup class="cit"><a href="#ref-2">2</a></sup> alone plateaus; autoguidance<sup class="cit"><a href="#ref-3">3</a></sup>
 alone is already better at a much lower Inception score; together they are better than either.</p>
 
 <table class="detour">
@@ -275,25 +275,25 @@ is the one that matters — most entries above us are trained three to eight tim
 <thead>
 <tr><th>Method</th><th>Params</th><th>Ep.</th><th>FID-50k</th><th>IS</th><th>Prec.</th><th>Rec.</th></tr>
 </thead><tbody>
-<tr class="latent"><td>DiT-XL/2</td><td>675M</td><td>1400</td><td>2.27</td><td>278</td><td>0.83</td><td>0.57</td></tr>
-<tr class="latent"><td>REPA</td><td>675M</td><td>800</td><td>1.42</td><td>306</td><td>0.80</td><td>0.65</td></tr>
-<tr class="latent"><td>LightningDiT</td><td>675M</td><td>800</td><td>1.35</td><td>295</td><td>0.79</td><td>0.65</td></tr>
-<tr class="latent"><td>RAE</td><td>839M</td><td>800</td><td>1.13</td><td>263</td><td>0.78</td><td>0.67</td></tr>
-<tr><td>ADM-G</td><td>554M</td><td>396</td><td>4.59</td><td>187</td><td>0.82</td><td>0.52</td></tr>
-<tr><td>SiD2</td><td><span class="u">&ndash;</span></td><td>1280</td><td>1.38</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
-<tr><td>PixNerd</td><td>700M</td><td>320</td><td>1.93</td><td>298</td><td>0.80</td><td>0.60</td></tr>
-<tr><td>DeCo</td><td>682M</td><td>800</td><td>1.62</td><td>301</td><td>0.80</td><td>0.62</td></tr>
-<tr><td>PixelDiT</td><td>797M</td><td>320</td><td>1.61</td><td>293</td><td>0.78</td><td>0.64</td></tr>
-<tr><td>JiT-G/16</td><td>2B</td><td>600</td><td>1.82</td><td>293</td><td>0.79</td><td>0.62</td></tr>
-<tr><td>PixelREPA-H</td><td>953M</td><td>600</td><td>1.81</td><td>317</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
-<tr><td>PixelDiT2-H</td><td>1.0B</td><td>600</td><td>1.46</td><td>302</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
-<tr><td>PixSGR-H</td><td>875M</td><td>320</td><td>1.51</td><td>311</td><td>0.78</td><td>0.65</td></tr>
+<tr class="latent"><td>DiT-XL/2<sup class="cit"><a href="#ref-4">4</a></sup></td><td>675M</td><td>1400</td><td>2.27</td><td>278</td><td>0.83</td><td>0.57</td></tr>
+<tr class="latent"><td>REPA<sup class="cit"><a href="#ref-5">5</a></sup></td><td>675M</td><td>800</td><td>1.42</td><td>306</td><td>0.80</td><td>0.65</td></tr>
+<tr class="latent"><td>LightningDiT<sup class="cit"><a href="#ref-6">6</a></sup></td><td>675M</td><td>800</td><td>1.35</td><td>295</td><td>0.79</td><td>0.65</td></tr>
+<tr class="latent"><td>RAE<sup class="cit"><a href="#ref-7">7</a></sup></td><td>839M</td><td>800</td><td>1.13</td><td>263</td><td>0.78</td><td>0.67</td></tr>
+<tr><td>ADM-G<sup class="cit"><a href="#ref-8">8</a></sup></td><td>554M</td><td>396</td><td>4.59</td><td>187</td><td>0.82</td><td>0.52</td></tr>
+<tr><td>SiD2<sup class="cit"><a href="#ref-9">9</a></sup></td><td><span class="u">&ndash;</span></td><td>1280</td><td>1.38</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>PixNerd<sup class="cit"><a href="#ref-10">10</a></sup></td><td>700M</td><td>320</td><td>1.93</td><td>298</td><td>0.80</td><td>0.60</td></tr>
+<tr><td>DeCo<sup class="cit"><a href="#ref-11">11</a></sup></td><td>682M</td><td>800</td><td>1.62</td><td>301</td><td>0.80</td><td>0.62</td></tr>
+<tr><td>PixelDiT<sup class="cit"><a href="#ref-12">12</a></sup></td><td>797M</td><td>320</td><td>1.61</td><td>293</td><td>0.78</td><td>0.64</td></tr>
+<tr><td>JiT-G/16<sup class="cit"><a href="#ref-13">13</a></sup></td><td>2B</td><td>600</td><td>1.82</td><td>293</td><td>0.79</td><td>0.62</td></tr>
+<tr><td>PixelREPA-H<sup class="cit"><a href="#ref-14">14</a></sup></td><td>953M</td><td>600</td><td>1.81</td><td>317</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>PixelDiT2-H<sup class="cit"><a href="#ref-15">15</a></sup></td><td>1.0B</td><td>600</td><td>1.46</td><td>302</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>PixSGR-H<sup class="cit"><a href="#ref-16">16</a></sup></td><td>875M</td><td>320</td><td>1.51</td><td>311</td><td>0.78</td><td>0.65</td></tr>
 <tr class="sec"><td colspan="7">200 epochs or fewer</td></tr>
-<tr><td>JiT-XL/16</td><td>676M</td><td>200</td><td>2.89</td><td>272</td><td>0.85</td><td>0.66</td></tr>
-<tr><td>JiT-G/16</td><td>2B</td><td>200</td><td>2.15</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
-<tr><td>LatentForcing-L</td><td>465M</td><td>200</td><td>2.48</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
-<tr><td>Dino Forcing-XL</td><td>686M</td><td>200</td><td>2.13</td><td>310</td><td>0.83</td><td>0.71</td></tr>
-<tr><td>PixelGen</td><td>676M</td><td>160</td><td>1.83</td><td>294</td><td>0.79</td><td>0.63</td></tr>
+<tr><td>JiT-XL/16<sup class="cit"><a href="#ref-13">13</a></sup></td><td>676M</td><td>200</td><td>2.89</td><td>272</td><td>0.85</td><td>0.66</td></tr>
+<tr><td>JiT-G/16<sup class="cit"><a href="#ref-13">13</a></sup></td><td>2B</td><td>200</td><td>2.15</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>LatentForcing-L<sup class="cit"><a href="#ref-17">17</a></sup></td><td>465M</td><td>200</td><td>2.48</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>Dino Forcing-XL<sup class="cit"><a href="#ref-18">18</a></sup></td><td>686M</td><td>200</td><td>2.13</td><td>310</td><td>0.83</td><td>0.71</td></tr>
+<tr><td>PixelGen<sup class="cit"><a href="#ref-19">19</a></sup></td><td>676M</td><td>160</td><td>1.83</td><td>294</td><td>0.79</td><td>0.63</td></tr>
 <tr class="ours"><td>Detour-XL/16</td><td>849M</td><td>200</td><td>1.43</td><td>267</td><td>0.77</td><td>0.65</td></tr>
 <tr class="ours"><td>Detour-XL/16</td><td>849M</td><td>320</td><td>1.35</td><td>267</td><td>0.76</td><td>0.67</td></tr>
 </tbody></table></div>
@@ -305,22 +305,22 @@ is the one that matters — most entries above us are trained three to eight tim
 <thead>
 <tr><th>Method</th><th>Params</th><th>Ep.</th><th>FID-50k</th><th>IS</th><th>Prec.</th><th>Rec.</th></tr>
 </thead><tbody>
-<tr class="latent"><td>DiT-XL/2</td><td>675M</td><td>600</td><td>3.04</td><td>241</td><td>0.84</td><td>0.54</td></tr>
-<tr class="latent"><td>REPA</td><td>675M</td><td>200</td><td>2.08</td><td>275</td><td>0.83</td><td>0.58</td></tr>
-<tr class="latent"><td>EDM2-XXL</td><td>1.5B</td><td>733</td><td>1.25</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
-<tr class="latent"><td>RAE</td><td>839M</td><td>400</td><td>1.13</td><td>260</td><td>0.80</td><td>0.63</td></tr>
-<tr><td>ADM-G</td><td>559M</td><td>388</td><td>7.72</td><td>173</td><td>0.87</td><td>0.42</td></tr>
-<tr><td>SiD2</td><td><span class="u">&ndash;</span></td><td>1280</td><td>1.48</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
-<tr><td>PixNerd</td><td>700M</td><td>320+</td><td>2.45</td><td>276</td><td>0.79</td><td>0.63</td></tr>
-<tr><td>PixelDiT</td><td>797M</td><td>850</td><td>1.81</td><td>279</td><td>0.78</td><td>0.67</td></tr>
-<tr><td>JiT-G/32</td><td>2B</td><td>600</td><td>1.78</td><td>307</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
-<tr><td>WaiT-G/32</td><td>2B</td><td>600</td><td>1.67</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
-<tr><td>PixSGR-H/32</td><td>879M</td><td>300</td><td>1.60</td><td>318</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
-<tr><td>PixelDiT2-H/16</td><td>1.1B</td><td>680</td><td>1.48</td><td>296</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
-<tr><td>WaiT-G/16</td><td>2B</td><td>600</td><td>1.30</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr class="latent"><td>DiT-XL/2<sup class="cit"><a href="#ref-4">4</a></sup></td><td>675M</td><td>600</td><td>3.04</td><td>241</td><td>0.84</td><td>0.54</td></tr>
+<tr class="latent"><td>REPA<sup class="cit"><a href="#ref-5">5</a></sup></td><td>675M</td><td>200</td><td>2.08</td><td>275</td><td>0.83</td><td>0.58</td></tr>
+<tr class="latent"><td>EDM2-XXL<sup class="cit"><a href="#ref-20">20</a></sup></td><td>1.5B</td><td>733</td><td>1.25</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr class="latent"><td>RAE<sup class="cit"><a href="#ref-7">7</a></sup></td><td>839M</td><td>400</td><td>1.13</td><td>260</td><td>0.80</td><td>0.63</td></tr>
+<tr><td>ADM-G<sup class="cit"><a href="#ref-8">8</a></sup></td><td>559M</td><td>388</td><td>7.72</td><td>173</td><td>0.87</td><td>0.42</td></tr>
+<tr><td>SiD2<sup class="cit"><a href="#ref-9">9</a></sup></td><td><span class="u">&ndash;</span></td><td>1280</td><td>1.48</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>PixNerd<sup class="cit"><a href="#ref-10">10</a></sup></td><td>700M</td><td>320+</td><td>2.45</td><td>276</td><td>0.79</td><td>0.63</td></tr>
+<tr><td>PixelDiT<sup class="cit"><a href="#ref-12">12</a></sup></td><td>797M</td><td>850</td><td>1.81</td><td>279</td><td>0.78</td><td>0.67</td></tr>
+<tr><td>JiT-G/32<sup class="cit"><a href="#ref-13">13</a></sup></td><td>2B</td><td>600</td><td>1.78</td><td>307</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>WaiT-G/32<sup class="cit"><a href="#ref-21">21</a></sup></td><td>2B</td><td>600</td><td>1.67</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>PixSGR-H/32<sup class="cit"><a href="#ref-16">16</a></sup></td><td>879M</td><td>300</td><td>1.60</td><td>318</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>PixelDiT2-H/16<sup class="cit"><a href="#ref-15">15</a></sup></td><td>1.1B</td><td>680</td><td>1.48</td><td>296</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>WaiT-G/16<sup class="cit"><a href="#ref-21">21</a></sup></td><td>2B</td><td>600</td><td>1.30</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
 <tr class="sec"><td colspan="7">200 epochs or fewer</td></tr>
-<tr><td>JiT-H/32</td><td>956M</td><td>200</td><td>2.51</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
-<tr><td>JiT-G/32</td><td>2B</td><td>200</td><td>2.11</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>JiT-H/32<sup class="cit"><a href="#ref-13">13</a></sup></td><td>956M</td><td>200</td><td>2.51</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>JiT-G/32<sup class="cit"><a href="#ref-13">13</a></sup></td><td>2B</td><td>200</td><td>2.11</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
 <tr class="ours"><td>Detour-XL/32</td><td>849M</td><td>160</td><td>1.59</td><td>286</td><td>0.79</td><td>0.65</td></tr>
 <tr class="ours"><td>Detour-XL/32</td><td>849M</td><td>280</td><td>1.35</td><td>297</td><td>0.79</td><td>0.68</td></tr>
 </tbody></table></div>
@@ -407,21 +407,21 @@ rewriting is used anywhere. Muted rows are latent-space models.</p>
 <thead>
 <tr><th>Method</th><th>Params</th><th>Res</th><th>Single</th><th>Two</th><th>Count</th><th>Colors</th><th>Position</th><th>Attr.</th><th>Overall</th></tr>
 </thead><tbody>
-<tr class="latent"><td>SD3-Medium</td><td>2B</td><td>1024</td><td>0.98</td><td>0.74</td><td>0.63</td><td>0.67</td><td>0.34</td><td>0.36</td><td>0.62</td></tr>
-<tr class="latent"><td>FLUX.1-dev</td><td>12B</td><td>1024</td><td>0.98</td><td>0.81</td><td>0.74</td><td>0.79</td><td>0.22</td><td>0.45</td><td>0.66</td></tr>
-<tr class="latent"><td>SANA-1.6B</td><td>1.6B</td><td>1024</td><td>0.99</td><td>0.77</td><td>0.62</td><td>0.88</td><td>0.21</td><td>0.47</td><td>0.66</td></tr>
-<tr class="latent"><td>Lumina-Image 2.0</td><td>2.6B</td><td>1024</td><td><span class="u">&ndash;</span></td><td>0.87</td><td>0.67</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>0.62</td><td>0.73</td></tr>
-<tr class="latent"><td>Z-Image-Turbo</td><td>6B</td><td>1024</td><td>1.00</td><td>0.95</td><td>0.77</td><td>0.89</td><td>0.65</td><td>0.68</td><td>0.82</td></tr>
-<tr class="latent"><td>Qwen-Image</td><td>20B</td><td>1024</td><td>0.99</td><td>0.92</td><td>0.89</td><td>0.88</td><td>0.76</td><td>0.77</td><td>0.87</td></tr>
-<tr><td>PixNerd-XXL/16</td><td>1.2B</td><td>512</td><td>0.97</td><td>0.86</td><td>0.44</td><td>0.83</td><td>0.71</td><td>0.53</td><td>0.73</td></tr>
-<tr><td>PixelDiT</td><td>1.3B</td><td>512</td><td>1.00</td><td>0.94</td><td>0.70</td><td>0.90</td><td>0.53</td><td>0.65</td><td>0.78</td></tr>
-<tr><td>PixelGen-XXL/16</td><td>1.1B</td><td>512</td><td>0.99</td><td>0.88</td><td>0.59</td><td>0.90</td><td>0.70</td><td>0.70</td><td>0.79</td></tr>
-<tr><td>DeCo-XXL/16</td><td>1.1B</td><td>512</td><td>1.00</td><td>0.92</td><td>0.72</td><td>0.91</td><td>0.80</td><td>0.79</td><td>0.86</td></tr>
-<tr><td>RG-T2I-L/16</td><td>0.9B</td><td>512</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>0.89</td></tr>
-<tr><td>MiniT2I-L/16</td><td>0.9B</td><td>512</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>0.88</td></tr>
-<tr><td>PixelFlow-XL/4</td><td>0.9B</td><td>512</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>0.60</td></tr>
-<tr><td>Iris</td><td>3B</td><td>1024</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>0.80</td></tr>
-<tr><td>Tuna-2</td><td>7B</td><td>1024</td><td>0.99</td><td>0.96</td><td>0.80</td><td>0.91</td><td>0.84</td><td>0.76</td><td>0.87</td></tr>
+<tr class="latent"><td>SD3-Medium<sup class="cit"><a href="#ref-22">22</a></sup></td><td>2B</td><td>1024</td><td>0.98</td><td>0.74</td><td>0.63</td><td>0.67</td><td>0.34</td><td>0.36</td><td>0.62</td></tr>
+<tr class="latent"><td>FLUX.1-dev<sup class="cit"><a href="#ref-23">23</a></sup></td><td>12B</td><td>1024</td><td>0.98</td><td>0.81</td><td>0.74</td><td>0.79</td><td>0.22</td><td>0.45</td><td>0.66</td></tr>
+<tr class="latent"><td>SANA-1.6B<sup class="cit"><a href="#ref-24">24</a></sup></td><td>1.6B</td><td>1024</td><td>0.99</td><td>0.77</td><td>0.62</td><td>0.88</td><td>0.21</td><td>0.47</td><td>0.66</td></tr>
+<tr class="latent"><td>Lumina-Image 2.0<sup class="cit"><a href="#ref-25">25</a></sup></td><td>2.6B</td><td>1024</td><td><span class="u">&ndash;</span></td><td>0.87</td><td>0.67</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>0.62</td><td>0.73</td></tr>
+<tr class="latent"><td>Z-Image-Turbo<sup class="cit"><a href="#ref-26">26</a></sup></td><td>6B</td><td>1024</td><td>1.00</td><td>0.95</td><td>0.77</td><td>0.89</td><td>0.65</td><td>0.68</td><td>0.82</td></tr>
+<tr class="latent"><td>Qwen-Image<sup class="cit"><a href="#ref-27">27</a></sup></td><td>20B</td><td>1024</td><td>0.99</td><td>0.92</td><td>0.89</td><td>0.88</td><td>0.76</td><td>0.77</td><td>0.87</td></tr>
+<tr><td>PixNerd-XXL/16<sup class="cit"><a href="#ref-10">10</a></sup></td><td>1.2B</td><td>512</td><td>0.97</td><td>0.86</td><td>0.44</td><td>0.83</td><td>0.71</td><td>0.53</td><td>0.73</td></tr>
+<tr><td>PixelDiT<sup class="cit"><a href="#ref-12">12</a></sup></td><td>1.3B</td><td>512</td><td>1.00</td><td>0.94</td><td>0.70</td><td>0.90</td><td>0.53</td><td>0.65</td><td>0.78</td></tr>
+<tr><td>PixelGen-XXL/16<sup class="cit"><a href="#ref-19">19</a></sup></td><td>1.1B</td><td>512</td><td>0.99</td><td>0.88</td><td>0.59</td><td>0.90</td><td>0.70</td><td>0.70</td><td>0.79</td></tr>
+<tr><td>DeCo-XXL/16<sup class="cit"><a href="#ref-11">11</a></sup></td><td>1.1B</td><td>512</td><td>1.00</td><td>0.92</td><td>0.72</td><td>0.91</td><td>0.80</td><td>0.79</td><td>0.86</td></tr>
+<tr><td>RG-T2I-L/16<sup class="cit"><a href="#ref-28">28</a></sup></td><td>0.9B</td><td>512</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>0.89</td></tr>
+<tr><td>MiniT2I-L/16<sup class="cit"><a href="#ref-29">29</a></sup></td><td>0.9B</td><td>512</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>0.88</td></tr>
+<tr><td>PixelFlow-XL/4<sup class="cit"><a href="#ref-30">30</a></sup></td><td>0.9B</td><td>512</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>0.60</td></tr>
+<tr><td>Iris<sup class="cit"><a href="#ref-31">31</a></sup></td><td>3B</td><td>1024</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>0.80</td></tr>
+<tr><td>Tuna-2<sup class="cit"><a href="#ref-32">32</a></sup></td><td>7B</td><td>1024</td><td>0.99</td><td>0.96</td><td>0.80</td><td>0.91</td><td>0.84</td><td>0.76</td><td>0.87</td></tr>
 <tr class="ours"><td>Detour</td><td>3.3B</td><td>512</td><td>1.00</td><td>0.96</td><td>0.83</td><td>0.93</td><td>0.86</td><td>0.81</td><td>0.90</td></tr>
 <tr class="ours"><td>Detour</td><td>3.3B</td><td>1024</td><td>0.98</td><td>0.98</td><td>0.78</td><td>0.89</td><td>0.83</td><td>0.82</td><td>0.88</td></tr>
 </tbody></table></div>
@@ -436,21 +436,21 @@ texture is drawn &mdash; and the two that pixel-space models usually lose.</p>
 <thead>
 <tr><th>Method</th><th>Params</th><th>Res</th><th>Global</th><th>Entity</th><th>Attribute</th><th>Relation</th><th>Other</th><th>Overall</th></tr>
 </thead><tbody>
-<tr class="latent"><td>SD3-Medium</td><td>2B</td><td>1024</td><td>87.9</td><td>91.0</td><td>88.8</td><td>80.7</td><td>88.7</td><td>84.1</td></tr>
-<tr class="latent"><td>FLUX.1-dev</td><td>12B</td><td>1024</td><td>74.4</td><td>90.0</td><td>89.0</td><td>90.9</td><td>88.3</td><td>83.8</td></tr>
-<tr class="latent"><td>SANA-1.6B</td><td>1.6B</td><td>1024</td><td>86.0</td><td>91.5</td><td>88.9</td><td>91.9</td><td>90.7</td><td>84.8</td></tr>
-<tr class="latent"><td>Lumina-Image 2.0</td><td>2.6B</td><td>1024</td><td><span class="u">&ndash;</span></td><td>92.0</td><td>90.2</td><td>94.9</td><td><span class="u">&ndash;</span></td><td>87.2</td></tr>
-<tr class="latent"><td>Z-Image-Turbo</td><td>6B</td><td>1024</td><td>91.3</td><td>89.6</td><td>90.1</td><td>92.2</td><td>88.7</td><td>84.9</td></tr>
-<tr class="latent"><td>Qwen-Image</td><td>20B</td><td>1024</td><td>91.3</td><td>91.6</td><td>92.0</td><td>94.3</td><td>92.7</td><td>88.3</td></tr>
-<tr><td>PixNerd-XXL/16</td><td>1.2B</td><td>512</td><td>80.5</td><td>87.9</td><td>87.2</td><td>91.3</td><td>72.8</td><td>80.9</td></tr>
-<tr><td>PixelDiT</td><td>1.3B</td><td>512</td><td>88.0</td><td>90.9</td><td>87.6</td><td>89.8</td><td>88.5</td><td>83.7</td></tr>
-<tr><td>PixelGen-XXL/16</td><td>1.1B</td><td>512</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
-<tr><td>DeCo-XXL/16</td><td>1.1B</td><td>512</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>81.4</td></tr>
-<tr><td>RG-T2I-L/16</td><td>0.9B</td><td>512</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>87.1</td></tr>
-<tr><td>MiniT2I-L/16</td><td>0.9B</td><td>512</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>85.9</td></tr>
-<tr><td>PixelFlow-XL/4</td><td>0.9B</td><td>512</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>77.9</td></tr>
-<tr><td>Iris</td><td>3B</td><td>1024</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>86.5</td></tr>
-<tr><td>Tuna-2</td><td>7B</td><td>1024</td><td>89.5</td><td>91.4</td><td>92.1</td><td>91.9</td><td>88.8</td><td>86.5</td></tr>
+<tr class="latent"><td>SD3-Medium<sup class="cit"><a href="#ref-22">22</a></sup></td><td>2B</td><td>1024</td><td>87.9</td><td>91.0</td><td>88.8</td><td>80.7</td><td>88.7</td><td>84.1</td></tr>
+<tr class="latent"><td>FLUX.1-dev<sup class="cit"><a href="#ref-23">23</a></sup></td><td>12B</td><td>1024</td><td>74.4</td><td>90.0</td><td>89.0</td><td>90.9</td><td>88.3</td><td>83.8</td></tr>
+<tr class="latent"><td>SANA-1.6B<sup class="cit"><a href="#ref-24">24</a></sup></td><td>1.6B</td><td>1024</td><td>86.0</td><td>91.5</td><td>88.9</td><td>91.9</td><td>90.7</td><td>84.8</td></tr>
+<tr class="latent"><td>Lumina-Image 2.0<sup class="cit"><a href="#ref-25">25</a></sup></td><td>2.6B</td><td>1024</td><td><span class="u">&ndash;</span></td><td>92.0</td><td>90.2</td><td>94.9</td><td><span class="u">&ndash;</span></td><td>87.2</td></tr>
+<tr class="latent"><td>Z-Image-Turbo<sup class="cit"><a href="#ref-26">26</a></sup></td><td>6B</td><td>1024</td><td>91.3</td><td>89.6</td><td>90.1</td><td>92.2</td><td>88.7</td><td>84.9</td></tr>
+<tr class="latent"><td>Qwen-Image<sup class="cit"><a href="#ref-27">27</a></sup></td><td>20B</td><td>1024</td><td>91.3</td><td>91.6</td><td>92.0</td><td>94.3</td><td>92.7</td><td>88.3</td></tr>
+<tr><td>PixNerd-XXL/16<sup class="cit"><a href="#ref-10">10</a></sup></td><td>1.2B</td><td>512</td><td>80.5</td><td>87.9</td><td>87.2</td><td>91.3</td><td>72.8</td><td>80.9</td></tr>
+<tr><td>PixelDiT<sup class="cit"><a href="#ref-12">12</a></sup></td><td>1.3B</td><td>512</td><td>88.0</td><td>90.9</td><td>87.6</td><td>89.8</td><td>88.5</td><td>83.7</td></tr>
+<tr><td>PixelGen-XXL/16<sup class="cit"><a href="#ref-19">19</a></sup></td><td>1.1B</td><td>512</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>DeCo-XXL/16<sup class="cit"><a href="#ref-11">11</a></sup></td><td>1.1B</td><td>512</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>81.4</td></tr>
+<tr><td>RG-T2I-L/16<sup class="cit"><a href="#ref-28">28</a></sup></td><td>0.9B</td><td>512</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>87.1</td></tr>
+<tr><td>MiniT2I-L/16<sup class="cit"><a href="#ref-29">29</a></sup></td><td>0.9B</td><td>512</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>85.9</td></tr>
+<tr><td>PixelFlow-XL/4<sup class="cit"><a href="#ref-30">30</a></sup></td><td>0.9B</td><td>512</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>77.9</td></tr>
+<tr><td>Iris<sup class="cit"><a href="#ref-31">31</a></sup></td><td>3B</td><td>1024</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td><td>86.5</td></tr>
+<tr><td>Tuna-2<sup class="cit"><a href="#ref-32">32</a></sup></td><td>7B</td><td>1024</td><td>89.5</td><td>91.4</td><td>92.1</td><td>91.9</td><td>88.8</td><td>86.5</td></tr>
 <tr class="ours"><td>Detour</td><td>3.3B</td><td>512</td><td>85.3</td><td>92.5</td><td>90.7</td><td>94.9</td><td>85.7</td><td>87.8</td></tr>
 <tr class="ours"><td>Detour</td><td>3.3B</td><td>1024</td><td>85.3</td><td>92.3</td><td>90.4</td><td>94.9</td><td>85.9</td><td>87.4</td></tr>
 </tbody></table></div>
@@ -778,8 +778,8 @@ with the same sampler: relative comparisons, not best achievable numbers.</p>
 <tr class="ours"><td>DINOv2-L</td><td>project</td><td>768</td><td>3</td><td>0.682</td><td>15.01</td></tr>
 <tr><td>DINOv2-L</td><td>pad</td><td>1024</td><td>4</td><td><span class="u">&ndash;</span></td><td>17.39</td></tr>
 <tr class="sec"><td colspan="6">Other encoders, same 768-channel interface</td></tr>
-<tr><td>MAE</td><td><span class="u">&ndash;</span></td><td>768</td><td>3</td><td>0.916</td><td>22.77</td></tr>
-<tr><td>LeJEPA</td><td><span class="u">&ndash;</span></td><td>768</td><td>3</td><td>0.793</td><td>23.05</td></tr>
+<tr><td>MAE<sup class="cit"><a href="#ref-33">33</a></sup></td><td><span class="u">&ndash;</span></td><td>768</td><td>3</td><td>0.916</td><td>22.77</td></tr>
+<tr><td>LeJEPA<sup class="cit"><a href="#ref-34">34</a></sup></td><td><span class="u">&ndash;</span></td><td>768</td><td>3</td><td>0.793</td><td>23.05</td></tr>
 </tbody></table></div>
 <p class="dt-cap">$$R^2$$ is linear patch reconstruction from the code token, estimated from 1.03M tokens.</p>
 </div>
@@ -802,6 +802,78 @@ DINOv2-L), and MAE generates worst. Easier reconstruction does not mean easier g
 separates the encoders is the semantic structure of the representation itself, which is the thing the
 detour path actually travels along.</p>
 
+<h2 id="code-feedback">Code feedback</h2>
+
+<p>The sampler already predicts a code at every step, and then throws it away. Feeding it back — in the
+manner of self-conditioning<sup class="cit"><a href="#ref-35">35</a></sup> — costs almost nothing and is the single largest unguided gain we found.</p>
+
+<p>A zero-initialised linear layer projects the previous step’s predicted code to the trunk width and adds
+it to the input patch tokens; the first step gets zeros. Training needs a gradient-free first pass to
+produce the feedback for half of each batch, about <strong>25% more training time</strong>. Sampling needs <strong>no
+extra network evaluations</strong> at all, since the previous prediction is already in hand. Under CFG the
+conditional and unconditional branches keep separate feedback codes.</p>
+
+<figure class="detour-fig">
+  <img src="/assets/img/detour/feedback_arch.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/full/feedback_arch.jpg" alt="Code feedback architecture" />
+  <figcaption>(a) The previous code prediction is projected into the trunk input. (b) Training uses a gradient-free first pass to provide feedback for half the batch. (c) Sampling reuses the previous prediction with no extra evaluations.</figcaption>
+</figure>
+
+<div class="dt-wrap"><div class="dt-scroll">
+<table class="dt">
+<thead>
+<tr><th>Model (JiT-B)</th><th>20 ep.</th><th>40 ep.</th><th>60 ep.</th><th>80 ep.</th></tr>
+</thead><tbody>
+<tr><td>Pixel flow + feedback</td><td>47.9</td><td>24.7</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr><td>Detour + feedback, last-layer code</td><td>21.6</td><td>13.2</td><td><span class="u">&ndash;</span></td><td><span class="u">&ndash;</span></td></tr>
+<tr class="sec"><td colspan="5">Multi-layer code</td></tr>
+<tr><td>Detour</td><td>38.2</td><td>24.6</td><td>20.5</td><td>18.4</td></tr>
+<tr class="ours"><td>Detour + feedback</td><td>18.6</td><td>11.2</td><td>9.1</td><td>7.98</td></tr>
+</tbody></table></div>
+<p class="dt-cap">Unguided FID-10k, Heun 50 on the power-2 grid.</p>
+</div>
+
+<p>At base scale feedback <strong>halves FID-10k</strong> — 38.2 to 18.6 at 20 epochs, 18.4 to 7.98 at 80. It helps
+plain pixel flow too, but the detour path still wins under the same mechanism (21.6 against 47.9 at
+20 epochs), so the gain is not simply self-conditioning wearing a different hat.</p>
+
+<figure class="detour-fig">
+  <img src="/assets/img/detour/feedback_conv.jpg" data-zoomable="" data-zoom-src="/assets/img/detour/full/feedback_conv.jpg" alt="Code feedback accelerates unguided convergence" />
+  <figcaption>Unguided FID-10k during training, at both model sizes.</figcaption>
+</figure>
+
+<p>It scales. At XL, feedback roughly halves FID-10k at epoch 20 (16.5 → 8.36), and by <strong>epoch 40 it has
+already passed the 200-epoch model without feedback</strong> (6.40 against 6.86). Unguided FID-50k at epoch 80
+goes from 5.34 to 3.18.</p>
+
+<h3 id="why-it-is-not-in-the-main-models">Why it is not in the main models</h3>
+
+<div class="dt-wrap"><div class="dt-scroll">
+<table class="dt">
+<thead>
+<tr><th>Detour-XL/16, epoch 80</th><th>Guidance</th><th>FID-10k</th><th>FID-50k</th><th>IS</th></tr>
+</thead><tbody>
+<tr><td>Detour</td><td>none</td><td>8.06</td><td>5.34</td><td>157</td></tr>
+<tr><td></td><td>CFG 2.25</td><td><span class="u">&ndash;</span></td><td>2.75</td><td>269</td></tr>
+<tr class="ours"><td></td><td>CFG 1.75 + AG 2.0</td><td>4.42</td><td>1.87</td><td>248</td></tr>
+<tr class="sec"><td colspan="5">With code feedback</td></tr>
+<tr><td>+ feedback</td><td>none</td><td>5.70</td><td>3.18</td><td>234</td></tr>
+<tr><td></td><td>CFG 1.25</td><td>5.66</td><td>3.12</td><td>239</td></tr>
+<tr><td></td><td>AG 2.5</td><td>4.60</td><td>2.09</td><td>250</td></tr>
+<tr><td></td><td>CFG 1.125 + AG 2.5</td><td>4.63</td><td>2.12</td><td>260</td></tr>
+</tbody></table></div>
+<p class="dt-cap">Guidance on [0.05, 0.9]; AutoGuidance uses each model's own epoch-20 checkpoint. IS on 50k samples.</p>
+</div>
+
+<p><strong>The unguided gain does not survive guidance.</strong> Feedback wins by 2.2 FID unguided and still loses
+guided: 2.09 against 1.87. The clue is the Inception score — feedback reaches 234 <em>unguided</em>, where the
+baseline needs CFG to get to 269, and then CFG buys it almost nothing (3.18 → 3.12 at its best scale).</p>
+
+<p>A plausible reason is that feedback spoils its own weak model. AutoGuidance works by contrasting the
+model against an undertrained copy of itself, and we use each model’s epoch-20 checkpoint for that. A
+feedback model at epoch 20 is <em>already good</em> — which is exactly what makes it a poor weak model. An
+earlier checkpoint might restore the gap, but we have not tried it, so feedback stays out of the main
+XL models despite the convergence it buys.</p>
+
 <h2 id="architecture-briefly">Architecture, briefly</h2>
 
 <p>A 32-pixel encoder lays out the image and passes its tokens to a 16-pixel decoder that predicts
@@ -819,4 +891,44 @@ with DINOv2 frozen throughout — it is used to define the path, never trained.<
 here does not match what you measure. The paper, the code and the checkpoints are all coming shortly;
 if you want to be pointed at them when they land, or you think something above is wrong, write to me
 at the address in the site footer.</p>
-</div>]]></content><author><name></name></author><category term="research" /><category term="diffusion" /><category term="flow-matching" /><category term="pixel-space" /><category term="generative-models" /><summary type="html"><![CDATA[Pixel diffusion that decides semantics first — a flow that follows frozen DINOv2 features at high noise and hands over to pixels at low noise.]]></summary></entry></feed>
+</div>
+
+<h2 id="references">References</h2>
+
+<ol class="dt-refs">
+<li id="ref-1">Oquab et al. <em>Dinov2: Learning robust visual features without supervision</em>. arXiv preprint, 2023. <a href="https://arxiv.org/abs/2304.07193">arXiv:2304.07193</a></li>
+<li id="ref-2">Ho and Salimans. <em>Classifier-free diffusion guidance</em>. arXiv preprint, 2022. <a href="https://arxiv.org/abs/2207.12598">arXiv:2207.12598</a></li>
+<li id="ref-3">Karras et al. <em>Guiding a diffusion model with a bad version of itself</em>. Advances in Neural Information Processing Systems, 2024.</li>
+<li id="ref-4">Peebles and Xie. <em>Scalable diffusion models with transformers</em>. 2023 IEEE/CVF International Conference on Computer Vision (ICCV), 2023.</li>
+<li id="ref-5">Yu et al. <em>Representation alignment for generation: Training diffusion transformers is easier than you think</em>. arXiv preprint, 2024. <a href="https://arxiv.org/abs/2410.06940">arXiv:2410.06940</a></li>
+<li id="ref-6">Yao et al. <em>Reconstruction vs. generation: Taming optimization dilemma in latent diffusion models</em>. 2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025.</li>
+<li id="ref-7">Zheng et al. <em>Diffusion transformers with representation autoencoders</em>. International Conference on Learning Representations, 2026.</li>
+<li id="ref-8">Dhariwal and Nichol. <em>Diffusion models beat gans on image synthesis</em>. Advances in neural information processing systems, 2021.</li>
+<li id="ref-9">Hoogeboom et al. <em>Simpler diffusion: 1.5 fid on imagenet512 with pixel-space diffusion</em>. 2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025.</li>
+<li id="ref-10">Wang et al. <em>PixNerd: Pixel neural field diffusion</em>. International Conference on Learning Representations, 2026.</li>
+<li id="ref-11">Ma et al. <em>Deco: Frequency-decoupled pixel diffusion for end-to-end image generation</em>. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2026.</li>
+<li id="ref-12">Yu et al. <em>Pixeldit: Pixel diffusion transformers for image generation</em>. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2026.</li>
+<li id="ref-13">Li and He. <em>Back to basics: Let denoising generative models denoise</em>. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2026.</li>
+<li id="ref-14">Shin et al. <em>Representation alignment for just image transformers is not easier than you think</em>. European Conference on Computer Vision, 2026.</li>
+<li id="ref-15">Yu et al. <em>PixelDiT2: Representation-Grounded Pixel Diffusion Transformers</em>. arXiv preprint, 2026. <a href="https://arxiv.org/abs/2609.24919">arXiv:2609.24919</a></li>
+<li id="ref-16">You et al. <em>Advanced Pixel Diffusion Model with Guided Sparse Global Refinement</em>. arXiv preprint, 2026. <a href="https://arxiv.org/abs/2609.00798">arXiv:2609.00798</a></li>
+<li id="ref-17">Baade et al. <em>Latent forcing: Reordering the diffusion trajectory for pixel-space image generation</em>. arXiv preprint, 2026. <a href="https://arxiv.org/abs/2602.11401">arXiv:2602.11401</a></li>
+<li id="ref-18">Ghosh et al. <em>Dino Forcing Flow Models: Do not denoise what you can predict</em>. arXiv preprint, 2026. <a href="https://arxiv.org/abs/2610.11751">arXiv:2610.11751</a></li>
+<li id="ref-19">Ma et al. <em>PixelGen: Improving pixel diffusion with perceptual supervision</em>. arXiv preprint, 2026. <a href="https://arxiv.org/abs/2602.02493">arXiv:2602.02493</a></li>
+<li id="ref-20">Karras et al. <em>Analyzing and improving the training dynamics of diffusion models</em>. 2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2024.</li>
+<li id="ref-21">Pavasovic et al. <em>WaiT for the Signal: Simple Frequency-Aware Flow-Matching</em>. arXiv preprint, 2026. <a href="https://arxiv.org/abs/2607.28760">arXiv:2607.28760</a></li>
+<li id="ref-22">Esser et al. <em>Scaling rectified flow transformers for high-resolution image synthesis</em>. Forty-first international conference on machine learning, 2024.</li>
+<li id="ref-23">Labs et al. <em>FLUX.1 Kontext: Flow Matching for In-Context Image Generation and Editing in Latent Space</em>. arXiv preprint, 2025. <a href="https://arxiv.org/abs/2506.15742">arXiv:2506.15742</a></li>
+<li id="ref-24">Xie et al. <em>Sana: Efficient high-resolution image synthesis with linear diffusion transformer, 2024</em>. URL https://arxiv. org/abs/2410.10629, .</li>
+<li id="ref-25">Qin et al. <em>Lumina-image 2.0: A unified and efficient image generative framework</em>. 2025 IEEE/CVF International Conference on Computer Vision (ICCV), 2025.</li>
+<li id="ref-26">Cai et al. <em>Z-image: An efficient image generation foundation model with single-stream diffusion transformer</em>. arXiv preprint, 2025. <a href="https://arxiv.org/abs/2511.22699">arXiv:2511.22699</a></li>
+<li id="ref-27">Wu et al. <em>Qwen-image technical report</em>. arXiv preprint, 2025. <a href="https://arxiv.org/abs/2508.02324">arXiv:2508.02324</a></li>
+<li id="ref-28">Pan et al. <em>Learning Representations to Guide Pixel Diffusion Transformers</em>. arXiv preprint, 2026. <a href="https://arxiv.org/abs/2610.12978">arXiv:2610.12978</a></li>
+<li id="ref-29">Wang et al. <em>MiniT2I: A minimalist baseline for text-to-image generation</em>. 2026. <a href="https://peppaking8.github.io/#/post/minit2i">peppaking8.github.io</a></li>
+<li id="ref-30">Chen et al. <em>Pixelflow: Pixel-space generative models with flow</em>. arXiv preprint, 2025. <a href="https://arxiv.org/abs/2504.07963">arXiv:2504.07963</a></li>
+<li id="ref-31">Cai and Garabito. <em>Iris-3B: Going Beyond the Latent with Pixel-Space Diffusion Training, Conversion and Fine-Tuning</em>. arXiv preprint, 2026. <a href="https://arxiv.org/abs/2610.09450">arXiv:2610.09450</a></li>
+<li id="ref-32">Liu et al. <em>Tuna-2: Pixel embeddings beat vision encoders for multimodal understanding and generation</em>. arXiv preprint, 2026. <a href="https://arxiv.org/abs/2604.24763">arXiv:2604.24763</a></li>
+<li id="ref-33">He et al. <em>Masked autoencoders are scalable vision learners</em>. 2022 IEEE/CVF conference on computer vision and pattern recognition (CVPR), 2022.</li>
+<li id="ref-34">Balestriero and LeCun. <em>Lejepa: Provable and scalable self-supervised learning without the heuristics</em>. arXiv preprint, 2025. <a href="https://arxiv.org/abs/2511.08544">arXiv:2511.08544</a></li>
+<li id="ref-35">Chen et al. <em>Analog Bits: Generating Discrete Data using Diffusion Models with Self-Conditioning</em>. arXiv preprint, 2023. <a href="https://arxiv.org/abs/2208.04202">arXiv:2208.04202</a></li>
+</ol>]]></content><author><name></name></author><category term="research" /><category term="diffusion" /><category term="flow-matching" /><category term="pixel-space" /><category term="generative-models" /><summary type="html"><![CDATA[Pixel diffusion that decides semantics first — a flow that follows frozen DINOv2 features at high noise and hands over to pixels at low noise.]]></summary></entry></feed>
