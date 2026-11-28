@@ -230,8 +230,8 @@ _styles: >
 
 <div class="detour-links">
   <span>Paper <span class="soon">coming soon</span></span>
-  <span>Code <span class="soon">coming soon</span></span>
-  <span>Checkpoints <span class="soon">coming soon</span></span>
+  <a href="https://github.com/quandao10/detour-flow">Code</a>
+  <a href="https://huggingface.co/quandao10/detour-flow">Checkpoints</a>
 </div>
 
 <div class="detour-video">
