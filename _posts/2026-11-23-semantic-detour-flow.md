@@ -232,6 +232,7 @@ _styles: >
   <span>Paper <span class="soon">coming soon</span></span>
   <a href="https://github.com/quandao10/detour-flow">Code</a>
   <a href="https://huggingface.co/quandao10/detour-flow">Checkpoints</a>
+  <a href="https://huggingface.co/spaces/quandao10/detour-flow-demo">Try it</a>
 </div>
 
 <div class="detour-video">
